@@ -32,7 +32,7 @@ public class MyFitnessTracker{
                 break;
 
                 case 3:
-                // CALORIE MANAGER
+                //CALORIE MANAGER
                 break;
 
                 //SET GOALS
