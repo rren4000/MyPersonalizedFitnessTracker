@@ -9,5 +9,9 @@ public class MyFitnessTracker{
 
         //BRYNJA ADDING AFTER RACHEL PUSHED WITHOUT UPDATING THE FILE 
 
+
+        //ADDING AFTER CREATING BRYNJA'S BRANCH 
+        //HELLOOOOOO 
+
     }
 }
