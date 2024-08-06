@@ -8,7 +8,7 @@ public class MyFitnessTracker{
         ///HELLO
 
         //BRYNJA ADDING AFTER RACHEL PUSHED WITHOUT UPDATING THE FILE
-        
+        System.out.print("ANDAW TRYING TO PUSH");
         //ANDAW ADDING AFTER BRYNJA
 
     }
