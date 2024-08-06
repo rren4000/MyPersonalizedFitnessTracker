@@ -7,5 +7,7 @@ public class MyFitnessTracker{
         ////COMMENTS
         ///HELLO
 
+        //BRYNJA ADDING AFTER RACHEL PUSHED WITHOUT UPDATING THE FILE 
+
     }
 }
