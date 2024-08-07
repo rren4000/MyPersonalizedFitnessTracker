@@ -19,9 +19,10 @@ public class MyFitnessTracker{
             switch (user_choice) {
                 case 1:
                 // ADD USER PROFILE
-                //create user object 
+                // CREATE USER OBJECT
                 User curr_user = new User(); 
-                //set user object by getting user's input 
+                //SET USER OBJECT WITH USER'S INPUT
+                curr_user.set_profile();  // **** NEEDED EDIT ---> SAVE TO FILE ******
                 break;
 
                 case 2:
