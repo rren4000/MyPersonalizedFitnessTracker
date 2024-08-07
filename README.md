@@ -1,2 +1,1 @@
 # MyPersonalizedFitnessTracker
-# MyPersonalizedFitnessTracker
