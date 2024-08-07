@@ -2,8 +2,9 @@ import java.util.*;
 
 public class MyFitnessTracker{
     public static void print_and_get_choices(){
-        System.out.println("Main Window (Please Choose One of the Following Options):");
-        System.out.println("(1) Add User Profile \n(2) Track Activities \n(3) Calorie Manager \n(4) Set Goals \n(5)BMI Calculator \n (6) Activity Generator \n(7) Quit");
+        System.out.println("\nMain Window:");
+        System.out.println("\t(1) Add User Profile \n\t(2) Track Activities \n\t(3) Calorie Manager \n\t(4) Set Goals \n\t(5) BMI Calculator \n\t(6) Activity Generator \n\t(7) Quit");
+        System.out.print("Please Enter Your Choice: ");
     }
     public static void main (String args[]){
         Scanner scanner = new Scanner(System.in);
@@ -23,6 +24,7 @@ public class MyFitnessTracker{
                 User curr_user = new User(); 
                 //SET USER OBJECT WITH USER'S INPUT
                 curr_user.set_profile();  // **** NEEDED EDIT ---> SAVE TO FILE ******
+                                        // *** I ALSO DON'T CLOSE THE SCANNER BUT PROBS SHOULD ***
                 break;
 
                 case 2:

@@ -9,42 +9,49 @@ public class User {
     public Scanner scanner;
 
     public User(){
-        Scanner scanner = new Scanner(System.in);
         this.name = ""; 
         this.age = 0;
         this.weight = 0;
         this.height = 0;
+        this.scanner = new Scanner(System.in);
     }
 
     public User(String name, int age, int weight, int height){
-        Scanner scanner = new Scanner(System.in);
         this.name = name; 
         this.age = age;
         this.weight = weight;
         this.height = height;
+        this.scanner = new Scanner(System.in);
     }
 
     public void set_profile(){
-        System.out.println("Welcome to User Settings!");
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("----------------------------------------");
+        System.out.println("Welcome to User Settings!\n");
         System.out.println("Please Enter the Following Information to Create a User Profile...");
         
-        System.out.println("Name: ");
+        System.out.print("\tName: ");
         String name = scanner.nextLine();
         this.set_name(name);
 
-        System.out.println("Age (in numerical years): ");
+        System.out.print("\tAge (in numerical years): ");
         int age = scanner.nextInt();
         this.set_age(age);
 
-        System.out.println("Weight (in numerical pounds): ");
+        System.out.print("\tWeight (in numerical pounds): ");
         int weight = scanner.nextInt();
         this.set_height(weight);
 
-        System.out.println("Height (in numerical inches): ");
+        System.out.print("\tHeight (in numerical inches): ");
         int height = scanner.nextInt();
         this.set_height(height);
 
-        scanner.close();
+        scanner.nextLine();
+        System.out.print("Your user profile has been successfully created. Please press \"Enter\" to go back to the main menu.");
+        scanner.nextLine();
+        System.out.println("\n----------------------------------------");
+        //scanner.close();
     }
 
     //GETTERS
