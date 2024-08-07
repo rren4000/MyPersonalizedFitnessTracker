@@ -4,6 +4,13 @@ public class User {
     private int weight;
     private int height;  
 
+    public User(){
+        this.name = ""; 
+        this.age = 0;
+        this.weight = 0;
+        this.height = 0;
+    }
+
     public User(String name, int age, int weight, int height){
         this.name = name; 
         this.age = age;
