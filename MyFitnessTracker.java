@@ -45,6 +45,9 @@ public class MyFitnessTracker{
 
                 //ACTIVITY GENERATOR
                 case 6:
+                    ActivityGenerator generator = new ActivityGenerator();
+                    String suggestion = generator.getRandomActivity();
+                    System.out.println(suggestion);
                 break;
             }
             }
