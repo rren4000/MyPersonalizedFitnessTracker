@@ -2,10 +2,13 @@
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class User {
     private static final String FILE_NAME = "user_profile.txt";
+
     private String name;
     private int age;
     private int weight;
