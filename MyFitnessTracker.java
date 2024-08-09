@@ -68,10 +68,6 @@ public class MyFitnessTracker{
 
                     // TRACK ACTIVITIES
                     case 2:
-                    clear_screen();
-                    Goals curr_goals = new Goals();
-                    curr_goals.set_goals();
-                    clear_screen();
                     break;
 
                     // CALORIE MANAGER
@@ -80,6 +76,10 @@ public class MyFitnessTracker{
 
                     //SET GOALS
                     case 4: 
+                    clear_screen();
+                    Goals curr_goals = new Goals();
+                    curr_goals.set_goals();
+                    clear_screen();
                     break;
 
                     //BMI CALCULATOR

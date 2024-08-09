@@ -24,41 +24,52 @@ public class Goals {
         Scanner scanner = new Scanner(System.in);
         int continue_loop = 1; 
 
-        System.out.println("----------------------------------------");
-        System.out.println("Welcome to Goal Settings!\n");
-        System.out.println("Please enter the number of the goal you would like to set...");
-        System.out.println("\t(1) Body Weight \n\t(2) Steps \n\t(3) Activity Duration");
-        
-        int curr_goal = scanner.nextInt();
-
-        System.out.println("\n----------------------------------------");
-
         while(continue_loop == 1){
+
+            System.out.println("----------------------------------------");
+            System.out.println("Welcome to Goal Settings!\n");
+            System.out.println("\t(1) Body Weight \n\t(2) Steps \n\t(3) Activity Duration\n");
+            System.out.print("Enter the goal you would like to set: ");
+            
+            int curr_goal = scanner.nextInt();
+
+            System.out.println("\n----------------------------------------\n");
+
+        
             switch(curr_goal){
                 //BODY WEIGHT
                 case 1:
-                System.out.print("\tGoal Body Weight (in numerical pounds): ");
+                System.out.print("Goal Body Weight (in numerical pounds): ");
                 int weight_goal = scanner.nextInt();
                 this.set_goal_weight(weight_goal);
                 break;
 
                 //STEPS
                 case 2:
-                System.out.print("\tGoal Step Count (in numerical form): ");
+                System.out.print("Goal Step Count (in numerical form): ");
                 int step_goal = scanner.nextInt();
                 this.set_goal_weight(step_goal);
                 break;
 
                 //DURATION
                 case 3:
-                System.out.print("\tGoal Activity Duration (in numerical form): ");
-                int activity_goal = scanner.nextInt();
-                this.set_goal_weight(activity_goal);
+                ActivityDuration act_duration = new ActivityDuration(); 
+                System.out.print("Move: ");
+                int move = scanner.nextInt();
+                act_duration.set_move(move);
+
+                System.out.print("Exercise: ");
+                int exercise = scanner.nextInt();
+                act_duration.set_exercise(exercise);
+
+                System.out.print("Stand: ");
+                int stand = scanner.nextInt(); 
+                act_duration.set_stand(stand);
                 break;
             }
-
+            System.out.println("\n----------------------------------------");
             scanner.nextLine();
-            System.out.print("Your goal has been successfuly Set. \nPress 1 if you would like to set another goal or any other number to go back to the main menu.");
+            System.out.println("\nYour goal has been successfuly set. \n\nPress 1 if you would like to set another goal or any other number to go back to the main menu.");
             System.out.println("\n----------------------------------------");
             continue_loop = scanner.nextInt();
             //scanner.close();
