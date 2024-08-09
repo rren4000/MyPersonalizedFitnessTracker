@@ -1,5 +1,9 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 public class Goals {
+    private static final String FILE_NAME = "goals.txt";
     private int weight;
     private int steps;  
     private ActivityDuration act_duration;
@@ -92,6 +96,17 @@ public class Goals {
         this.act_duration.set_move(move);
         this.act_duration.set_exercise(exercise);
         this.act_duration.set_stand(stand);
+    }
+
+    // Save data to a file
+    private void saveData() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+            writer.write();
+            writer.newLine();
+            System.out.println("Data saved successfully.");
+        } catch (IOException e) {
+            System.out.println("Error saving data: " + e.getMessage());
+        }
     }
   
 }
