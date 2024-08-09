@@ -53,32 +53,34 @@ public class Goals {
                 case 2:
                 System.out.print("Goal Step Count (in numerical form): ");
                 int step_goal = scanner.nextInt();
-                this.set_goal_weight(step_goal);
+                this.set_goal_steps(step_goal);
                 break;
 
                 //DURATION
                 case 3:
-                System.out.print("Move: ");
+                System.out.print("Move (in numerical hours): ");
                 int move = scanner.nextInt();
                 act_duration.set_move(move);
 
-                System.out.print("Exercise: ");
+                System.out.print("Exercise (in numerical hours): ");
                 int exercise = scanner.nextInt();
                 act_duration.set_exercise(exercise);
 
-                System.out.print("Stand: ");
+                System.out.print("Stand (in numerical hours): ");
                 int stand = scanner.nextInt(); 
                 act_duration.set_stand(stand);
                 break;
             }
+
             System.out.println("\n----------------------------------------");
             scanner.nextLine();
             System.out.println("\nYour goal has been successfuly set. \n\nPress 1 if you would like to set another goal or any other number to go back to the main menu.");
             System.out.println("\n----------------------------------------");
             continue_loop = scanner.nextInt();
-            tracker.clear_screen();
+            //tracker.clear_screen();
             //scanner.close();
-    }
+        }
+        saveData();
     }
 
     //GETTERS
@@ -101,7 +103,19 @@ public class Goals {
     // Save data to a file
     private void saveData() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
-            writer.write();
+            if(this.get_goal_weight() != 0){
+                writer.write("Goal Weight: " + this.get_goal_weight());
+            }
+            writer.newLine();
+
+            if(this.get_goal_steps() != 0){
+                writer.write("Goal Steps: " + this.get_goal_steps());
+            }
+            writer.newLine();
+
+            if(this.act_duration.get_move() != 0 || this.act_duration.get_exercise() != 0 || this.act_duration.get_stand() != 0){
+                writer.write("Goal Activity Duration: " + "\n\tMove: " + this.act_duration.get_move() + "\n\tExercise: " + this.act_duration.get_exercise() + "\n\tStand: " + this.act_duration.get_stand());
+            }
             writer.newLine();
             System.out.println("Data saved successfully.");
         } catch (IOException e) {
