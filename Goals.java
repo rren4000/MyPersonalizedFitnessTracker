@@ -104,17 +104,17 @@ public class Goals {
     private void saveData() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
             if(this.get_goal_weight() != 0){
-                writer.write("Goal Weight: " + this.get_goal_weight());
+                writer.write("Goal Weight (in pounds): " + this.get_goal_weight());
             }
             writer.newLine();
 
             if(this.get_goal_steps() != 0){
-                writer.write("Goal Steps: " + this.get_goal_steps());
+                writer.write("Goal Step Count: " + this.get_goal_steps());
             }
             writer.newLine();
 
             if(this.act_duration.get_move() != 0 || this.act_duration.get_exercise() != 0 || this.act_duration.get_stand() != 0){
-                writer.write("Goal Activity Duration: " + "\n\tMove: " + this.act_duration.get_move() + "\n\tExercise: " + this.act_duration.get_exercise() + "\n\tStand: " + this.act_duration.get_stand());
+                writer.write("Goal Activity Duration (in hours): " + "\n\tMove: " + this.act_duration.get_move() + "\n\tExercise: " + this.act_duration.get_exercise() + "\n\tStand: " + this.act_duration.get_stand());
             }
             writer.newLine();
             System.out.println("Data saved successfully.");
