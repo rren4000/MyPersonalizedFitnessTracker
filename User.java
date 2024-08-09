@@ -1,7 +1,11 @@
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class User {
+    private static final String FILE_NAME = "user_profile.txt";
     private String name;
     private int age;
     private int weight;
@@ -51,6 +55,8 @@ public class User {
         int height = scanner.nextInt();
         this.set_height(height);
 
+        saveData();
+
         scanner.nextLine();
         System.out.println("\n----------------------------------------");
         System.out.print("\nYour user profile has been successfully created. \n\nPlease press \"Enter\" to go back to the main menu.");
@@ -70,5 +76,16 @@ public class User {
     public void set_age(int age){this.age = age;}
     public void set_weight(int weight){this.weight = weight;}
     public void set_height(int height){this.height = height;}
+
+    // Save data to a file
+    private void saveData() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+            writer.write("Name: " + this.get_name() + "\nAge: " + this.get_age() + "\nWeight: " + this.get_weight() + "\nHeight: " + this.get_height());
+            writer.newLine();
+            System.out.println("Data saved successfully.");
+        } catch (IOException e) {
+            System.out.println("Error saving data: " + e.getMessage());
+        }
+    }
 
 }
