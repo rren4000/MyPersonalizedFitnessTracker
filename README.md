@@ -1,4 +1,4 @@
-MY Personalized Fitness Tracker
+My Personalized Fitness Tracker
 
 Description:
 
