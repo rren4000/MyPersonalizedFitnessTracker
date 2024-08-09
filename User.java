@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class User {
@@ -25,10 +26,13 @@ public class User {
     }
 
     public void set_profile(){
+        MyFitnessTracker tracker = new MyFitnessTracker();
+
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("----------------------------------------");
+        System.out.println("----------------------------------------\n");
         System.out.println("Welcome to User Settings!\n");
+        System.out.println("----------------------------------------\n");
         System.out.println("Please Enter the Following Information to Create a User Profile...");
         
         System.out.print("\tName: ");
@@ -48,9 +52,10 @@ public class User {
         this.set_height(height);
 
         scanner.nextLine();
-        System.out.print("Your user profile has been successfully created. Please press \"Enter\" to go back to the main menu.");
-        scanner.nextLine();
         System.out.println("\n----------------------------------------");
+        System.out.print("\nYour user profile has been successfully created. \n\nPlease press \"Enter\" to go back to the main menu.");
+        scanner.nextLine();
+        tracker.clear_screen();
         //scanner.close();
     }
 

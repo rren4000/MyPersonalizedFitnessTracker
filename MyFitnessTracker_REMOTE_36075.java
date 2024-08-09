@@ -68,10 +68,6 @@ public class MyFitnessTracker{
 
                     // TRACK ACTIVITIES
                     case 2:
-                    clear_screen();
-                    ActivityTracker tracker = new ActivityTracker();
-                    tracker.activityClassRunnerCode();
-                    clear_screen();
                     break;
 
                     // CALORIE MANAGER

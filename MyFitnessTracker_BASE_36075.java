@@ -25,8 +25,7 @@ public class MyFitnessTracker{
             System.out.println("Press Enter to return to the main menu, or type 'r' to generate another suggestion.");
             userResponse = scanner.nextLine();
         } while (userResponse.equalsIgnoreCase("r"));
-        clear_screen()
-    ;
+        clear_screen();
     }
 
 
@@ -58,33 +57,26 @@ public class MyFitnessTracker{
                 scanner.nextLine();
 
                 switch (user_choice) {
-                    // ADD USER PROFILE
                     case 1:
-                    clear_screen();
+                    // ADD USER PROFILE
+                    // CREATE USER OBJECT
                     User curr_user = new User(); 
-                    curr_user.set_profile();  // **** NEEDED EDIT ---> SAVE TO FILE ****** I ALSO DON'T CLOSE THE SCANNER BUT PROBS SHOULD ***
-                    clear_screen();
+                    //SET USER OBJECT WITH USER'S INPUT
+                    curr_user.set_profile();  // **** NEEDED EDIT ---> SAVE TO FILE ******
+                                            // *** I ALSO DON'T CLOSE THE SCANNER BUT PROBS SHOULD ***
                     break;
 
-                    // TRACK ACTIVITIES
                     case 2:
-                    clear_screen();
-                    ActivityTracker tracker = new ActivityTracker();
-                    tracker.activityClassRunnerCode();
-                    clear_screen();
+                    // TRACK ACTIVITIES
                     break;
 
-                    // CALORIE MANAGER
                     case 3:
+                    // CALORIE MANAGER
                     break;
 
                     //SET GOALS
                     case 4: 
-                    clear_screen();
-                    Goals curr_goals = new Goals();
-                    curr_goals.set_goals();
-                    clear_screen();
-                    break; // NEEDED TO SAVE TO FILE 
+                    break;
 
                     //BMI CALCULATOR
                     case 5:
