@@ -1,5 +1,4 @@
 import java.io.*;
-import java.nio.file.*;
 import java.time.*;
 // import java.time.LocalDate;
 // import java.time.LocalTime;
@@ -146,16 +145,14 @@ public class ActivityTracker {
                     this.displayActivityInfo();
                     break;
 
-                case 5:
-                    saveData();
-                    break;
-
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
         }
+        if (activityTrackerChoice == 5){
+            saveData();
+        }
 
-        scanner.close();
     }
 
     // Save data to a file

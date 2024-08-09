@@ -36,6 +36,7 @@ public class MyFitnessTracker{
         
         // Opening Message
         //System.out.println("\n\nWelcome to.... \n\n\n\t\tMY PERSONALIZED FITNESS TRACKER\n\n\n\n(Please press enter to proceed....)");
+        System.out.println("\n\n");
         System.out.println("************************************************");
         System.out.println("* Welcome to....                               *");
         System.out.println("*                                              *");
@@ -104,6 +105,7 @@ public class MyFitnessTracker{
             }
             if (user_choice == 7){
                 clear_screen();
+                System.out.println("\n\n");
                 System.out.println("************************************************");
                 System.out.println("* Thank you for using....                      *");
                 System.out.println("*                                              *");
