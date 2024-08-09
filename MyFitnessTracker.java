@@ -80,7 +80,7 @@ public class MyFitnessTracker{
                     Goals curr_goals = new Goals();
                     curr_goals.set_goals();
                     clear_screen();
-                    break;
+                    break; // NEEDED TO SAVE TO FILE 
 
                     //BMI CALCULATOR
                     case 5:
