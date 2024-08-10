@@ -77,6 +77,9 @@ public class MyFitnessTracker{
 
                     // CALORIE MANAGER
                     case 3:
+                    clear_screen();
+                    Cal_Manager cal_Manager = new Cal_Manager();
+                    clear_screen();
                     break;
 
                     //SET GOALS
@@ -89,6 +92,9 @@ public class MyFitnessTracker{
 
                     //BMI CALCULATOR
                     case 5:
+                    clear_screen();
+                    BMI_Calc bmi_calc = new BMI_Calc();
+                    clear_screen();
                     break;
 
                     //ACTIVITY GENERATOR

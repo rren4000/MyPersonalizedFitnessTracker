@@ -1,15 +1,25 @@
-import java.util.Scanner;
+import java.io.*;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+
 public class Goals {
+    private static final String FILE_NAME = "goals.txt";
+    private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
     private int weight;
     private int steps;  
     private ActivityDuration act_duration;
+
     public Scanner scanner;
+    private LocalDate date;
 
     public Goals(){
         this.weight = 0;
         this.steps = 0;
         this.act_duration = new ActivityDuration(0, 0, 0);
         this.scanner = new Scanner(System.in);
+        this.date = LocalDate.now();
     }
 
     public Goals(int weight, int steps, int move, int exercise, int stand){
@@ -17,6 +27,7 @@ public class Goals {
         this.steps = steps;
         this.act_duration = new ActivityDuration(move, exercise, stand);
         this.scanner = new Scanner(System.in);
+        this.date = LocalDate.now();
     }
 
     //MAIN GOAL SETTING MENU
@@ -49,32 +60,34 @@ public class Goals {
                 case 2:
                 System.out.print("Goal Step Count (in numerical form): ");
                 int step_goal = scanner.nextInt();
-                this.set_goal_weight(step_goal);
+                this.set_goal_steps(step_goal);
                 break;
 
                 //DURATION
                 case 3:
-                System.out.print("Move: ");
+                System.out.print("Move (in numerical hours): ");
                 int move = scanner.nextInt();
                 act_duration.set_move(move);
 
-                System.out.print("Exercise: ");
+                System.out.print("Exercise (in numerical hours): ");
                 int exercise = scanner.nextInt();
                 act_duration.set_exercise(exercise);
 
-                System.out.print("Stand: ");
+                System.out.print("Stand (in numerical hours): ");
                 int stand = scanner.nextInt(); 
                 act_duration.set_stand(stand);
                 break;
             }
+
             System.out.println("\n----------------------------------------");
             scanner.nextLine();
             System.out.println("\nYour goal has been successfuly set. \n\nPress 1 if you would like to set another goal or any other number to go back to the main menu.");
             System.out.println("\n----------------------------------------");
             continue_loop = scanner.nextInt();
-            tracker.clear_screen();
+            //tracker.clear_screen();
             //scanner.close();
-    }
+        }
+        saveData();
     }
 
     //GETTERS
@@ -84,6 +97,7 @@ public class Goals {
         String activity_duration = "Move: " + act_duration.get_move() + "\nExercise: " + act_duration.get_move() + "\nStand: " + act_duration.get_stand();
         return activity_duration;
     }
+    public LocalDate getDate() {return date;}
 
     //SETTERS
     public void set_goal_weight(int weight){this.weight = weight;}
@@ -92,6 +106,35 @@ public class Goals {
         this.act_duration.set_move(move);
         this.act_duration.set_exercise(exercise);
         this.act_duration.set_stand(stand);
+    }
+    public void setDate(LocalDate date) {this.date = date;}
+
+    // Save data to a file
+    private void saveData() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+            writer.write(this.date.format(DATE_FORMAT) + ":");
+            writer.newLine();
+            writer.newLine();
+            if(this.get_goal_weight() != 0){
+                writer.write("Goal Weight (in pounds): " + this.get_goal_weight());
+            }
+            writer.newLine();
+
+            if(this.get_goal_steps() != 0){
+                writer.write("Goal Step Count: " + this.get_goal_steps());
+            }
+            writer.newLine();
+
+            if(this.act_duration.get_move() != 0 || this.act_duration.get_exercise() != 0 || this.act_duration.get_stand() != 0){
+                writer.write("Goal Activity Duration (in hours): " + "\n\tMove: " + this.act_duration.get_move() + "\n\tExercise: " + this.act_duration.get_exercise() + "\n\tStand: " + this.act_duration.get_stand());
+            }
+            writer.newLine();
+            writer.write("----------------------------------------");
+            writer.newLine();
+            System.out.println("Data saved successfully.");
+        } catch (IOException e) {
+            System.out.println("Error saving data: " + e.getMessage());
+        }
     }
   
 }

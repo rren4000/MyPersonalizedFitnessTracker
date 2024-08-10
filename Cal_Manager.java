@@ -9,16 +9,16 @@ public class Cal_Manager {
 
     // Constructor
     public Cal_Manager() {
-        this.calTracker = new Cal_Tracker();
-        this.bmrCalc = new BMR_Calc();
         display_cal_manager();
         cal_manager_choice();
     }
 
+    //Displays Calorie Manager Menu
     public void display_cal_manager() {
         System.out.print(cal_manager_display);
     }
 
+    //Handles user choice for Calorie Manager
     public void cal_manager_choice() {
         Scanner scanner = new Scanner(System.in);
         int user_choice = scanner.nextInt();
@@ -26,10 +26,10 @@ public class Cal_Manager {
         this.user_choice = user_choice;
         switch (user_choice) {
             case 1:
-                Cal_Tracker cal_Tracker = new Cal_Tracker();
+                this.calTracker = new Cal_Tracker();
                 break;
             case 2:
-                BMR_Calc bmr_Calc = new BMR_Calc();
+                this.bmrCalc = new BMR_Calc();
                 break;
             case 3:
                 System.out.println("Going back to main menu...");
