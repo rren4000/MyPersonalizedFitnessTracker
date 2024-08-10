@@ -37,14 +37,14 @@ public class Goals {
 
     //MAIN GOAL SETTING MENU
     public void set_goals(){
-        MyFitnessTracker tracker = new MyFitnessTracker();
         Scanner scanner = new Scanner(System.in);
         int continue_loop = 1; 
 
         while(continue_loop == 1){
 
-            System.out.println("----------------------------------------");
+            System.out.println("----------------------------------------\n");
             System.out.println("Welcome to Goal Settings!\n");
+            System.out.println("----------------------------------------\n");
             System.out.println("\t(1) Body Weight \n\t(2) Steps \n\t(3) Activity Duration\n");
             System.out.print("Enter the goal you would like to set: ");
             
@@ -115,8 +115,13 @@ public class Goals {
     public LocalDate getDate() {return date;}
 
     //SETTERS
-    public void set_goal_weight(int weight){this.weight = weight;}
-    public void set_goal_steps(int steps){this.steps = steps;}
+    public void set_goal_weight(int weight){
+        this.weight = weight;
+    }
+    public void set_goal_steps(int steps){
+        this.steps = steps;
+        saveData();
+    }
     public void set_goal_activity_duration(int move, int exercise, int stand){
         this.act_duration.set_move(move);
         this.act_duration.set_exercise(exercise);

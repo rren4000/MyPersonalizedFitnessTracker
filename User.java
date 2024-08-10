@@ -58,12 +58,10 @@ public class User {
         this.set_height(height);
         
         clear();
-
         saveData();
-
         scanner.nextLine();
-        System.out.println("\n----------------------------------------");
-        System.out.println("Welcome " + name + "!");
+ 
+        System.out.println("\nWelcome " + name + "!");
         System.out.print("\nYour user profile has been successfully created. \n\nPlease press \"Enter\" to go back to the main menu. ");
         scanner.nextLine();
         clear();
@@ -77,18 +75,20 @@ public class User {
     public int get_height(){return height;}
 
     //SETTERS
-    public void set_name(String name){this.name = name;}
+    public void set_name(String name){ this.name = name;}
     public void set_age(int age){this.age = age;}
     public void set_weight(int weight){this.weight = weight;}
     public void set_height(int height){this.height = height;}
 
     // SAVE DATA TO FILE
     private void saveData() {
+        clear();
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
             writer.write("Name: " + this.get_name() + "\nAge: " + this.get_age() + "\nWeight: " + this.get_weight() + "\nHeight: " + this.get_height() + "\n");
             writer.newLine();
             System.out.println("----------------------------------------\n");
             System.out.println("Data saved successfully.");
+            System.out.println("\n----------------------------------------");
         } catch (IOException e) {
             System.out.println("Error saving data: " + e.getMessage());
         }
