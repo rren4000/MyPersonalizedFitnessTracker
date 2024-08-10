@@ -39,49 +39,101 @@ public class Goals {
     public void set_goals(){
         Scanner scanner = new Scanner(System.in);
         int continue_loop = 1; 
+        int curr_goal; 
 
         while(continue_loop == 1){
-
-            System.out.println("----------------------------------------\n");
-            System.out.println("Welcome to Goal Settings!\n");
-            System.out.println("----------------------------------------\n");
-            System.out.println("\t(1) Body Weight \n\t(2) Steps \n\t(3) Activity Duration\n");
-            System.out.print("Enter the goal you would like to set: ");
+            while(true){
+                try{
+                    System.out.println("----------------------------------------\n");
+                    System.out.println("Welcome to Goal Settings!\n");
+                    System.out.println("----------------------------------------\n");
+                    System.out.println("\t(1) Body Weight \n\t(2) Steps \n\t(3) Activity Duration\n");
+                    System.out.print("Enter the goal you would like to set: ");
             
-            int curr_goal = scanner.nextInt();
+                    curr_goal = scanner.nextInt();
+                    break;
+                } catch(InputMismatchException e){
+                    clear();
+                    System.out.println("\nInvalid input. Please enter a valid integer for the goal you would like to set.\n");
+                    scanner.nextLine();
+                }
+            }
 
             clear();
 
             System.out.println("----------------------------------------\n");
-        
+
             switch(curr_goal){
                 //BODY WEIGHT
                 case 1:
-                System.out.print("Goal Body Weight (in numerical pounds): ");
-                int weight_goal = scanner.nextInt();
-                this.set_goal_weight(weight_goal);
+                while(true){
+                    try{
+                        System.out.print("Goal Body Weight (in numerical pounds): ");
+                        int weight_goal = scanner.nextInt();
+                        this.set_goal_weight(weight_goal);
+                        break;
+                    } catch(InputMismatchException e){
+                        System.out.println("\nInvalid input. Please enter a valid integer for weight.\n");
+                        scanner.nextLine();
+                    }
+                }
                 break;
 
                 //STEPS
                 case 2:
-                System.out.print("Goal Step Count (in numerical form): ");
-                int step_goal = scanner.nextInt();
-                this.set_goal_steps(step_goal);
+                while(true){
+                    try{
+                        System.out.print("Goal Step Count (in numerical form): ");
+                        int step_goal = scanner.nextInt();
+                        this.set_goal_steps(step_goal);
+                        break;
+                    } catch(InputMismatchException e){
+                        System.out.println("\nInvalid input. Please enter a valid integer for step count.\n");
+                        scanner.nextLine();
+                    }
+                }
                 break;
 
                 //DURATION
                 case 3:
-                System.out.print("Move (in numerical hours): ");
-                int move = scanner.nextInt();
-                act_duration.set_move(move);
+                //MOVE
+                while(true){
+                    try{
+                        System.out.print("Move (in numerical hours): ");
+                        int move = scanner.nextInt();
+                        act_duration.set_move(move);
+                        break;
+                    } catch(InputMismatchException e){
+                        System.out.println("\nInvalid input. Please enter a valid integer for moving hours.\n");
+                        scanner.nextLine();
+                    }
+                }
 
-                System.out.print("Exercise (in numerical hours): ");
-                int exercise = scanner.nextInt();
-                act_duration.set_exercise(exercise);
+                //EXERCISE
+                while(true){
+                    try{
+                        System.out.print("Exercise (in numerical hours): ");
+                        int exercise = scanner.nextInt();
+                        act_duration.set_exercise(exercise);
+                        break;
+                    } catch(InputMismatchException e){
+                        System.out.println("\nInvalid input. Please enter a valid integer for exercising hours.\n");
+                        scanner.nextLine();
+                    }
+                }
 
-                System.out.print("Stand (in numerical hours): ");
-                int stand = scanner.nextInt(); 
-                act_duration.set_stand(stand);
+                //STAND
+                while(true){
+                    try{
+                        System.out.print("Stand (in numerical hours): ");
+                        int stand = scanner.nextInt(); 
+                        act_duration.set_stand(stand);
+                        break;
+                    } catch(InputMismatchException e){
+                        System.out.println("\nInvalid input. Please enter a valid integer for standing hours.\n");
+                        scanner.nextLine();
+                    }
+                }
                 break;
             }
 

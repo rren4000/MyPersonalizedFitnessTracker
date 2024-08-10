@@ -1,5 +1,7 @@
 
 import java.io.*;
+import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.*;
 
 public class User {
@@ -45,17 +47,44 @@ public class User {
         String name = scanner.nextLine();
         this.set_name(name);
 
-        System.out.print("\tAge (in numerical years): ");
-        int age = scanner.nextInt();
-        this.set_age(age);
+        //SET AGE
+        while(true){
+            try{
+                System.out.print("\tAge (in numerical years): ");
+                int age = scanner.nextInt();
+                this.set_age(age);
+                break;
+            } catch(InputMismatchException e){
+                System.out.println("\n\tInvalid input. Please enter a valid integer for age.\n");
+                scanner.nextLine();
+            }
+        }
 
-        System.out.print("\tWeight (in numerical pounds): ");
-        int weight = scanner.nextInt();
-        this.set_weight(weight);
+        //SET WEIGHT
+        while(true){
+            try{
+                System.out.print("\tWeight (in numerical pounds): ");
+                int weight = scanner.nextInt();
+                this.set_weight(weight);
+                break;
+            } catch(InputMismatchException e){
+                System.out.println("\n\tInvalid input. Please enter a valid integer for weight.\n");
+                scanner.nextLine();
+            }
+        }
 
-        System.out.print("\tHeight (in numerical inches): ");
-        int height = scanner.nextInt();
-        this.set_height(height);
+        //SET HEIGHT
+        while(true){
+            try{
+                System.out.print("\tHeight (in numerical inches): ");
+                int height = scanner.nextInt();
+                this.set_height(height);
+                break;
+            } catch(InputMismatchException e){
+                System.out.println("\n\tInvalid input. Please enter a valid integer for height.\n");
+                scanner.nextLine();
+            }
+        }
         
         clear();
         saveData();

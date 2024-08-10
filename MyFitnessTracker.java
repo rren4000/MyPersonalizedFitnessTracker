@@ -114,6 +114,7 @@ public class MyFitnessTracker{
                     break;
                 }
             } catch(InputMismatchException e) {
+                clear_screen();
                 System.out.println("\n\nInvalid input. Please enter a valid choice.");
                 scanner.nextLine(); // Clear the invalid input
             }
