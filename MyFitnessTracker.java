@@ -72,7 +72,6 @@ public class MyFitnessTracker{
                     clear_screen();
                     ActivityTracker tracker = new ActivityTracker();
                     tracker.activityClassRunnerCode();
-                    clear_screen();
                     break;
 
                     // CALORIE MANAGER

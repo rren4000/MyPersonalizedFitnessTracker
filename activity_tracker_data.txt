@@ -1,9 +1,9 @@
-2024-08-09: Running, 100, 0, 0.0, 0.0
-2024-08-09: Runn, 100, 1000, 0.5, 11.6
-2024-08-09: , 0, 0, 0.0, 0.0
-2024-08-09: , 0, 0, 0.0, 0.0
-2024-08-09: , 0, 0, 0.0, 0.0
-2024-08-09: , 0, 0, 0.0, 0.0
-2024-08-09: , 0, 0, 0.0, 0.0
-2024-08-09: , 0, 0, 0.0, 0.0
-2024-08-09: , 0, 0, 0.0, 0.0
+DATE: 2024-08-09
+	STEPCOUNT COUNT: 10234
+	APPROXIMATE DISTANCE: 4.8 miles
+	SLEEP HOURS: 9.4
+	ACTIVITIES AND DURATIONS:
+		1. Yoga - 35 minutes
+		2. Biking - 15 minutes
+		3. Kayaking - 20 minutes
+
