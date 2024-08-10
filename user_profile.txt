@@ -1,0 +1,4 @@
+Name: Joe
+Age: 20
+Weight: 0
+Height: 100

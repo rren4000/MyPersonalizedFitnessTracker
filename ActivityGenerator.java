@@ -23,6 +23,13 @@ public class ActivityGenerator {
             {"Bodyweight Exercises (e.g., push-ups, squats, lunges", "Beginner: 15-25 minutes", "Intermediate: 25-35 minutes", "Advanced: 35-45 minutes"},
             {"Kettlebell", "Beginner: 15-25 minutes", "Intermediate: 25-35 minutes", "Advanced: 35-45 minutes"},
             {"Climb Stairs", "Beginner: 15-20 minutes", "Intermediate: 20-30 minutes", "Advanced: 30-45 minutes"},
+            {"Kayaking", "Beginner: 30-45 minutes", "Intermediate: 45-60 minutes", "Advanced: 60-75 minutes"},
+            {"Skiing", "Beginner: 30-45 minutes", "Intermediate: 45-60 minutes", "Advanced: 60-75 minutes"},
+            {"Gymnastics", "Beginner: 30-45 minutes", "Intermediate: 30-45 minutes", "Advanced: 45-60 minutes"},
+            {"Situps", "Beginner: 30 per min", "Intermediate: 45 per min", "Advanced: 60+ per min"},
+            {"Jumping-Jacks", "Beginner: 30 per min", "Intermediate: 45 per min", "Advanced: 60+ per min"},
+            {"Lunges", "Beginner: 30 per min", "Intermediate: 45 per min", "Advanced: 60+ per min"},
+            {"Burpee Jump", "Beginner: 25 per min", "Intermediate: 40 per min", "Advanced: 60 per min"},
             };
         }
 
