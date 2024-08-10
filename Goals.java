@@ -30,6 +30,11 @@ public class Goals {
         this.date = LocalDate.now();
     }
 
+    public static void clear(){
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
     //MAIN GOAL SETTING MENU
     public void set_goals(){
         MyFitnessTracker tracker = new MyFitnessTracker();
@@ -45,8 +50,9 @@ public class Goals {
             
             int curr_goal = scanner.nextInt();
 
-            System.out.println("\n----------------------------------------\n");
+            clear();
 
+            System.out.println("----------------------------------------\n");
         
             switch(curr_goal){
                 //BODY WEIGHT
@@ -79,12 +85,21 @@ public class Goals {
                 break;
             }
 
-            System.out.println("\n----------------------------------------");
+            clear();
             scanner.nextLine();
-            System.out.println("\nYour goal has been successfuly set. \n\nPress 1 if you would like to set another goal or any other number to go back to the main menu.");
-            System.out.println("\n----------------------------------------");
+
+            System.out.println("----------------------------------------\n");
+            String result = "Your "; 
+            if(curr_goal == 1){result += "weight";}
+            else if(curr_goal == 2){result += "step";}
+            else if(curr_goal == 3){result += "activity duration";}
+            result += " goal has been successfuly set! ";
+            System.out.println(result);
+
+            System.out.println("\nPress 1 if you would like to set another goal or any other number to go back to the main menu.\n");
+
             continue_loop = scanner.nextInt();
-            //tracker.clear_screen();
+            clear();
             //scanner.close();
         }
         saveData();
@@ -109,7 +124,7 @@ public class Goals {
     }
     public void setDate(LocalDate date) {this.date = date;}
 
-    // Save data to a file
+    // SAVE DATA TO FILE
     private void saveData() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
             writer.write(this.date.format(DATE_FORMAT) + ":");

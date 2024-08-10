@@ -33,9 +33,10 @@ public class MyFitnessTracker{
     public static void main (String args[]){
         Scanner scanner = new Scanner(System.in);
         int user_choice = 0;
+        int user_already_set = 0; // initially 0 as no user has been set yet
+        User curr_user = new User(); 
         
         // Opening Message
-        //System.out.println("\n\nWelcome to.... \n\n\n\t\tMY PERSONALIZED FITNESS TRACKER\n\n\n\n(Please press enter to proceed....)");
         System.out.println("\n\n");
         System.out.println("************************************************");
         System.out.println("* Welcome to....                               *");
@@ -61,10 +62,22 @@ public class MyFitnessTracker{
                 switch (user_choice) {
                     // ADD USER PROFILE
                     case 1:
-                    clear_screen();
-                    User curr_user = new User(); 
-                    curr_user.set_profile();  // **** NEEDED EDIT ---> SAVE TO FILE ****** I ALSO DON'T CLOSE THE SCANNER BUT PROBS SHOULD ***
-                    clear_screen();
+                    //IF USER NOT SET, CREATE A NEW ONE
+                    if(user_already_set == 0){
+                        clear_screen();
+                        curr_user.set_profile(); 
+                        clear_screen();
+                        user_already_set = 1; 
+                    }
+                    else if(user_already_set == 1){
+                        clear_screen();
+                        System.out.println("----------------------------------------\n ");
+                        System.out.println("Sorry, a user has already been set.  If you would like to set a new user, please restart the program.");
+                        System.out.println("If you would like to continue as " + curr_user.get_name() + " press \"Enter\"");
+                        System.out.println("\n----------------------------------------");
+                        scanner.nextLine();
+                        clear_screen();
+                    }
                     break;
 
                     // TRACK ACTIVITIES

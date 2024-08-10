@@ -1,10 +1,6 @@
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class User {
     private static final String FILE_NAME = "user_profile.txt";
@@ -32,9 +28,12 @@ public class User {
         this.scanner = new Scanner(System.in);
     }
 
-    public void set_profile(){
-        MyFitnessTracker tracker = new MyFitnessTracker();
+    public static void clear(){
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
 
+    public void set_profile(){
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("----------------------------------------\n");
@@ -52,19 +51,22 @@ public class User {
 
         System.out.print("\tWeight (in numerical pounds): ");
         int weight = scanner.nextInt();
-        this.set_height(weight);
+        this.set_weight(weight);
 
         System.out.print("\tHeight (in numerical inches): ");
         int height = scanner.nextInt();
         this.set_height(height);
+        
+        clear();
 
         saveData();
 
         scanner.nextLine();
         System.out.println("\n----------------------------------------");
-        System.out.print("\nYour user profile has been successfully created. \n\nPlease press \"Enter\" to go back to the main menu.");
+        System.out.println("Welcome " + name + "!");
+        System.out.print("\nYour user profile has been successfully created. \n\nPlease press \"Enter\" to go back to the main menu. ");
         scanner.nextLine();
-        tracker.clear_screen();
+        clear();
         //scanner.close();
     }
 
@@ -80,11 +82,12 @@ public class User {
     public void set_weight(int weight){this.weight = weight;}
     public void set_height(int height){this.height = height;}
 
-    // Save data to a file
+    // SAVE DATA TO FILE
     private void saveData() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
-            writer.write("Name: " + this.get_name() + "\nAge: " + this.get_age() + "\nWeight: " + this.get_weight() + "\nHeight: " + this.get_height());
+            writer.write("Name: " + this.get_name() + "\nAge: " + this.get_age() + "\nWeight: " + this.get_weight() + "\nHeight: " + this.get_height() + "\n");
             writer.newLine();
+            System.out.println("----------------------------------------\n");
             System.out.println("Data saved successfully.");
         } catch (IOException e) {
             System.out.println("Error saving data: " + e.getMessage());
