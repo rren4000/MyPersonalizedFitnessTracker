@@ -123,7 +123,7 @@ public class ActivityTracker {
                 case 4:
                     clear();
                     System.out.println("Enter number of steps: ");
-                    this.setSteps(scanner.nextInt());
+                    setSteps(scanner.nextInt());
                     System.out.println("Step Count Saved... Press enter to continue.");
                     scanner.nextLine(); 
                     clear();
@@ -163,7 +163,8 @@ public class ActivityTracker {
         scanner.nextLine(); 
 
         int id = activities.size() + 1;
-        activities.add(new ActivityObj(id, activityName, duration));
+        ActivityObj new_activity = new ActivityObj(id, activityName, duration);
+        activities.add(new_activity);
         System.out.println("(New activity saved... press enter to continue)");
         scanner.nextLine(); 
         saveData();
