@@ -189,37 +189,6 @@ public class BMR_Calc {
         }
     }
 
-    // Get input from the user
-    private int getInput(String prompt) {
-        while (true) {
-            try {
-                System.out.print(prompt);
-                return this.scanner.nextInt();
-            } catch (InputMismatchException e) {
-                e.printStackTrace();
-                this.scanner.nextLine();
-            }
-        }
-    }
-
-    // Get input from the user within a specific range
-    private int getInput(String prompt, int min, int max) {
-        while (true) {
-            try {
-                System.out.print(prompt);
-                int value = this.scanner.nextInt();
-                if (value >= min && value <= max) {
-                    return value;
-                } else {
-                    System.out.println("Invalid input. Please enter a valid integer between " + min + " and " + max + ".");
-                }
-            } catch (InputMismatchException e) {
-                e.printStackTrace();
-                this.scanner.nextLine();
-            }
-        }
-    }
-
     // Calculate BMR and set goal calories
     public int calculateBMR() {
         clear();
