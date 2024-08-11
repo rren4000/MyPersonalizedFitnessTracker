@@ -14,7 +14,7 @@ MyFitnessTracker.java: This is the main class that takes user input to determine
 User.java: This class stores the user's name, age, weight, and height within a text file called "user_profile.txt". This class is used within the main ActivityTracker class.
 
 ActivityTracker.java: This class contains 7 features:
-  1. Date: (gets the current date)
+  1. Add new activity: (activity name + duration)
   2. Edit an activity: (allows user to change activity name and duration by the activity id number)
   3. Delete an activity: (allows user to delete an activity by the activity id number)
   4. Step Count: (takes amount of steps from the user. this also converts the step counts to distance in miles travelled assuming average stride of 2.5 feet)
