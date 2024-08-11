@@ -39,7 +39,7 @@ public class BMI_Calc {
     }
 
     //DISPLAY OPENING TITLE & USER'S BMI
-    public void display_bmr_calc(){
+    public void display_BMI_Calc(){
         System.out.println("----------------------------------------\n");
         System.out.println("Welcome to the BMI Calculator!");
         System.out.println("\n----------------------------------------");
@@ -135,11 +135,11 @@ public class BMI_Calc {
                 }
             }
         }
-        calculate_bmi();
+        calculate_BMI();
     }
     
     //CALCULATE USER'S BMI
-    public double calculate_bmi(){
+    public double calculate_BMI(){
         this.bmi = ((double)this.weight / (this.height * this.height)) * 703;
         this.bmi = Math.round(this.bmi * 10.0) / 10.0;
         return this.bmi;
