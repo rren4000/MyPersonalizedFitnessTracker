@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -12,26 +14,46 @@ public class BMI_Calc {
 
     public BMI_Calc(){
         display_bmr_calc();
-        System.out.println("Thank you for using the BMI Calculator! Press Enter to return to the main menu.");
+        System.out.print("Thank you for using the BMI Calculator! Press Enter to return to the main menu.");
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }
 
+    public static void clear(){
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
     public void display_bmr_calc(){
+        System.out.println("----------------------------------------\n");
         System.out.println("Welcome to the BMI Calculator!");
+        System.out.println("\n----------------------------------------");
         request_information();
-        System.out.println("Your Body Mass Index (BMI) is: " + this.bmi);
+        clear();
+        System.out.println("Your Body Mass Index (BMI) is: " + this.bmi + "\n");
         if(this.bmi < 18.5){
-            System.out.println("You are underweight.");
+            System.out.println("Your BMI indicates that you are underweight.");
+            System.out.println("\n----------------------------------------\n");
+            System.out.println("It is advisable to seek medical attention.");
+            System.out.println("\n----------------------------------------\n");
         }
         else if(this.bmi >= 18.5 && this.bmi < 24.9){
-            System.out.println("Your BMI suggests that you are currently below the ideal weight range for your height. It might be beneficial to focus on increasing your nutrient intake to support your overall health. A healthcare provider can offer personalized advice to help you reach a healthier weight in a safe and balanced way.");
+            System.out.println("Your BMI indicates that you are at a healthy weight.");
+            System.out.println("\n----------------------------------------\n");
+            System.out.println("Continue eating well and exercising to maintain a healthy lifestyle!");
+            System.out.println("\n----------------------------------------\n");
         }
         else if(this.bmi >= 25 && this.bmi < 29.9){
-            System.out.println("Your BMI indicates that you fall into a range that's above the ideal weight for your height, which means you might benefit from making some healthy lifestyle changes. Focusing on balanced nutrition and regular physical activity could help you move towards a healthier weight. It might also be useful to talk with a healthcare provider for personalized advice.");
+            System.out.println("Your BMI indicated that you are overweight.");
+            System.out.println("\n----------------------------------------\n");
+            System.out.println("You would from making healthy lifestyle changes. Focus on balanced nutrition and regular physical activity.");
+            System.out.println("\n----------------------------------------\n");
         }
         else{
-            System.out.println("Based on your BMI, it looks like you're in a range where managing your weight could have a significant impact on your overall health and well-being. It might be a good idea to explore some lifestyle changes or speak with a healthcare provider to discuss a plan that works best for you.");
+            System.out.println("Your BMI indicates that you are obese.");
+            System.out.println("\n----------------------------------------\n");
+            System.out.println("You're in a range where managing your weight could have a significant impact on your overall well-being. \nIt is advisable to enact lifestyle changes or seek medical attention.");
+            System.out.println("\n----------------------------------------\n");
         }
     }
 
@@ -53,11 +75,11 @@ public class BMI_Calc {
             }
         }
         else{
-            System.out.println("Please enter the following information to calculate your BMI: ");
-            System.out.print("Enter your weight in pounds: ");
+            System.out.println("\nPlease enter the following information to calculate your BMI... ");
+            System.out.print("\tWeight (in pounds): ");
             Scanner scanner = new Scanner(System.in);
             this.weight = scanner.nextInt();
-            System.out.print("Enter your height in inches: ");
+            System.out.print("\tHeight (in inches): ");
             this.height = scanner.nextInt();
         }
         calculate_bmi();
@@ -69,4 +91,6 @@ public class BMI_Calc {
         this.bmi = Math.round(this.bmi * 10.0) / 10.0;
         return this.bmi;
     }
+
+    
 }
