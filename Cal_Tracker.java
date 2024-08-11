@@ -29,7 +29,7 @@ public class Cal_Tracker {
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] data = line.split(",");
+                String[] data = line.split(": ");
                 LocalDate date = LocalDate.parse(data[0], formatter);
                 if (date.equals(currentDate)) {
                     this.total_cal = Integer.parseInt(data[1]);
@@ -79,7 +79,7 @@ public class Cal_Tracker {
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
+                String[] parts = line.split(": ");
                 if (parts.length == 2) {
                     String date = parts[0].trim();
                     if (date.equals(currentDate.format(formatter))) {
