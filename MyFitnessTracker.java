@@ -47,7 +47,7 @@ public class MyFitnessTracker{
         System.out.println("*                                              *");
         System.out.println("*                                              *");
         System.out.println("*                                              *");
-        System.out.println("* (Please press enter to proceed....)          *");
+        System.out.println("* (Please press \"Enter\" to proceed....)          *");
         System.out.println("************************************************");
         scanner.nextLine();
         clear_screen();

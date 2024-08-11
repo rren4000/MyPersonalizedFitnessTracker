@@ -43,7 +43,7 @@ public class Cal_Tracker {
         // Display the tracker after initializing
         display_cal_tracker();
         System.out.println("\n----------------------------------------\n");
-        System.out.print("Thank you for using the Calorie Tracker! Press Enter to return to the main menu.");
+        System.out.print("Thank you for using the Calorie Tracker! Press \"Enter\" to return to the main menu.");
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }

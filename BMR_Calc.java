@@ -21,7 +21,7 @@ public class BMR_Calc {
     public BMR_Calc() {
         display_bmr_calc();
         System.out.println("\n----------------------------------------\n");
-        System.out.print("Thank you for using the BMR Calculator! Press Enter to return to the main menu.");
+        System.out.print("Thank you for using the BMR Calculator! Press \"Enter\" to return to the main menu.");
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }

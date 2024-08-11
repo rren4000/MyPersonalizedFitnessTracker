@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BMI_Calc {
@@ -14,7 +15,7 @@ public class BMI_Calc {
 
     public BMI_Calc(){
         display_bmr_calc();
-        System.out.print("Thank you for using the BMI Calculator! Press Enter to return to the main menu.");
+        System.out.print("Thank you for using the BMI Calculator! Press \"Enter\" to return to the main menu.");
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }
@@ -28,27 +29,34 @@ public class BMI_Calc {
         System.out.println("----------------------------------------\n");
         System.out.println("Welcome to the BMI Calculator!");
         System.out.println("\n----------------------------------------");
+
         request_information();
+
         clear();
+
         System.out.println("Your Body Mass Index (BMI) is: " + this.bmi + "\n");
+
         if(this.bmi < 18.5){
             System.out.println("Your BMI indicates that you are underweight.");
             System.out.println("\n----------------------------------------\n");
             System.out.println("It is advisable to seek medical attention.");
             System.out.println("\n----------------------------------------\n");
         }
+
         else if(this.bmi >= 18.5 && this.bmi < 24.9){
             System.out.println("Your BMI indicates that you are at a healthy weight.");
             System.out.println("\n----------------------------------------\n");
             System.out.println("Continue eating well and exercising to maintain a healthy lifestyle!");
             System.out.println("\n----------------------------------------\n");
         }
+
         else if(this.bmi >= 25 && this.bmi < 29.9){
             System.out.println("Your BMI indicated that you are overweight.");
             System.out.println("\n----------------------------------------\n");
             System.out.println("You would from making healthy lifestyle changes. Focus on balanced nutrition and regular physical activity.");
             System.out.println("\n----------------------------------------\n");
         }
+
         else{
             System.out.println("Your BMI indicates that you are obese.");
             System.out.println("\n----------------------------------------\n");
@@ -60,13 +68,16 @@ public class BMI_Calc {
     public void request_information(){
         File profile_file = new File("user_profile.txt");
         String[] data = new String[4];
+
         if(profile_file.exists()){
             try(BufferedReader br = new BufferedReader(new FileReader("user_profile.txt"))){
                 String line;
                 while ((line = br.readLine()) != null) {
                     if (line.startsWith("Weight:")) {
                         this.weight = Integer.parseInt(line.split(":")[1].trim());
-                    } else if (line.startsWith("Height:")) {
+                    } 
+                    
+                    else if (line.startsWith("Height:")) {
                         this.height = Integer.parseInt(line.split(":")[1].trim());
                     }
                 }
@@ -75,12 +86,33 @@ public class BMI_Calc {
             }
         }
         else{
-            System.out.println("\nPlease enter the following information to calculate your BMI... ");
-            System.out.print("\n\tWeight (in pounds): ");
             Scanner scanner = new Scanner(System.in);
-            this.weight = scanner.nextInt();
-            System.out.print("\tHeight (in inches): ");
-            this.height = scanner.nextInt();
+
+            System.out.println("\nPlease enter the following information to calculate your BMI... ");
+            
+            //SET WEIGHT
+            while(true){
+                try{
+                    System.out.print("\n\tWeight (in pounds): ");
+                    this.weight = scanner.nextInt();
+                    break;
+                } catch(InputMismatchException e){
+                    System.out.println("\n\tInvalid input. Please enter a valid integer for weight.");
+                    scanner.nextLine();
+                }
+            }
+
+            //SET HEIGHT
+            while(true){
+                try{
+                    System.out.print("\tHeight (in inches): ");
+                    this.height = scanner.nextInt();
+                    break;
+                } catch(InputMismatchException e){
+                    System.out.println("\n\tInvalid input. Please enter a valid integer for height.\n");
+                    scanner.nextLine();
+                }
+            }
         }
         calculate_bmi();
     }
