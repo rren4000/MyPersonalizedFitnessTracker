@@ -56,7 +56,15 @@ public class MyFitnessTracker{
             System.out.println("----------------------------------------");
             System.out.println(suggestion);
             System.out.println("Press \"Enter\" to return to the main menu, or type 'r' to generate another suggestion.");
-            userResponse = scanner.nextLine();
+            
+            //ENSURE VALID INPUT
+            do{
+                userResponse = scanner.nextLine();
+                //IF USER INPUT IS VALID
+                if(userResponse.equalsIgnoreCase("r") || userResponse.equals("")){break;}
+                //ELSE USER INPUT IS INVALID... REPEAT INSTRUCTIONS
+                else{System.out.println("Invalid Input.  Please press \"Enter\" to return to the main menu, or type 'r' to generate another suggestion.");}
+            } while(true);
         } while (userResponse.equalsIgnoreCase("r"));
         clear_screen();
     }
@@ -107,8 +115,8 @@ public class MyFitnessTracker{
                             clear_screen();
                             clear_screen();
                             System.out.println("----------------------------------------\n ");
-                            System.out.println("Sorry, a user has already been set.  \nIf you would like to set a new user, please restart the program.");
-                            System.out.println("If you would like to continue as " + curr_user.get_name() + " press \"Enter\"");
+                            System.out.println("Sorry, a user has already been set.  \n\nIf you would like to set a new user, please restart the program.\n");
+                            System.out.println("If you would like to continue as " + curr_user.get_name() + ", please press \"Enter\".");
                             System.out.println("\n----------------------------------------");
                             scanner.nextLine();
                             clear_screen();
