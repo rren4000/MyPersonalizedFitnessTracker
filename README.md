@@ -34,5 +34,6 @@ This class tracks and updates a user's daily calorie intake, storing the data in
 Goals.java: This class stores the user's weight, step, and activity duration goal within a text file called "goals.txt". This class uses the ActivityDuration class to store its activity duration goal (this is comprised of move, exercise, and stand hours) and this class is used within the main ActivityTracker class.
 
 BMI_Calc.java:
+This class calculates the BMI of the user and depending on whether they have created a profile (based on user_profile.txt) will request information and calculate the BMI and providing a short description of what their BMI indicates about their health. 
 
 ActivityGenerator.java: This class generates random activity suggestions to the user. If the user wants more suggestions, they can simply type 'r'.
