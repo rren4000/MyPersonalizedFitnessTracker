@@ -17,7 +17,7 @@ public class Goals {
     public Scanner scanner;
     private LocalDate date;
 
-    //DEFAULT GOALS CONSTRUCTOR
+    //DEFAULT GOALS CONSTRUCTORs
     public Goals(){
         this.weight = 0;
         this.steps = 0;
@@ -34,6 +34,30 @@ public class Goals {
         this.scanner = new Scanner(System.in);
         this.date = LocalDate.now();
     }
+
+    //GETTERS
+    public int get_goal_weight(){return weight;}
+    public int get_goal_steps(){return steps;}
+    public String get_goal_activity_duration(){
+        String activity_duration = "Move: " + act_duration.get_move() + "\nExercise: " + act_duration.get_move() + "\nStand: " + act_duration.get_stand();
+        return activity_duration;
+    }
+    public LocalDate getDate() {return date;}
+
+    //SETTERd
+    public void set_goal_weight(int weight){
+        this.weight = weight;
+    }
+    public void set_goal_steps(int steps){
+        this.steps = steps;
+        saveData();
+    }
+    public void set_goal_activity_duration(int move, int exercise, int stand){
+        this.act_duration.set_move(move);
+        this.act_duration.set_exercise(exercise);
+        this.act_duration.set_stand(stand);
+    }
+    public void setDate(LocalDate date) {this.date = date;}
 
     //CLEAR THE CURRENT SCREEN 
     public static void clear(){
@@ -185,30 +209,6 @@ public class Goals {
         //SAVE AL OF THE GOALS SET TO THE TEXT FILE "GOALS.TXT"
         saveData();
     }
-
-    //GETTERS
-    public int get_goal_weight(){return weight;}
-    public int get_goal_steps(){return steps;}
-    public String get_goal_activity_duration(){
-        String activity_duration = "Move: " + act_duration.get_move() + "\nExercise: " + act_duration.get_move() + "\nStand: " + act_duration.get_stand();
-        return activity_duration;
-    }
-    public LocalDate getDate() {return date;}
-
-    //SETTERS
-    public void set_goal_weight(int weight){
-        this.weight = weight;
-    }
-    public void set_goal_steps(int steps){
-        this.steps = steps;
-        saveData();
-    }
-    public void set_goal_activity_duration(int move, int exercise, int stand){
-        this.act_duration.set_move(move);
-        this.act_duration.set_exercise(exercise);
-        this.act_duration.set_stand(stand);
-    }
-    public void setDate(LocalDate date) {this.date = date;}
 
     // SAVE DATA TO FILE
     private void saveData() {

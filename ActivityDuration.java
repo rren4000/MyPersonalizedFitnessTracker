@@ -26,6 +26,4 @@ public class ActivityDuration {
     public void set_move(int move){this.move = move;}
     public void set_exercise(int exercise){this.exercise = exercise;}
     public void set_stand(int stand){this.stand = stand;}
-  
-
 }
