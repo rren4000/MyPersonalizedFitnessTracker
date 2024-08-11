@@ -2,9 +2,11 @@ import java.util.*;
 
 public class MyFitnessTracker{
     public static void print_and_get_choices(){
-        System.out.println("\nMain Window:");
-        System.out.println("\t(1) Add User Profile \n\t(2) Track Activities \n\t(3) Calorie Manager \n\t(4) Set Goals \n\t(5) BMI Calculator \n\t(6) Activity Generator \n\t(7) Quit");
-        System.out.print("Please Enter Your Choice: ");
+        System.out.println("----------------------------------------\n");
+        System.out.println("Main Window:");
+        System.out.println("\n---------------------------------------- ");
+        System.out.println("\n\t(1) Add User Profile \n\t(2) Track Activities \n\t(3) Calorie Manager \n\t(4) Set Goals \n\t(5) BMI Calculator \n\t(6) Activity Generator \n\t(7) Quit");
+        System.out.print("\nPlease Enter Your Choice: ");
     }
 
     // method to help clear the screen (terminal) --- needs more work when implementing within code
@@ -25,17 +27,17 @@ public class MyFitnessTracker{
             System.out.println("Press Enter to return to the main menu, or type 'r' to generate another suggestion.");
             userResponse = scanner.nextLine();
         } while (userResponse.equalsIgnoreCase("r"));
-        clear_screen()
-    ;
+        clear_screen();
     }
 
 
     public static void main (String args[]){
         Scanner scanner = new Scanner(System.in);
         int user_choice = 0;
+        int user_already_set = 0; // INITALLY 0 AS NO USER HAS BEEN SET 
+        User curr_user = new User(); // CREATES AN EMPTY USER OBJECT
         
         // Opening Message
-        //System.out.println("\n\nWelcome to.... \n\n\n\t\tMY PERSONALIZED FITNESS TRACKER\n\n\n\n(Please press enter to proceed....)");
         System.out.println("\n\n");
         System.out.println("************************************************");
         System.out.println("* Welcome to....                               *");
@@ -54,6 +56,7 @@ public class MyFitnessTracker{
         while (user_choice != 7) {
             //PRINT ALL OPTIONS TO THE USER AND USE INPUT TO DETERMINE NEXT ACTION
             print_and_get_choices();
+
             try{
                 user_choice = scanner.nextInt();
                 scanner.nextLine();
@@ -61,10 +64,23 @@ public class MyFitnessTracker{
                 switch (user_choice) {
                     // ADD USER PROFILE
                     case 1:
-                    clear_screen();
-                    User curr_user = new User(); 
-                    curr_user.set_profile();  // **** NEEDED EDIT ---> SAVE TO FILE ****** I ALSO DON'T CLOSE THE SCANNER BUT PROBS SHOULD ***
-                    clear_screen();
+                    //IF USER NOT SET, CREATE A NEW ONE
+                    if(user_already_set == 0){
+                        clear_screen();
+                        curr_user.set_profile(); 
+                        clear_screen();
+                        user_already_set = 1; 
+                    }
+                    //ELSE... present user with other options
+                    else if(user_already_set == 1){
+                        clear_screen();
+                        System.out.println("----------------------------------------\n ");
+                        System.out.println("Sorry, a user has already been set.  \nIf you would like to set a new user, please restart the program.");
+                        System.out.println("If you would like to continue as " + curr_user.get_name() + " press \"Enter\"");
+                        System.out.println("\n----------------------------------------");
+                        scanner.nextLine();
+                        clear_screen();
+                    }
                     break;
 
                     // TRACK ACTIVITIES
@@ -72,7 +88,6 @@ public class MyFitnessTracker{
                     clear_screen();
                     ActivityTracker tracker = new ActivityTracker();
                     tracker.activityClassRunnerCode();
-                    clear_screen();
                     break;
 
                     // CALORIE MANAGER
@@ -88,7 +103,7 @@ public class MyFitnessTracker{
                     Goals curr_goals = new Goals();
                     curr_goals.set_goals();
                     clear_screen();
-                    break; // NEEDED TO SAVE TO FILE 
+                    break;  
 
                     //BMI CALCULATOR
                     case 5:
@@ -105,6 +120,7 @@ public class MyFitnessTracker{
                     break;
                 }
             } catch(InputMismatchException e) {
+                clear_screen();
                 System.out.println("\n\nInvalid input. Please enter a valid choice.");
                 scanner.nextLine(); // Clear the invalid input
             }
