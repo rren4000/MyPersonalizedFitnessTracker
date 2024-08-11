@@ -116,21 +116,18 @@ public class ActivityTracker {
                 case 1:
                     clear();
                     addActivity(scanner);
-                    clear();
+                    clear(); 
                     break;
                 // EDIT ACTIVITY
                 case 2:
                     clear();
                     editActivity(scanner);
-                    clear();
                     break;
                 // DELETE ACTIVITY 
                 case 3:
                     clear();
-                    deleteActivity(scanner);
-                    clear();
+                    deleteActivity(scanner);;
                     break;
-
                 // STEPS
                 case 4:
                     clear();
@@ -147,13 +144,13 @@ public class ActivityTracker {
                     }
                     System.out.print("Step Count Saved... Press \"Enter\" to continue.");
                     scanner.nextLine(); 
-                    clear();
                     break;
                 // SLEEP
                 case 5:
                     clear();
                     enterSleepData(scanner);
-                    System.out.print("(Hours Slept Calculated and Saved.... Press \"Enter\" to continue)");
+                    System.out.print("(\nHours Slept Calculated and Saved.... Press \"Enter\" to continue)");
+                    scanner.nextLine(); 
                     clear();
                     break;
                 // DISPLAY
@@ -204,6 +201,7 @@ public class ActivityTracker {
 
         System.out.print("\n(New activity saved... press \"Enter\" to continue)");
         scanner.nextLine(); 
+
         saveData();
     }
 
@@ -219,13 +217,15 @@ public class ActivityTracker {
 
         displayAllSavedActivityInfo();
 
-        //SET ACTIVITY ID 
+        //FIND ACTIVITY WITH USER INPUTTED ID 
         while(true){
             try{
                 System.out.print("\nEnter the ID of the activity you want to edit: ");
                 id = scanner.nextInt();
                 scanner.nextLine();
-                break;
+                ActivityObj activityToDelete = getActivityById(id);
+                if(activityToDelete != null){break;}
+                else{System.out.println("\nInvalid Input.  Please enter an existing ID number.");}
             } catch(InputMismatchException e){
                 System.out.println("\nInvalid input. Please enter a valid integer for ID.");
                 scanner.nextLine();
@@ -286,7 +286,11 @@ public class ActivityTracker {
                 System.out.print("\nEnter the ID of the activity you want to delete: ");
                 id = scanner.nextInt();
                 scanner.nextLine();
-                break;
+                ActivityObj activityToDelete = getActivityById(id);
+                if(activityToDelete != null){
+                    break;
+                }
+                else{System.out.println("\nInvalid input.  Please enter an existing ID number.");}
             } catch(InputMismatchException e){
                 System.out.println("\nInvalid input. Please enter a valid integer for ID.");
                 scanner.nextLine();
@@ -366,7 +370,7 @@ public class ActivityTracker {
                 writer.newLine();
             }
             writer.newLine();
-            System.out.println("Data saved successfully.");
+            System.out.println("\nData saved successfully.\n");
         } catch (IOException e) {
             System.out.println("Error saving data: " + e.getMessage());
         }
