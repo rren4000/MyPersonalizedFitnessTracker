@@ -33,7 +33,13 @@ public class ActivityGenerator {
             };
         }
 
+        public static void clear(){
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+        }
+
         public String getRandomActivity(){
+            clear();
             Random random = new Random();
             generateNum = random.nextInt(fitnessActivity.length);
 

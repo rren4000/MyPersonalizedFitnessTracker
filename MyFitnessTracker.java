@@ -64,56 +64,64 @@ public class MyFitnessTracker{
                 switch (user_choice) {
                     // ADD USER PROFILE
                     case 1:
-                    //IF USER NOT SET, CREATE A NEW ONE
-                    if(user_already_set == 0){
-                        clear_screen();
-                        curr_user.set_profile(); 
-                        clear_screen();
-                        user_already_set = 1; 
-                    }
-                    //ELSE... present user with other options
-                    else if(user_already_set == 1){
-                        clear_screen();
-                        System.out.println("----------------------------------------\n ");
-                        System.out.println("Sorry, a user has already been set.  \nIf you would like to set a new user, please restart the program.");
-                        System.out.println("If you would like to continue as " + curr_user.get_name() + " press \"Enter\"");
-                        System.out.println("\n----------------------------------------");
-                        scanner.nextLine();
-                        clear_screen();
-                    }
+                        //IF USER NOT SET, CREATE A NEW ONE
+                        if(user_already_set == 0){
+                            clear_screen();
+                            clear_screen();
+                            curr_user.set_profile(); 
+                            clear_screen();
+                            user_already_set = 1; 
+                        }
+                        //ELSE... present user with other options
+                        else if(user_already_set == 1){
+                            clear_screen();
+                            clear_screen();
+                            System.out.println("----------------------------------------\n ");
+                            System.out.println("Sorry, a user has already been set.  \nIf you would like to set a new user, please restart the program.");
+                            System.out.println("If you would like to continue as " + curr_user.get_name() + " press \"Enter\"");
+                            System.out.println("\n----------------------------------------");
+                            scanner.nextLine();
+                            clear_screen();
+                        }
                     break;
 
                     // TRACK ACTIVITIES
                     case 2:
-                    clear_screen();
-                    ActivityTracker tracker = new ActivityTracker();
-                    tracker.activityClassRunnerCode();
+                        clear_screen();
+                        clear_screen();
+                        ActivityTracker tracker = new ActivityTracker();
+                        tracker.activityClassRunnerCode();
                     break;
 
                     // CALORIE MANAGER
                     case 3:
-                    clear_screen();
-                    Cal_Manager cal_Manager = new Cal_Manager();
-                    clear_screen();
+                        clear_screen();
+                        clear_screen();
+                        Cal_Manager cal_Manager = new Cal_Manager();
+                        clear_screen();
                     break;
 
                     //SET GOALS
                     case 4: 
-                    clear_screen();
-                    Goals curr_goals = new Goals();
-                    curr_goals.set_goals();
-                    clear_screen();
+                        clear_screen();
+                        clear_screen();
+                        Goals curr_goals = new Goals();
+                        curr_goals.set_goals();
+                        clear_screen();
                     break;  
 
                     //BMI CALCULATOR
                     case 5:
-                    clear_screen();
-                    BMI_Calc bmi_calc = new BMI_Calc();
-                    clear_screen();
+                        clear_screen();
+                        clear_screen();
+                        BMI_Calc bmi_calc = new BMI_Calc();
+                        clear_screen();
                     break;
 
                     //ACTIVITY GENERATOR
                     case 6:
+                        clear_screen();
+                        clear_screen();
                         clear_screen();
                         generateActivity(scanner);
                         clear_screen();

@@ -1,7 +1,6 @@
 import java.io.*;
 import java.time.*;
 import java.time.format.*;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class ActivityTracker {
@@ -90,7 +89,7 @@ public class ActivityTracker {
         System.out.println("\t5. Calculate hours of sleep");
         System.out.println("\t6. Display all saved activity information");
         System.out.println("\t7. Save All Data and Return to main menu");
-        System.out.println("Please enter your choice: ");
+        System.out.print("Please enter your choice: ");
     }
 
     public void activityClassRunnerCode() {
@@ -314,7 +313,9 @@ public class ActivityTracker {
                     }
                 }
             }
+            System.out.println("----------------------------------------\n");
             System.out.println("Data loaded successfully.");
+            System.out.println("\n----------------------------------------");
         } catch (IOException e) {
             System.out.println("Error loading data: " + e.getMessage());
         }
