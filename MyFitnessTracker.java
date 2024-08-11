@@ -154,7 +154,7 @@ public class MyFitnessTracker{
                         clear_screen();
                         clear_screen();
                         BMI_Calc bmi_calc = new BMI_Calc();
-                        bmi_calc.display_bmr_calc();
+                        bmi_calc.display_BMI_Calc();
                         bmi_calc.close_BMI_Calc();
                         clear_screen();
                     break;
