@@ -11,8 +11,7 @@ public class Cal_Manager {
     // Constructor
     public Cal_Manager() {
         this.user_choice = 0;
-        Scanner scanner = new Scanner(System.in);
-        
+        Scanner scanner = new Scanner(System.in); 
     }
 
     //GETTER
@@ -38,10 +37,6 @@ public class Cal_Manager {
         cal_manager_choice();
     }
 
-    public void close_Cal_manager(){
-
-    }
-
     //Handles user choice for Calorie Manager
     public void cal_manager_choice() {
         Scanner scanner = new Scanner(System.in);
@@ -63,13 +58,11 @@ public class Cal_Manager {
             case 1:
                 this.calTracker = new Cal_Tracker();
                 this.calTracker.display_cal_tracker();
-                this.calTracker.close_Cal_tracker();
                 break;
             //CALCULATE BMR
             case 2:
                 this.bmrCalc = new BMR_Calc();
                 this.bmrCalc.display_bmr_calc();
-                this.bmrCalc.close_BMR_calc();
                 break;
             //RETURN TO MAIN MENU
             case 3:
@@ -80,7 +73,6 @@ public class Cal_Manager {
                 System.out.println("----------------------------------------\n");
                 System.out.println("Invalid choice. Please try again.\n");
                 display_cal_manager();
-                cal_manager_choice();
                 break;
         }
     }
