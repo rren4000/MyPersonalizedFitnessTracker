@@ -14,7 +14,12 @@ public class BMI_Calc {
     private double bmi;
 
     public BMI_Calc(){
-        display_bmr_calc();
+        this.weight = 0;
+        this.height = 0;
+        this.bmi = 0.0;
+    }
+
+    public void close_BMI_Calc(){
         System.out.print("Thank you for using the BMI Calculator! Press \"Enter\" to return to the main menu.");
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();

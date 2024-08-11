@@ -7,6 +7,7 @@ public class Cal_Tracker {
     private int total_cal;
     private int cal_goal;
     private static String FILE_NAME = "calorie_tracker_data.txt";
+    Scanner scanner = new Scanner(System.in);
 
     // Constructor
     public Cal_Tracker() {
@@ -39,13 +40,13 @@ public class Cal_Tracker {
         } catch (IOException e) {
             System.out.println("An error occurred while reading the file.");
         }
+        this.cal_goal = 2000;
+    }
 
-        // Display the tracker after initializing
-        display_cal_tracker();
+    public void close_Cal_tracker(){
         System.out.println("\n----------------------------------------\n");
         System.out.print("Thank you for using the Calorie Tracker! Press \"Enter\" to return to the main menu.");
-        Scanner scanner = new Scanner(System.in);
-        scanner.nextLine();
+        this.scanner.nextLine();
     }
 
     public static void clear(){
@@ -60,24 +61,25 @@ public class Cal_Tracker {
         System.out.println("Welcome to the Calorie Tracker!");
         System.out.println("\n----------------------------------------\n");
 
-        Scanner scanner = new Scanner(System.in);
+
 
         while(true){
             try{
                 System.out.print("How many calories have you consumed: ");
-                int cal = scanner.nextInt();
+                int cal = this.scanner.nextInt();
                 this.total_cal += cal;
+                this.scanner.nextLine();
                 update_cal_tracker();
                 break;
             } catch(InputMismatchException e){
                 System.out.println("\nInvalid input. Please enter a valid integer for calories.\n");
-                scanner.nextLine();
+                this.scanner.nextLine();
             }
         }
 
         clear();
 
-        System.out.println("You have consumed a total of "+ this.total_cal + " today.");
+        System.out.println("You have consumed a total of "+ this.total_cal + " calories today.");
     }
 
     // Update the calorie tracker data in the file

@@ -98,6 +98,8 @@ public class MyFitnessTracker{
                         clear_screen();
                         clear_screen();
                         Cal_Manager cal_Manager = new Cal_Manager();
+                        cal_Manager.display_cal_manager();
+                        cal_Manager.cal_manager_choice();
                         clear_screen();
                     break;
 
@@ -115,6 +117,8 @@ public class MyFitnessTracker{
                         clear_screen();
                         clear_screen();
                         BMI_Calc bmi_calc = new BMI_Calc();
+                        bmi_calc.display_bmr_calc();
+                        bmi_calc.close_BMI_Calc();
                         clear_screen();
                     break;
 

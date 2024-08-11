@@ -19,7 +19,17 @@ public class BMR_Calc {
     
     // Constructor
     public BMR_Calc() {
-        display_bmr_calc();
+        this.BMR = 0;
+        this.weight = 0;
+        this.height = 0;
+        this.activity_level = 0;
+        this.age = 0;
+        this.sex = 0;
+        this.goal_cal = 0;
+        this.goal_weight = 0;
+    }
+
+    public void close_BMR_calc(){
         System.out.println("\n----------------------------------------\n");
         System.out.print("Thank you for using the BMR Calculator! Press \"Enter\" to return to the main menu.");
         Scanner scanner = new Scanner(System.in);
