@@ -6,6 +6,7 @@ public class ActivityGenerator {
     private int generateNum;
     private String[] findMatchNum;
 
+    //DEFAULT CONSTRUCTOR 
     public ActivityGenerator(){
         this.fitnessActivity = new String[][]{
             {"Running", "Beginner: 20-30 minutes", "Intermediate: 30-45 minutes", "Advanced: 45-60 minutes"},
@@ -33,11 +34,14 @@ public class ActivityGenerator {
             };
         }
 
+
+        //CLEAR THE CURRENT SCREEN
         public static void clear(){
             System.out.print("\033[H\033[2J");
             System.out.flush();
         }
 
+        //GENERATE RANDOM ACTIVITY FROM ARRAYLIST 
         public String getRandomActivity(){
             clear();
             Random random = new Random();

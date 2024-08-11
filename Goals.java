@@ -161,10 +161,28 @@ public class Goals {
             result += " goal has been successfuly set! ";
             System.out.println(result);
 
-            //ADD ANOTHER GOAL OR BRING USER TO BACK TO MAIN MENU
-            System.out.println("\nPress 1 if you would like to set another goal or any other number to go back to the main menu.\n");
+            
+           
+            
 
-            continue_loop = scanner.nextInt();
+            while(true){
+                //ADD ANOTHER GOAL OR BRING USER TO BACK TO MAIN MENU
+                System.out.println("\nPress 1 if you would like to set another goal or any other number to go back to the main menu.\n");
+                String input = scanner.nextLine().trim();
+                //IF USER JUST PRESSES ENTER... EXIT LOOP & GO BACK TO MAIN MENU
+                if(input.isEmpty()){
+                    continue_loop = 0;
+                    break;
+                }
+                //IF USER ENTERS 1... CONTINUE LOOP
+                else if(input.equals("1")){
+                    continue_loop = 1;
+                    break;
+                }
+                //IF USER GIVES INVALID INPUT... ASK THEM AGAIN
+                else{System.out.println("\nInvalid Input.  Please press 1 to set another goal or press \"Enter\" to go back to the main menu.\n");}
+            }
+            
             clear();
             //scanner.close();
         }

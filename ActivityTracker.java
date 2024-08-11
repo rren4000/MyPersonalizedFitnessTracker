@@ -13,6 +13,7 @@ public class ActivityTracker {
     private LocalDate date;
 
     Scanner scanner = new Scanner(System.in);
+
     // Constructors
     public ActivityTracker() {
         this.activities = new ArrayList<>();
@@ -47,6 +48,7 @@ public class ActivityTracker {
         this.date = date;
     }
 
+    //CLEAR THE CURRENT SCREEN
     public static void clear(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
@@ -110,24 +112,26 @@ public class ActivityTracker {
             }
 
             switch (activityTrackerChoice) {
+                // ADD ACTIVITY 
                 case 1:
                     clear();
                     addActivity(scanner);
                     clear();
                     break;
-
+                // EDIT ACTIVITY
                 case 2:
                     clear();
                     editActivity(scanner);
                     clear();
                     break;
-
+                // DELETE ACTIVITY 
                 case 3:
                     clear();
                     deleteActivity(scanner);
                     clear();
                     break;
 
+                // STEPS
                 case 4:
                     clear();
                     System.out.println("----------------------------------------\n");
@@ -137,14 +141,14 @@ public class ActivityTracker {
                     scanner.nextLine(); 
                     clear();
                     break;
-
+                // SLEEP
                 case 5:
                     clear();
                     enterSleepData(scanner);
                     System.out.print("(Hours Slept Calculated and Saved.... Press \"Enter\" to continue)");
                     clear();
                     break;
-
+                // DISPLAY
                 case 6:
                     clear();
                     displayAllSavedActivityInfo();
@@ -152,13 +156,14 @@ public class ActivityTracker {
                     scanner.nextLine();
                     clear();
                     break;
-
+                // INVLAID CHOICE 
                 default:
                     clear(); 
                     System.out.println("----------------------------------------\n");
                     System.out.println("Invalid choice. Please enter a valid integer between 1 and 7.");
             }
         }
+        // SAVE DATA 
         if (activityTrackerChoice == 7) {
             saveData();
             clear();
@@ -166,10 +171,12 @@ public class ActivityTracker {
     }
 
     private void addActivity(Scanner scanner) {
+        // ACTIVITY 
         System.out.println("----------------------------------------\n");
         System.out.print("Activity: ");
         String activityName = scanner.nextLine();
 
+        //DURATION 
         System.out.print("Duration (in minutes): ");
         int duration = scanner.nextInt();
         scanner.nextLine(); 
@@ -177,6 +184,7 @@ public class ActivityTracker {
         int id = activities.size() + 1;
         ActivityObj new_activity = new ActivityObj(id, activityName, duration);
         activities.add(new_activity);
+
         System.out.print("\n(New activity saved... press \"Enter\" to continue)");
         scanner.nextLine(); 
         saveData();
@@ -187,7 +195,9 @@ public class ActivityTracker {
             System.out.println("No activities to edit.");
             return;
         }
+
         displayAllSavedActivityInfo();
+
         System.out.print("\nEnter the ID of the activity you want to edit: ");
         int id = scanner.nextInt();
         scanner.nextLine(); // 
@@ -195,12 +205,15 @@ public class ActivityTracker {
         ActivityObj activityToEdit = getActivityById(id);
         if (activityToEdit != null) {
             clear();
+            
+            // NEW NAME
             System.out.print("Enter new activity name (leave empty to keep current): ");
             String newName = scanner.nextLine();
             if (!newName.isEmpty()) {
                 activityToEdit.setName(newName);
             }
 
+            //NEW DURATION
             System.out.print("Enter new duration in minutes (leave empty to keep current): ");
             String newDurationStr = scanner.nextLine();
             if (!newDurationStr.isEmpty()) {
