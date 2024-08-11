@@ -31,6 +31,9 @@ This class provides the menu that allows the user to choose action's concerning 
 Cal_Tracker.java:
 This class tracks and updates a user's daily calorie intake, storing the data in a file, and allows the user to input their calorie consumption for the current day.
 
+BMR_Calc.java: 
+This class calculates a user's Basal Metabolic Rate (BMR) and daily caloric needs based on personal information (age, weight, height, sex, and activity level), which it retrieves from files or user input.
+
 Goals.java: This class stores the user's weight, step, and activity duration goal within a text file called "goals.txt". This class uses the ActivityDuration class to store its activity duration goal (this is comprised of move, exercise, and stand hours) and this class is used within the main ActivityTracker class.
 
 BMI_Calc.java:
