@@ -6,51 +6,31 @@ import java.util.*;
 public class Cal_Tracker{
     private int total_cal;
     private int goal_cal;
+
     private static String FILE_NAME = "calorie_tracker_data.txt";
+    private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private LocalDate date;
+
     Scanner scanner = new Scanner(System.in);
 
     // Constructor
-    public Cal_Tracker() { // ****EDIT 0--> THIS IS NOT A CRONSTRUCTOR 
-        LocalDate currentDate = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
-        //Check if file exists, create if it doesn't
-        File file = new File(FILE_NAME);
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-                System.out.println("File " + FILE_NAME + " not found. A new file has been created.");
-            } catch (IOException e) {
-                System.out.println("An error occurred while creating the file.");
-                e.printStackTrace();
-            }
-        }
-
-        // Read the existing data for the current date
-        try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] data = line.split(": ");
-                LocalDate date = LocalDate.parse(data[0], formatter);
-                if (date.equals(currentDate)) {
-                    this.total_cal = Integer.parseInt(data[1]);
-                    break;
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("An error occurred while reading the file.");
-        }
-        this.goal_cal = 2000;
+    public Cal_Tracker() { 
+        this.total_cal = 0;
+        this.goal_cal = 0;
+        this.date = LocalDate.now();
     }
 
     //GETTERS
     public int get_toal_cal(){return total_cal;}
     public int get_goal_cal(){return goal_cal;}
+    public LocalDate getDate() {return date;}
 
     //SETTERS
     public void set_toal_cal(int total_cal){this.total_cal = total_cal;}
     public void set_goal_cal(int goal_cal){this.goal_cal =  goal_cal;}
+    public void setDate(LocalDate date) {this.date = date;}
 
+    //DISPLAY ENDING SCREEN
     public void close_Cal_tracker(){
         System.out.println("\n----------------------------------------\n");
         System.out.print("Thank you for using the Calorie Tracker! \n\nPress \"Enter\" to return to the main menu.");
@@ -70,8 +50,6 @@ public class Cal_Tracker{
         System.out.println("----------------------------------------\n");
         System.out.println("Welcome to the Calorie Tracker!");
         System.out.println("\n----------------------------------------\n");
-
-
 
         //UPDATE CALORIES 
         while(true){
@@ -98,7 +76,6 @@ public class Cal_Tracker{
     // Update the calorie tracker data in the file
     public void update_cal_tracker() {
         LocalDate currentDate = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         StringBuilder fileContent = new StringBuilder();
         boolean dateFound = false;
 
@@ -109,10 +86,14 @@ public class Cal_Tracker{
                 String[] parts = line.split(": ");
                 if (parts.length == 2) {
                     String date = parts[0].trim();
-                    if (date.equals(currentDate.format(formatter))) {
-                        fileContent.append(currentDate.format(formatter)).append(": ").append(this.total_cal).append("\n");
+                    int existingCalories = Integer.parseInt(parts[1].trim());
+
+                    if (date.equals(currentDate.format(DATE_FORMAT))) {
+                        this.total_cal += existingCalories;
+                        fileContent.append(currentDate.format(DATE_FORMAT)).append(": ").append(this.total_cal).append("\n");
                         dateFound = true;
-                    } else {
+                    } 
+                    else {
                         fileContent.append(line).append("\n");
                     }
                 }
@@ -123,7 +104,7 @@ public class Cal_Tracker{
 
         // If the date was not found, add a new entry
         if (!dateFound) {
-            fileContent.append(currentDate.format(formatter)).append(": ").append(this.total_cal).append("\n");
+            fileContent.append(currentDate.format(DATE_FORMAT)).append(": ").append(this.total_cal).append("\n");
         }
 
         // Write the updated content back to the file
@@ -133,4 +114,5 @@ public class Cal_Tracker{
             e.printStackTrace();
         }
     }
+
 }

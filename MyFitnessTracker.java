@@ -137,7 +137,6 @@ public class MyFitnessTracker{
                         clear_screen();
                         Cal_Manager cal_Manager = new Cal_Manager();
                         cal_Manager.display_cal_manager();
-                        cal_Manager.cal_manager_choice();
                         clear_screen();
                     break;
 

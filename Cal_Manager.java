@@ -33,6 +33,9 @@ public class Cal_Manager {
         System.out.println("Welcome to Calorie Manager!");
         System.out.println("\n----------------------------------------\n");
         System.out.println("What would you like to do today?\n\n\t(1) Track Calories\n\t(2) Calculate BMR\n\t(3) Go Back");
+
+        //HAVE USER CHOOSE TYPE OF CALORIE MANAGEMENT
+        cal_manager_choice();
     }
 
     public void close_Cal_manager(){
