@@ -45,7 +45,7 @@ public class Cal_Tracker {
 
     public void close_Cal_tracker(){
         System.out.println("\n----------------------------------------\n");
-        System.out.print("Thank you for using the Calorie Tracker! Press \"Enter\" to return to the main menu.");
+        System.out.print("Thank you for using the Calorie Tracker! \n\nPress \"Enter\" to return to the main menu.");
         this.scanner.nextLine();
     }
 
