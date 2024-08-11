@@ -19,16 +19,22 @@ public class BMR_Calc {
     // Constructor
     public BMR_Calc() {
         display_bmr_calc();
-        System.out.println("Thank you for using the BMR Calculator! Press Enter to return to the main menu.");
+        System.out.println("\n----------------------------------------\n");
+        System.out.print("Thank you for using the BMR Calculator! Press Enter to return to the main menu.");
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
+    }
+
+    public static void clear(){
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
     //Displays BMR Calculator
     public void display_bmr_calc(){
         request_information();
-        System.out.println("Your Basal Metabolic Rate (BMR) is: " + this.BMR);
-        System.out.println("The average amount of calories you should aim to eat per day to reach your goal is: " + this.goal_cal);
+        System.out.println("You have a Basal Metabolic Rate (BMR) of " + this.BMR + " calories per day.\n"); 
+        System.out.println("You should aim to consume " + this.goal_cal + " calories per day to reach your goal of " + this.goal_weight + " pounds.");
     }
 
     //Requests user information
@@ -51,23 +57,42 @@ public class BMR_Calc {
                 System.out.println("An error occurred while reading the file.");
             }
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter your sex: (1) Female (2) Male");
+            System.out.println("Please enter your sex...");
+            System.out.print("\n\tEnter (1) for Female and (2) for Male: ");
             this.sex = scanner.nextInt();
-            System.out.println("Enter your activity level: (1) Sedentary (2) Lightly Active (3) Moderately Active (4) Very Active (5) Super Active");
+            System.out.println("Please enter the number for the category that best fits your lifestyle...");
+            System.out.println("\n\t(1) Sedentary (2) Lightly Active (3) Moderately Active (4) Very Active (5) Super Active");
+            System.out.print("\nEnter your choice: ");
             this.activity_level = scanner.nextInt();
         }
         else{
-            System.out.println("Please enter the following information to calculate your BMR: ");
+            clear();
+
+            System.out.println("Please enter the following information to calculate your BMR... ");
+
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter your age: ");
+
+            System.out.print("\n\tAge: ");
             this.age = scanner.nextInt();
-            System.out.println("Enter your weight (in pounds): ");
+
+            System.out.print("\tWeight (in pounds): ");
             this.weight = scanner.nextInt();
-            System.out.println("Enter your height (in inches): ");
+
+            System.out.print("\tHeight (in inches): ");
             this.height = scanner.nextInt();
-            System.out.println("Enter your sex: (1) Female (2) Male");
+
+            clear();
+            
+            System.out.println("Please enter your sex...");
+            System.out.print("\n\tEnter (1) for Female and (2) for Male: ");
             this.sex = scanner.nextInt();
-            System.out.println("Enter your activity level: (1) Sedentary (2) Lightly Active (3) Moderately Active (4) Very Active (5) Super Active");
+
+            clear();
+
+            System.out.println("Please enter the number for the category that best fits your lifestyle...");
+            System.out.println("\n\t(1) Sedentary \n\t(2) Lightly Active \n\t(3) Moderately Active \n\t(4) Very Active \n\t(5) Super Active");
+            System.out.print("\nEnter your choice: ");
+
             this.activity_level = scanner.nextInt();
         }
 
@@ -85,7 +110,7 @@ public class BMR_Calc {
             }
         }
         else{
-            System.out.println("Please enter your goal weight (in pounds): ");
+            System.out.print("\nGoal weight (in pounds): ");
             Scanner scanner = new Scanner(System.in);
             this.goal_weight = scanner.nextInt();
         }
@@ -95,6 +120,7 @@ public class BMR_Calc {
 
     //Calculates BMR and goal calories
     public int calculate_bmr(){
+        clear();
         if(this.sex == 2){
             this.BMR = (int) (66 + (6.23 * this.weight) + (12.7 * this.height) - (6.8 * this.age));
         }
@@ -143,7 +169,6 @@ public class BMR_Calc {
         else if(weight_difference > 0 && weight_difference < 10){
             this.goal_cal *= 0.9;
         }
-        System.out.println("Your goal weight is: " + this.goal_weight);
         return BMR;
     }
 
