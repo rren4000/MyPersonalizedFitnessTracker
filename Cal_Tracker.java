@@ -82,13 +82,9 @@ public class Cal_Tracker {
 
         clear();
 
-<<<<<<< HEAD
-        System.out.println("You have consumed a total of "+ this.total_cal + " calories today.");
-=======
         //PRINT TOTAL CALORIES CONSUMED
         System.out.println("----------------------------------------\n");
         System.out.println("You have consumed a total of "+ this.total_cal + " today.");
->>>>>>> c603f63fe6b1f060cccb152c32dd847833f05d45
     }
 
     // Update the calorie tracker data in the file
