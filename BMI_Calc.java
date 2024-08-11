@@ -20,7 +20,7 @@ public class BMI_Calc {
     }
 
     public void close_BMI_Calc(){
-        System.out.print("Thank you for using the BMI Calculator! Press \"Enter\" to return to the main menu.");
+        System.out.print("Thank you for using the BMI Calculator! \n\nPress \"Enter\" to return to the main menu.");
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }
