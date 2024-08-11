@@ -236,7 +236,7 @@ public class ActivityTracker {
         ActivityObj activityToEdit = getActivityById(id);
         if (activityToEdit != null) {
             clear();
-            
+            System.out.println("----------------------------------------\n");
             // NEW NAME
             System.out.print("Enter new activity name (leave empty to keep current): ");
             String newName = scanner.nextLine();
@@ -245,7 +245,7 @@ public class ActivityTracker {
             }
 
             //NEW DURATION
-            System.out.print("Enter new duration in minutes (leave empty to keep current): ");
+            System.out.print("\nEnter new duration in minutes (leave empty to keep current): ");
             String newDurationStr = scanner.nextLine();
 
             //IF THE USER ENTERS SOMEETHING....
@@ -283,7 +283,7 @@ public class ActivityTracker {
         //GET DESIRED ID
         while(true){
             try{
-                System.out.print("\nEnter the ID of the activity you want to edit: ");
+                System.out.print("\nEnter the ID of the activity you want to delete: ");
                 id = scanner.nextInt();
                 scanner.nextLine();
                 break;

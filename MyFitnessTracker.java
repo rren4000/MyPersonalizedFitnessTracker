@@ -63,7 +63,7 @@ public class MyFitnessTracker{
                 //IF USER INPUT IS VALID
                 if(userResponse.equalsIgnoreCase("r") || userResponse.equals("")){break;}
                 //ELSE USER INPUT IS INVALID... REPEAT INSTRUCTIONS
-                else{System.out.println("Invalid Input.  Please press \"Enter\" to return to the main menu, or type 'r' to generate another suggestion.");}
+                else{System.out.println("\nInvalid Input.  Please press \"Enter\" to return to the main menu, or type 'r' to generate another suggestion.");}
             } while(true);
         } while (userResponse.equalsIgnoreCase("r"));
         clear_screen();
