@@ -1,5 +1,4 @@
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 public class Cal_Manager {
     private Cal_Tracker calTracker;
@@ -15,6 +14,12 @@ public class Cal_Manager {
         Scanner scanner = new Scanner(System.in);
         
     }
+
+    //GETTER
+    public int get_user_choice(){return user_choice;}
+
+    //SETTER
+    public void set_user_choice(int user_choice){this.user_choice = user_choice;}
 
     //CLEAR THE CURRENT SCREEN
     public static void clear(){

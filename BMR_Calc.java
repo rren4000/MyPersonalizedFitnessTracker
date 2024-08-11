@@ -1,9 +1,5 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class BMR_Calc {
 
@@ -29,6 +25,24 @@ public class BMR_Calc {
         this.goal_weight = 0;
         this.scanner = new Scanner(System.in);
     }
+    
+    //GETTERS
+    public int get_BMR(){return BMR;}
+    public int get_weight(){return weight;}
+    public int get_height(){return height;}
+    public int get_activity_level(){return activity_level;}
+    public int get_age(){return age;}
+    public int get_sex(){return sex;}
+    public int get_goal_cal(){return goal_cal;}
+
+    //SETTERS
+    public void set_BMR(int BMR){this.BMR = BMR;}
+    public void set_weight(int weight){this.weight = weight;}
+    public void set_height(int height){this.height = height;}
+    public void set_activity_level(int activity_level){this.activity_level = activity_level;}
+    public void set_age(int age){this.age = age;}
+    public void set_sex(int sex){this.sex = sex;}
+    public void set_goal_cal(int goal_cal){this.goal_cal = goal_cal;}
 
     // Close the BMR calculator
     public void close_BMR_calc() {

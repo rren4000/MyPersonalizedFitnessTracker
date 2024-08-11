@@ -1,11 +1,5 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class BMI_Calc {
 
@@ -21,17 +15,30 @@ public class BMI_Calc {
         this.scanner = new Scanner(System.in);
     }
 
+    //GETTERS
+    public int get_weight(){return weight;}
+    public int get_height(){return height;}
+    public double get_bmi(){return bmi;}
+
+    //SETTERS
+    public void set_weight(int weight){ this.weight = weight;}
+    public void set_height(int height){ this.weight = height;}
+    public void set_bmi(double bmi){ this.bmi = bmi;}
+
+    //CLOSING TITLE
     public void close_BMI_Calc(){
         System.out.print("Thank you for using the BMI Calculator! \n\nPress \"Enter\" to return to the main menu.");
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }
 
+    //CLEAR THE CURRENT SCREEN
     public static void clear(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
 
+    //DISPLAY OPENING TITLE & USER'S BMI
     public void display_bmr_calc(){
         System.out.println("----------------------------------------\n");
         System.out.println("Welcome to the BMI Calculator!");
@@ -45,13 +52,15 @@ public class BMI_Calc {
         
         System.out.println("Your Body Mass Index (BMI) is: " + this.bmi + "\n");
 
-        if(this.bmi < 18.5){
+        //UNDERWEIGHT
+        if(this.bmi < 18.5){    
             System.out.println("Your BMI indicates that you are underweight.");
             System.out.println("\n----------------------------------------\n");
             System.out.println("It is advisable to seek medical attention.");
             System.out.println("\n----------------------------------------\n");
         }
 
+        //HEALTHY WEIGHT
         else if(this.bmi >= 18.5 && this.bmi < 24.9){
             System.out.println("Your BMI indicates that you are at a healthy weight.");
             System.out.println("\n----------------------------------------\n");
@@ -59,6 +68,7 @@ public class BMI_Calc {
             System.out.println("\n----------------------------------------\n");
         }
 
+        //OVERWEIGHT
         else if(this.bmi >= 25 && this.bmi < 29.9){
             System.out.println("Your BMI indicated that you are overweight.");
             System.out.println("\n----------------------------------------\n");
@@ -66,6 +76,7 @@ public class BMI_Calc {
             System.out.println("\n----------------------------------------\n");
         }
 
+        //OBESE
         else{
             System.out.println("Your BMI indicates that you are obese.");
             System.out.println("\n----------------------------------------\n");
@@ -74,6 +85,7 @@ public class BMI_Calc {
         }
     }
 
+    //GET BMI INFO FROM USER OR FILE
     public void request_information(){
         File profile_file = new File("user_profile.txt");
         String[] data = new String[4];
@@ -126,7 +138,7 @@ public class BMI_Calc {
         calculate_bmi();
     }
     
-
+    //CALCULATE USER'S BMI
     public double calculate_bmi(){
         this.bmi = ((double)this.weight / (this.height * this.height)) * 703;
         this.bmi = Math.round(this.bmi * 10.0) / 10.0;

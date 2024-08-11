@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Cal_Tracker{
     private int total_cal;
-    private int cal_goal;
+    private int goal_cal;
     private static String FILE_NAME = "calorie_tracker_data.txt";
     Scanner scanner = new Scanner(System.in);
 
@@ -40,8 +40,16 @@ public class Cal_Tracker{
         } catch (IOException e) {
             System.out.println("An error occurred while reading the file.");
         }
-        this.cal_goal = 2000;
+        this.goal_cal = 2000;
     }
+
+    //GETTERS
+    public int get_toal_cal(){return total_cal;}
+    public int get_goal_cal(){return goal_cal;}
+
+    //SETTERS
+    public void set_toal_cal(int total_cal){this.total_cal = total_cal;}
+    public void set_goal_cal(int goal_cal){this.goal_cal =  goal_cal;}
 
     public void close_Cal_tracker(){
         System.out.println("\n----------------------------------------\n");
