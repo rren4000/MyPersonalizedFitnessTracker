@@ -49,6 +49,7 @@ public class Cal_Tracker {
         this.scanner.nextLine();
     }
 
+    //CLEAR THE CURRENT SCREEN
     public static void clear(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
@@ -57,12 +58,14 @@ public class Cal_Tracker {
     // Display the Calorie Tracker
     public void display_cal_tracker() {
         clear();
+        //PRINT INTRODUCTION
         System.out.println("----------------------------------------\n");
         System.out.println("Welcome to the Calorie Tracker!");
         System.out.println("\n----------------------------------------\n");
 
 
 
+        //UPDATE CALORIES 
         while(true){
             try{
                 System.out.print("How many calories have you consumed: ");
@@ -79,7 +82,13 @@ public class Cal_Tracker {
 
         clear();
 
+<<<<<<< HEAD
         System.out.println("You have consumed a total of "+ this.total_cal + " calories today.");
+=======
+        //PRINT TOTAL CALORIES CONSUMED
+        System.out.println("----------------------------------------\n");
+        System.out.println("You have consumed a total of "+ this.total_cal + " today.");
+>>>>>>> c603f63fe6b1f060cccb152c32dd847833f05d45
     }
 
     // Update the calorie tracker data in the file

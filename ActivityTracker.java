@@ -81,7 +81,8 @@ public class ActivityTracker {
     }
 
     private static void printActivityTrackerMenu() {
-        System.out.println("\nChoose an option:\n\t(Note: All saved data will be displayed in option \"6\")");
+        System.out.println("----------------------------------------\n");
+        System.out.println("Choose an option:\n\t(Note: All saved data will be displayed in option \"6\")");
         System.out.println("\n\t1. Add a new activity");
         System.out.println("\t2. Edit an activity");
         System.out.println("\t3. Delete an activity");
@@ -129,6 +130,7 @@ public class ActivityTracker {
 
                 case 4:
                     clear();
+                    System.out.println("----------------------------------------\n");
                     System.out.print("Enter number of steps: ");
                     setSteps(scanner.nextInt());
                     System.out.print("Step Count Saved... Press \"Enter\" to continue.");
@@ -152,7 +154,9 @@ public class ActivityTracker {
                     break;
 
                 default:
-                    System.out.println("Invalid choice. Please try again.");
+                    clear(); 
+                    System.out.println("----------------------------------------\n");
+                    System.out.println("Invalid choice. Please enter a valid integer between 1 and 7.");
             }
         }
         if (activityTrackerChoice == 7) {
@@ -162,6 +166,7 @@ public class ActivityTracker {
     }
 
     private void addActivity(Scanner scanner) {
+        System.out.println("----------------------------------------\n");
         System.out.print("Activity: ");
         String activityName = scanner.nextLine();
 
@@ -172,7 +177,7 @@ public class ActivityTracker {
         int id = activities.size() + 1;
         ActivityObj new_activity = new ActivityObj(id, activityName, duration);
         activities.add(new_activity);
-        System.out.print("(\nNew activity saved... press \"Enter\" to continue)");
+        System.out.print("\n(New activity saved... press \"Enter\" to continue)");
         scanner.nextLine(); 
         saveData();
     }
@@ -202,7 +207,8 @@ public class ActivityTracker {
                 int newDuration = Integer.parseInt(newDurationStr);
                 activityToEdit.setDuration(newDuration);
             }
-            System.out.print("\t(Activity Edited.... press \"Enter\" to continue)");
+            System.out.println("\n----------------------------------------");
+            System.out.print("\n(Activity Edited.... press \"Enter\" to continue)");
             scanner.nextLine();
             clear();
         } else {
@@ -228,7 +234,8 @@ public class ActivityTracker {
             for (int i = 0; i < activities.size(); i++) {
                 activities.get(i).setId(i + 1);
             }
-            System.out.print("\t(Activity deleted.... press \"Enter\" to continue)");
+            System.out.println("\n----------------------------------------");
+            System.out.print("\n(Activity deleted.... press \"Enter\" to continue)");
             scanner.nextLine();
         } else {
             System.out.println("Activity not found.");
@@ -243,11 +250,12 @@ public class ActivityTracker {
     // Loop until a valid bedtime is entered
     while (bedtime == null) {
         try {
+            System.out.println("----------------------------------------\n");
             System.out.print("Enter bedtime in military time (HH:mm, i.e., 22:00): ");
             String bedtimeStr = scanner.nextLine();
             bedtime = LocalTime.parse(bedtimeStr);
         } catch (DateTimeParseException e) {
-            System.out.print("\nInvalid time format. \nPlease enter the bedtime in HH:mm format.");
+            System.out.print("\nInvalid time format. Please enter the bedtime in HH:mm format.");
         }
     }
 
@@ -258,7 +266,7 @@ public class ActivityTracker {
             String awakeTimeStr = scanner.nextLine();
             awakeTime = LocalTime.parse(awakeTimeStr);
         } catch (DateTimeParseException e) {
-            System.out.print("Invalid time format. Please enter the awake time in HH:mm format.");
+            System.out.print("Invalid time format. Please enter the awake time in HH:mm format.\n");
         }
     }
 

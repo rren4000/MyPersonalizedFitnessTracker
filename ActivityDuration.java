@@ -3,12 +3,14 @@ public class ActivityDuration {
     private int exercise;
     private int stand;
 
+    //DEFAULT ACTIVITY DURATION CONSTRUCTOR
     public ActivityDuration(){
         this.move = 0;
         this.exercise = 0;
         this.stand = 0;
     }
-
+    
+    //PARAMETER ACTIVITY DURATION CONSTRUCTOR 
     public ActivityDuration(int move, int exercise, int stand){
         this.move = move;
         this.exercise = exercise;
