@@ -46,6 +46,7 @@ public class BMR_Calc {
     // Display the BMR calculator
     public void display_bmr_calc() {
         getInfo();
+        clear();
         System.out.println("----------------------------------------\n");
         System.out.println("You have a Basal Metabolic Rate (BMR) of " + this.BMR + " calories per day.\n");
         System.out.println("You should aim to consume " + this.goal_cal + " calories per day to reach your goal of " + this.goal_weight + " pounds.");
