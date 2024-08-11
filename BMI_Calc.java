@@ -34,6 +34,8 @@ public class BMI_Calc {
 
         clear();
 
+        System.out.println("----------------------------------------\n");
+        
         System.out.println("Your Body Mass Index (BMI) is: " + this.bmi + "\n");
 
         if(this.bmi < 18.5){

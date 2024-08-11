@@ -14,6 +14,7 @@ public class User {
 
     public Scanner scanner;
 
+    //DEFAULT USER CONSTRUCTOR
     public User(){
         this.name = ""; 
         this.age = 0;
@@ -22,6 +23,7 @@ public class User {
         this.scanner = new Scanner(System.in);
     }
 
+    //PARAMETER USER CONSTRUCTOR 
     public User(String name, int age, int weight, int height){
         this.name = name; 
         this.age = age;
@@ -30,20 +32,24 @@ public class User {
         this.scanner = new Scanner(System.in);
     }
 
+    //CLEAR THE CURRENT SCREEN
     public static void clear(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
 
+    //SET USER PROFILE WITH USER INPUT 
     public void set_profile(){
         Scanner scanner = new Scanner(System.in);
 
+        //TITLE & INTRODCUCTION 
         System.out.println("----------------------------------------\n");
         System.out.println("Welcome to User Settings!\n");
         System.out.println("----------------------------------------\n");
         System.out.println("Please Enter the Following Information to Create a User Profile...");
         
-        System.out.print("\tName: ");
+        //SET NAME
+        System.out.print("\n\tName: ");
         String name = scanner.nextLine();
         this.set_name(name);
 
@@ -86,10 +92,14 @@ public class User {
             }
         }
         
+        //CLEAR CURRENT SCREEN
         clear();
+
+        //SAVE USER DATA TO "USER_PROFILE.TXT" FILE
         saveData();
         scanner.nextLine();
- 
+        
+        //BRING USER BACK TO MAIN MENU
         System.out.println("\nWelcome " + name + "!");
         System.out.print("\nYour user profile has been successfully created. \n\nPlease press \"Enter\" to go back to the main menu. ");
         scanner.nextLine();
@@ -113,8 +123,11 @@ public class User {
     private void saveData() {
         clear();
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, false))) {
+            //WRITE USER INFO TO THE TEXT FILE 
             writer.write("Name: " + this.get_name() + "\nAge: " + this.get_age() + "\nWeight: " + this.get_weight() + "\nHeight: " + this.get_height() + "\n");
             writer.newLine();
+
+            //CONFIRM TO USER THAT DATA WAS SAVED TO FILE 
             System.out.println("----------------------------------------\n");
             System.out.println("Data saved successfully.");
             System.out.println("\n----------------------------------------");

@@ -13,6 +13,12 @@ public class Cal_Manager {
         cal_manager_choice();
     }
 
+    //CLEAR THE CURRENT SCREEN
+    public static void clear(){
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
     //Displays Calorie Manager Menu
     public void display_cal_manager() {
         System.out.println("----------------------------------------\n");
@@ -38,17 +44,22 @@ public class Cal_Manager {
             }
         }
         switch (user_choice) {
+            //TRACK CALORIES 
             case 1:
                 this.calTracker = new Cal_Tracker();
                 break;
+            //CALCULATE BMR
             case 2:
                 this.bmrCalc = new BMR_Calc();
                 break;
+            //RETURN TO MAIN MENU
             case 3:
                 System.out.println("Going back to main menu...");
                 break;
             default:
-                System.out.println("Invalid choice. Please try again.");
+                clear();
+                System.out.println("----------------------------------------\n");
+                System.out.println("Invalid choice. Please try again.\n");
                 display_cal_manager();
                 cal_manager_choice();
                 break;

@@ -34,6 +34,7 @@ public class BMR_Calc {
     //Displays BMR Calculator
     public void display_bmr_calc(){
         request_information();
+        System.out.println("----------------------------------------\n");
         System.out.println("You have a Basal Metabolic Rate (BMR) of " + this.BMR + " calories per day.\n"); 
         System.out.println("You should aim to consume " + this.goal_cal + " calories per day to reach your goal of " + this.goal_weight + " pounds.");
     }
@@ -59,6 +60,10 @@ public class BMR_Calc {
             }
             Scanner scanner = new Scanner(System.in);
 
+            clear();
+
+            System.out.println("----------------------------------------\n");
+
             //SET SEX
             while(true){
                 try{
@@ -74,6 +79,10 @@ public class BMR_Calc {
                     scanner.nextLine();
                 }
             }
+            clear();
+
+            System.out.println("----------------------------------------\n");
+
             System.out.println("Please enter the number for the category that best fits your lifestyle...");
             System.out.println("\n\t(1) Sedentary (2) Lightly Active (3) Moderately Active (4) Very Active (5) Super Active");
             
