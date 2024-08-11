@@ -236,7 +236,7 @@ public class ActivityTracker {
         ActivityObj activityToEdit = getActivityById(id);
         if (activityToEdit != null) {
             clear();
-            
+            System.out.println("----------------------------------------\n");
             // NEW NAME
             System.out.print("Enter new activity name (leave empty to keep current): ");
             String newName = scanner.nextLine();
@@ -245,7 +245,7 @@ public class ActivityTracker {
             }
 
             //NEW DURATION
-            System.out.print("Enter new duration in minutes (leave empty to keep current): ");
+            System.out.print("\nEnter new duration in minutes (leave empty to keep current): ");
             String newDurationStr = scanner.nextLine();
 
             //IF THE USER ENTERS SOMEETHING....
@@ -283,7 +283,7 @@ public class ActivityTracker {
         //GET DESIRED ID
         while(true){
             try{
-                System.out.print("\nEnter the ID of the activity you want to edit: ");
+                System.out.print("\nEnter the ID of the activity you want to delete: ");
                 id = scanner.nextInt();
                 scanner.nextLine();
                 break;
@@ -349,7 +349,7 @@ public class ActivityTracker {
     }
 
     // Save data to a file
-    /*private void saveData() {
+    private void saveData() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
             writer.write("DATE: " + this.date.format(DATE_FORMAT));
             writer.newLine();
@@ -367,69 +367,6 @@ public class ActivityTracker {
             }
             writer.newLine();
             System.out.println("Data saved successfully.");
-        } catch (IOException e) {
-            System.out.println("Error saving data: " + e.getMessage());
-        }
-    }*/
-    private void saveData() {
-        File file = new File(FILE_NAME);
-        StringBuilder fileContent = new StringBuilder();
-        boolean dateExists = false;
-
-        try {
-            // Read the existing file content if the file exists
-            if (file.exists()) {
-                try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        if (line.startsWith("DATE: " + this.date.format(DATE_FORMAT))) {
-                            dateExists = true;
-                            // Add the date line
-                            fileContent.append(line).append(System.lineSeparator());
-
-                            // Append the updated step count, distance, sleep hours, and activities
-                            fileContent.append("\tSTEP COUNT: ").append(this.steps).append(System.lineSeparator());
-                            fileContent.append("\tAPPROXIMATE DISTANCE: ").append(calculateMiles()).append(" miles").append(System.lineSeparator());
-                            fileContent.append("\tSLEEP HOURS: ").append(this.sleepHours).append(System.lineSeparator());
-                            fileContent.append("\tACTIVITIES AND DURATIONS:").append(System.lineSeparator());
-
-                            // Add the activities
-                            for (ActivityObj activity : activities) {
-                                fileContent.append("\t\t").append(activity.toString()).append(System.lineSeparator());
-                            }
-
-                            // Skip the old activities for this date
-                            while ((line = reader.readLine()) != null && !line.startsWith("DATE: ")) {
-                                // Skip existing activities
-                            }
-                        } else {
-                            // If not the current date, append the line as-is
-                            fileContent.append(line).append(System.lineSeparator());
-                        }
-                    }
-                }
-            }
-
-            // If the date does not exist, add a new section for today
-            if (!dateExists) {
-                fileContent.append("DATE: ").append(this.date.format(DATE_FORMAT)).append(System.lineSeparator());
-                fileContent.append("\tSTEP COUNT: ").append(this.steps).append(System.lineSeparator());
-                fileContent.append("\tAPPROXIMATE DISTANCE: ").append(calculateMiles()).append(" miles").append(System.lineSeparator());
-                fileContent.append("\tSLEEP HOURS: ").append(this.sleepHours).append(System.lineSeparator());
-                fileContent.append("\tACTIVITIES AND DURATIONS:").append(System.lineSeparator());
-
-                for (ActivityObj activity : activities) {
-                    fileContent.append("\t\t").append(activity.toString()).append(System.lineSeparator());
-                }
-                fileContent.append(System.lineSeparator());
-            }
-
-            // Write everything back to the file
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-                writer.write(fileContent.toString());
-                System.out.println("Data saved successfully.");
-            }
-
         } catch (IOException e) {
             System.out.println("Error saving data: " + e.getMessage());
         }
