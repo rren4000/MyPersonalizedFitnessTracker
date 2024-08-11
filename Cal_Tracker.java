@@ -42,20 +42,30 @@ public class Cal_Tracker {
 
         // Display the tracker after initializing
         display_cal_tracker();
-        System.out.println("Thank you for using the Calorie Tracker! Press Enter to return to the main menu.");
+        System.out.println("\n----------------------------------------\n");
+        System.out.print("Thank you for using the Calorie Tracker! Press Enter to return to the main menu.");
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }
 
+    public static void clear(){
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
     // Display the Calorie Tracker
     public void display_cal_tracker() {
+        clear();
+        System.out.println("----------------------------------------\n");
         System.out.println("Welcome to the Calorie Tracker!");
-        System.out.println("How many calories have you consumed: ");
+        System.out.println("\n----------------------------------------\n");
+        System.out.print("How many calories have you consumed: ");
         Scanner scanner = new Scanner(System.in);
         int cal = scanner.nextInt();
         this.total_cal += cal;
         update_cal_tracker();
-        System.out.println("Today's Total Calories: " + this.total_cal);
+        clear();
+        System.out.println("You have consumed a total of "+ this.total_cal + " today.");
     }
 
     // Update the calorie tracker data in the file
@@ -73,7 +83,7 @@ public class Cal_Tracker {
                 if (parts.length == 2) {
                     String date = parts[0].trim();
                     if (date.equals(currentDate.format(formatter))) {
-                        fileContent.append(currentDate.format(formatter)).append(",").append(this.total_cal).append("\n");
+                        fileContent.append(currentDate.format(formatter)).append(": ").append(this.total_cal).append("\n");
                         dateFound = true;
                     } else {
                         fileContent.append(line).append("\n");
@@ -86,7 +96,7 @@ public class Cal_Tracker {
 
         // If the date was not found, add a new entry
         if (!dateFound) {
-            fileContent.append(currentDate.format(formatter)).append(",").append(this.total_cal).append("\n");
+            fileContent.append(currentDate.format(formatter)).append(": ").append(this.total_cal).append("\n");
         }
 
         // Write the updated content back to the file
