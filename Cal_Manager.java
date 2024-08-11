@@ -4,7 +4,6 @@ public class Cal_Manager {
     private Cal_Tracker calTracker;
     private BMR_Calc bmrCalc;
 
-    public String cal_manager_display = "This is the Calorie Manager, what would you like to do today?\n\t(1) Track Calories\n\t(2) Calculate BMR\n\t(3) Go Back\nPlease enter your choice: ";
     private int user_choice;
 
     // Constructor
@@ -15,7 +14,10 @@ public class Cal_Manager {
 
     //Displays Calorie Manager Menu
     public void display_cal_manager() {
-        System.out.print(cal_manager_display);
+        System.out.println("----------------------------------------\n");
+        System.out.println("Welcome to Calorie Manager!");
+        System.out.println("\n----------------------------------------");
+        System.out.print("What would you like to do today?\n\t(1) Track Calories\n\t(2) Calculate BMR\n\t(3) Go Back\nPlease enter your choice: ");
     }
 
     //Handles user choice for Calorie Manager
