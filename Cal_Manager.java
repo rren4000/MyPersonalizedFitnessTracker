@@ -14,6 +14,7 @@ public class Cal_Manager {
         this.scanner = new Scanner(System.in); 
     }
 
+    
     //GETTER
     public int get_user_choice(){return user_choice;}
 
@@ -60,16 +61,20 @@ public class Cal_Manager {
         switch (user_choice) {
             //TRACK CALORIES 
             case 1:
+                clear();
                 this.calTracker = new Cal_Tracker();
                 this.calTracker.display_cal_tracker();
                 break;
             //CALCULATE BMR
             case 2:
+                clear();
                 this.bmrCalc = new BMR_Calc();
                 this.bmrCalc.display_bmr_calc();
+                clear();
                 break;
             //RETURN TO MAIN MENU
             case 3:
+                clear();
                 System.out.println("Going back to main menu...");
                 break;
             default:

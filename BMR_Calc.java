@@ -90,6 +90,7 @@ public class BMR_Calc {
                     this.age = scanner.nextInt();
                     break;
                 } catch(InputMismatchException e){
+                    clear();
                     System.out.println("\n\tInvalid input. Please enter a valid integer for age.");
                     scanner.nextLine();
                 }
@@ -112,6 +113,7 @@ public class BMR_Calc {
                     this.height = scanner.nextInt();
                     break;
                 } catch(InputMismatchException e){
+                    clear();
                     System.out.println("\n\tInvalid input. Please enter a valid integer for height.\n");
                     scanner.nextLine();
                 }
@@ -131,8 +133,11 @@ public class BMR_Calc {
 
                 //CHECK IF INPUT IS VALID
                 if (this.sex == 1 || this.sex == 2){break;}
-                else{System.out.println("\n\tInvalid input. Please enter (1) for Female or (2) for Male.\n");}
+                else{
+                    clear();
+                    System.out.println("\nInvalid input. Please enter (1) for Female or (2) for Male.\n");}
             } catch(InputMismatchException e){
+                clear();
                 System.out.println("\n\tInvalid input. Please enter a valid integer for sex.\n");
                 scanner.nextLine();
             }
@@ -153,9 +158,14 @@ public class BMR_Calc {
                     
                 //CHECK IF INPUT IS VALID
                 if(this.activity_level >= 1 && this.activity_level <= 5){break;}
-                else{System.out.println("\nInvalid input. Please enter a valid integer between 1 and 5.");}
+                else{
+                    clear();
+                    System.out.println("\nInvalid input. Please enter a valid integer between 1 and 5.");
+                    System.out.println("\n\t(1) Sedentary \n\t(2) Lightly Active \n\t(3) Moderately Active \n\t(4) Very Active \n\t(5) Super Active");}
             } catch(InputMismatchException e){
+                clear();
                 System.out.println("\nInvalid input. Please enter a valid integer for lifestyle category.");
+                System.out.println("\n\t(1) Sedentary \n\t(2) Lightly Active \n\t(3) Moderately Active \n\t(4) Very Active \n\t(5) Super Active");
                 scanner.nextLine();
             }
         }
@@ -170,6 +180,7 @@ public class BMR_Calc {
                     this.goal_weight = scanner.nextInt();
                     break;
                 } catch(InputMismatchException e){
+                    clear();
                     System.out.println("\nInvalid input. Please enter a valid integer for goal weight.");
                     scanner.nextLine();
                 }

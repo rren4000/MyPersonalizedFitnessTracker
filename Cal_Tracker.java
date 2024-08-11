@@ -67,6 +67,7 @@ public class Cal_Tracker{
                 update_cal_tracker();
                 break;
             } catch(InputMismatchException e){
+                clear();
                 System.out.println("\nInvalid input. Please enter a valid integer for calories.\n");
                 this.scanner.nextLine();
             }
