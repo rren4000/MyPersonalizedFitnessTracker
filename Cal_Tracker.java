@@ -77,6 +77,9 @@ public class Cal_Tracker{
         //PRINT TOTAL CALORIES CONSUMED
         System.out.println("----------------------------------------\n");
         System.out.println("You have consumed a total of "+ this.total_cal + " today.");
+
+        //PRINT CLOSING BANNER
+        close_Cal_tracker();
     }
 
     // Update the calorie tracker data in the file

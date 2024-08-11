@@ -22,7 +22,7 @@ public class BMI_Calc {
 
     //SETTERS
     public void set_weight(int weight){ this.weight = weight;}
-    public void set_height(int height){ this.weight = height;}
+    public void set_height(int height){ this.height = height;}
     public void set_bmi(double bmi){ this.bmi = bmi;}
 
     //CLOSING TITLE

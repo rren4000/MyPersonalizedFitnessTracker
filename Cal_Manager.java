@@ -11,7 +11,7 @@ public class Cal_Manager {
     // Constructor
     public Cal_Manager() {
         this.user_choice = 0;
-        Scanner scanner = new Scanner(System.in); 
+        this.scanner = new Scanner(System.in); 
     }
 
     //GETTER
@@ -40,14 +40,18 @@ public class Cal_Manager {
     //Handles user choice for Calorie Manager
     public void cal_manager_choice() {
         Scanner scanner = new Scanner(System.in);
-        //SET AGE
+        //DETERMINE CHOICE
         while(true){
             try{
                 System.out.print("\nPlease enter your choice: "); 
                 int user_choice = scanner.nextInt();
                 scanner.nextLine();
-                this.user_choice = user_choice;
-                break;
+
+                if(user_choice >= 1 && user_choice <=3){
+                    this.user_choice = user_choice;
+                    break;
+                }
+                else{System.out.println("\nInvalid input. Please enter 1, 2, or 3.");}
             } catch(InputMismatchException e){
                 System.out.println("\nInvalid input. Please enter a valid integer for your desired action.");
                 scanner.nextLine();
