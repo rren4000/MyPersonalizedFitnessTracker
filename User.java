@@ -112,7 +112,7 @@ public class User {
     // SAVE DATA TO FILE
     private void saveData() {
         clear();
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, false))) {
             writer.write("Name: " + this.get_name() + "\nAge: " + this.get_age() + "\nWeight: " + this.get_weight() + "\nHeight: " + this.get_height() + "\n");
             writer.newLine();
             System.out.println("----------------------------------------\n");
