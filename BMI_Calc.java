@@ -76,7 +76,7 @@ public class BMI_Calc {
         }
         else{
             System.out.println("\nPlease enter the following information to calculate your BMI... ");
-            System.out.print("\tWeight (in pounds): ");
+            System.out.print("\n\tWeight (in pounds): ");
             Scanner scanner = new Scanner(System.in);
             this.weight = scanner.nextInt();
             System.out.print("\tHeight (in inches): ");
