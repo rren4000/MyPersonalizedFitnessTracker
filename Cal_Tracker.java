@@ -13,6 +13,18 @@ public class Cal_Tracker {
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
+        //Check if file exists, create if it doesn't
+        File file = new File(FILE_NAME);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+                System.out.println("File " + FILE_NAME + " not found. A new file has been created.");
+            } catch (IOException e) {
+                System.out.println("An error occurred while creating the file.");
+                e.printStackTrace();
+            }
+        }
+
         // Read the existing data for the current date
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
             String line;
