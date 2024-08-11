@@ -32,7 +32,7 @@ public class BMR_Calc {
     // Close the BMR calculator
     public void close_BMR_calc() {
         System.out.println("\n----------------------------------------\n");
-        System.out.print("Thank you for using the BMR Calculator! Press \"Enter\" to return to the main menu.");
+        System.out.print("Thank you for using the BMR Calculator! \n\nPress \"Enter\" to return to the main menu.");
         this.scanner.nextLine();
         this.scanner.nextLine();
     }
