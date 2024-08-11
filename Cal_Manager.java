@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Cal_Manager {
@@ -17,15 +18,25 @@ public class Cal_Manager {
         System.out.println("----------------------------------------\n");
         System.out.println("Welcome to Calorie Manager!");
         System.out.println("\n----------------------------------------\n");
-        System.out.print("What would you like to do today?\n\n\t(1) Track Calories\n\t(2) Calculate BMR\n\t(3) Go Back\n\nPlease enter your choice: ");
+        System.out.println("What would you like to do today?\n\n\t(1) Track Calories\n\t(2) Calculate BMR\n\t(3) Go Back");
     }
 
     //Handles user choice for Calorie Manager
     public void cal_manager_choice() {
         Scanner scanner = new Scanner(System.in);
-        int user_choice = scanner.nextInt();
-        scanner.nextLine();
-        this.user_choice = user_choice;
+        //SET AGE
+        while(true){
+            try{
+                System.out.print("\nPlease enter your choice: "); 
+                int user_choice = scanner.nextInt();
+                scanner.nextLine();
+                this.user_choice = user_choice;
+                break;
+            } catch(InputMismatchException e){
+                System.out.println("\nInvalid input. Please enter a valid integer for your desired action.");
+                scanner.nextLine();
+            }
+        }
         switch (user_choice) {
             case 1:
                 this.calTracker = new Cal_Tracker();

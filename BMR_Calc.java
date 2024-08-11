@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BMR_Calc {
@@ -72,28 +73,75 @@ public class BMR_Calc {
 
             Scanner scanner = new Scanner(System.in);
 
-            System.out.print("\n\tAge: ");
-            this.age = scanner.nextInt();
+            //SET AGE
+            while(true){
+                try{
+                    System.out.print("\n\tAge: ");
+                    this.age = scanner.nextInt();
+                    break;
+                } catch(InputMismatchException e){
+                    System.out.println("\n\tInvalid input. Please enter a valid integer for age.");
+                    scanner.nextLine();
+                }
+            }
 
-            System.out.print("\tWeight (in pounds): ");
+            //SET WEIGHT
+            while(true){
+                try{
+                    System.out.print("\tWeight (in pounds): ");
             this.weight = scanner.nextInt();
+                    break;
+                } catch(InputMismatchException e){
+                    System.out.println("\n\tInvalid input. Please enter a valid integer for weight.\n");
+                    scanner.nextLine();
+                }
+            }
 
-            System.out.print("\tHeight (in inches): ");
-            this.height = scanner.nextInt();
+            //SET HEIGHT
+            while(true){
+                try{
+                    System.out.print("\tHeight (in inches): ");
+                    this.height = scanner.nextInt();
+                    break;
+                } catch(InputMismatchException e){
+                    System.out.println("\n\tInvalid input. Please enter a valid integer for height.\n");
+                    scanner.nextLine();
+                }
+            }
+
 
             clear();
-            
-            System.out.println("Please enter your sex...");
-            System.out.print("\n\tEnter (1) for Female and (2) for Male: ");
-            this.sex = scanner.nextInt();
+
+            //SET SEX
+            while(true){
+                try{
+                    System.out.println("Please enter your sex...");
+                    System.out.print("\n\tEnter (1) for Female and (2) for Male: ");
+                    this.sex = scanner.nextInt();
+                    break;
+                } catch(InputMismatchException e){
+                    System.out.println("\n\tInvalid input. Please enter a valid integer for sex.\n");
+                    scanner.nextLine();
+                }
+            }
 
             clear();
 
             System.out.println("Please enter the number for the category that best fits your lifestyle...");
             System.out.println("\n\t(1) Sedentary \n\t(2) Lightly Active \n\t(3) Moderately Active \n\t(4) Very Active \n\t(5) Super Active");
-            System.out.print("\nEnter your choice: ");
-
-            this.activity_level = scanner.nextInt();
+ 
+            //SET LIFESTYLE
+            while(true){
+                try{
+                    System.out.print("\nEnter your choice: ");
+                    this.activity_level = scanner.nextInt();
+                    break;
+                } catch(InputMismatchException e){
+                    System.out.println("\nInvalid input. Please enter a valid integer for lifestyle category.");
+                    scanner.nextLine();
+                }
+            }
+            
         }
 
         File goal_file = new File("goals.txt");
@@ -110,9 +158,18 @@ public class BMR_Calc {
             }
         }
         else{
-            System.out.print("\nGoal weight (in pounds): ");
             Scanner scanner = new Scanner(System.in);
-            this.goal_weight = scanner.nextInt();
+
+            while(true){
+                try{
+                    System.out.print("\nGoal weight (in pounds): ");
+                    this.goal_weight = scanner.nextInt();
+                    break;
+                } catch(InputMismatchException e){
+                    System.out.println("\nInvalid input. Please enter a valid integer for goal weight.");
+                    scanner.nextLine();
+                }
+            }
         }
 
         calculate_bmr();

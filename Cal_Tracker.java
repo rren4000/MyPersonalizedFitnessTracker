@@ -59,12 +59,24 @@ public class Cal_Tracker {
         System.out.println("----------------------------------------\n");
         System.out.println("Welcome to the Calorie Tracker!");
         System.out.println("\n----------------------------------------\n");
-        System.out.print("How many calories have you consumed: ");
+
         Scanner scanner = new Scanner(System.in);
-        int cal = scanner.nextInt();
-        this.total_cal += cal;
-        update_cal_tracker();
+
+        while(true){
+            try{
+                System.out.print("How many calories have you consumed: ");
+                int cal = scanner.nextInt();
+                this.total_cal += cal;
+                update_cal_tracker();
+                break;
+            } catch(InputMismatchException e){
+                System.out.println("\nInvalid input. Please enter a valid integer for calories.\n");
+                scanner.nextLine();
+            }
+        }
+
         clear();
+
         System.out.println("You have consumed a total of "+ this.total_cal + " today.");
     }
 

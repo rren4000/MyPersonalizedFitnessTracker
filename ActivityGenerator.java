@@ -44,12 +44,12 @@ public class ActivityGenerator {
             generateNum = random.nextInt(fitnessActivity.length);
 
             findMatchNum = fitnessActivity[generateNum];
-            activitySuggestion = "\nFitness Suggestion:\n\t" +
-                "Activity: " + findMatchNum[0] + "\n\t" +
+            activitySuggestion = "\nFitness Suggestion:\n\n\t" +
+                "Activity: " + findMatchNum[0] + "\n\n\t" +
                 "Recommended Time:\n\t\t - " +
                 findMatchNum[1] + "\n\t\t - " +
                 findMatchNum[2] + "\n\t\t - " +
-                findMatchNum[3];
+                findMatchNum[3] + "\n";
 
             return activitySuggestion;
         }

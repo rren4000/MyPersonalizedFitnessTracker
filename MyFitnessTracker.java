@@ -24,7 +24,7 @@ public class MyFitnessTracker{
             clear_screen();
             suggestion = generator.getRandomActivity();
             System.out.println(suggestion);
-            System.out.println("Press Enter to return to the main menu, or type 'r' to generate another suggestion.");
+            System.out.println("Press \"Enter\" to return to the main menu, or type 'r' to generate another suggestion.");
             userResponse = scanner.nextLine();
         } while (userResponse.equalsIgnoreCase("r"));
         clear_screen();
