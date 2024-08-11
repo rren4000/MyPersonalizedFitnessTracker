@@ -1,9 +1,10 @@
 DATE: 2024-08-10
-	STEPCOUNT COUNT: 0
-	APPROXIMATE DISTANCE: 0.0 miles
-	SLEEP HOURS: 0.0
+	STEPCOUNT COUNT: 100000
+	APPROXIMATE DISTANCE: 47.3 miles
+	SLEEP HOURS: 8.0
 	ACTIVITIES AND DURATIONS:
-		1. Swim - 30 minutes
-		2. Ski - 40 minutes
-		3. Run - 25 minutes
+		1. Ski - 40 minutes
+		2. Run - 25 minutes
+		3. running - 10000 minutes
+		4. Running - 60 minutes
 
