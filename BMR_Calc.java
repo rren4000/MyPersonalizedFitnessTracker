@@ -58,13 +58,39 @@ public class BMR_Calc {
                 System.out.println("An error occurred while reading the file.");
             }
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Please enter your sex...");
-            System.out.print("\n\tEnter (1) for Female and (2) for Male: ");
-            this.sex = scanner.nextInt();
+
+            //SET SEX
+            while(true){
+                try{
+                    System.out.println("Please enter your sex...");
+                    System.out.print("\n\tEnter (1) for Female and (2) for Male: ");
+                    this.sex = scanner.nextInt();
+
+                    //CHECK IF INPUT IS VALID
+                    if (this.sex == 1 || this.sex == 2){break;}
+                    else{System.out.println("\n\tInvalid input. Please enter (1) for Female or (2) for Male.\n");}
+                } catch(InputMismatchException e){
+                    System.out.println("\n\tInvalid input. Please enter a valid integer for sex.\n");
+                    scanner.nextLine();
+                }
+            }
             System.out.println("Please enter the number for the category that best fits your lifestyle...");
             System.out.println("\n\t(1) Sedentary (2) Lightly Active (3) Moderately Active (4) Very Active (5) Super Active");
-            System.out.print("\nEnter your choice: ");
-            this.activity_level = scanner.nextInt();
+            
+            //SET LIFESTYLE
+            while(true){
+                try{
+                    System.out.print("\nEnter your choice: ");
+                    this.activity_level = scanner.nextInt();
+                    
+                    //CHECK IF INPUT IS VALID
+                    if(this.activity_level >= 1 && this.activity_level <= 5){break;}
+                    else{System.out.println("\nInvalid input. Please enter a valid integer between 1 and 5.");}
+                } catch(InputMismatchException e){
+                    System.out.println("\nInvalid input. Please enter a valid integer for lifestyle category.");
+                    scanner.nextLine();
+                }
+            }
         }
         else{
             clear();
@@ -118,7 +144,10 @@ public class BMR_Calc {
                     System.out.println("Please enter your sex...");
                     System.out.print("\n\tEnter (1) for Female and (2) for Male: ");
                     this.sex = scanner.nextInt();
-                    break;
+
+                    //CHECK IF INPUT IS VALID
+                    if (this.sex == 1 || this.sex == 2){break;}
+                    else{System.out.println("\n\tInvalid input. Please enter (1) for Female or (2) for Male.\n");}
                 } catch(InputMismatchException e){
                     System.out.println("\n\tInvalid input. Please enter a valid integer for sex.\n");
                     scanner.nextLine();
@@ -135,7 +164,10 @@ public class BMR_Calc {
                 try{
                     System.out.print("\nEnter your choice: ");
                     this.activity_level = scanner.nextInt();
-                    break;
+                    
+                    //CHECK IF INPUT IS VALID
+                    if(this.activity_level >= 1 && this.activity_level <= 5){break;}
+                    else{System.out.println("\nInvalid input. Please enter a valid integer between 1 and 5.");}
                 } catch(InputMismatchException e){
                     System.out.println("\nInvalid input. Please enter a valid integer for lifestyle category.");
                     scanner.nextLine();
