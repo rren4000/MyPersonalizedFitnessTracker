@@ -30,6 +30,15 @@ public class Cal_Tracker{
     public void set_goal_cal(int goal_cal){this.goal_cal =  goal_cal;}
     public void setDate(LocalDate date) {this.date = date;}
 
+    //DISPLAY BEGINNING SCREEN
+    public void begin_tracker(){
+        clear();
+        //PRINT INTRODUCTION
+        System.out.println("----------------------------------------\n");
+        System.out.println("Welcome to the Calorie Tracker!");
+        System.out.println("\n----------------------------------------\n");
+    }
+
     //DISPLAY ENDING SCREEN
     public void close_Cal_tracker(){
         System.out.println("\n----------------------------------------\n");
@@ -45,13 +54,10 @@ public class Cal_Tracker{
 
     // Display the Calorie Tracker
     public void display_cal_tracker() {
-        clear();
-        //PRINT INTRODUCTION
-        System.out.println("----------------------------------------\n");
-        System.out.println("Welcome to the Calorie Tracker!");
-        System.out.println("\n----------------------------------------\n");
+        //PRINT INTRODUCTION BANNER
+        begin_tracker();
 
-        //UPDATE CALORIES 
+        //UPDATE CALORIES VIA USER INPUT
         while(true){
             try{
                 System.out.print("How many calories have you consumed: ");
@@ -93,26 +99,17 @@ public class Cal_Tracker{
                         fileContent.append(currentDate.format(DATE_FORMAT)).append(": ").append(this.total_cal).append("\n");
                         dateFound = true;
                     } 
-                    else {
-                        fileContent.append(line).append("\n");
-                    }
+                    else {fileContent.append(line).append("\n");}
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        } catch (IOException e) {e.printStackTrace();}
 
         // If the date was not found, add a new entry
-        if (!dateFound) {
-            fileContent.append(currentDate.format(DATE_FORMAT)).append(": ").append(this.total_cal).append("\n");
-        }
+        if (!dateFound) {fileContent.append(currentDate.format(DATE_FORMAT)).append(": ").append(this.total_cal).append("\n");}
 
         // Write the updated content back to the file
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
-            writer.write(fileContent.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {writer.write(fileContent.toString());}
+        catch (IOException e) {e.printStackTrace();}
     }
 
 }
