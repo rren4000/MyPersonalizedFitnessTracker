@@ -1,9 +1,0 @@
-DATE: 2024-08-10
-	STEP COUNT: 0
-	APPROXIMATE DISTANCE: 0.0 miles
-	SLEEP HOURS: 0.0
-	ACTIVITIES AND DURATIONS:
-		1. Swim - 40 minutes
-		2. Swim - 20 minutes
-		3. Swim - 100 minutes
-		4. trial - 20 minutes

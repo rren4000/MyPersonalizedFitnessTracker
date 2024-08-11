@@ -3,14 +3,14 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-public class Cal_Tracker {
+public class Cal_Tracker{
     private int total_cal;
     private int cal_goal;
     private static String FILE_NAME = "calorie_tracker_data.txt";
     Scanner scanner = new Scanner(System.in);
 
     // Constructor
-    public Cal_Tracker() {
+    public Cal_Tracker() { // ****EDIT 0--> THIS IS NOT A CRONSTRUCTOR 
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 

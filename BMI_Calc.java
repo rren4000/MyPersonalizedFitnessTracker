@@ -12,11 +12,13 @@ public class BMI_Calc {
     private int weight;
     private int height;
     private double bmi;
+    private Scanner scanner;
 
     public BMI_Calc(){
         this.weight = 0;
         this.height = 0;
         this.bmi = 0.0;
+        this.scanner = new Scanner(System.in);
     }
 
     public void close_BMI_Calc(){

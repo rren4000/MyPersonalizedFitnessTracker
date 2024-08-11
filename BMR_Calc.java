@@ -15,7 +15,7 @@ public class BMR_Calc {
     private int sex;
     private int goal_cal;
     private int goal_weight;
-    private Scanner scanner = new Scanner(System.in);
+    private Scanner scanner;
 
     // Constructor to initialize default values
     public BMR_Calc() {
@@ -27,6 +27,7 @@ public class BMR_Calc {
         this.sex = 0;
         this.goal_cal = 0;
         this.goal_weight = 0;
+        this.scanner = new Scanner(System.in);
     }
 
     // Close the BMR calculator

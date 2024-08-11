@@ -7,9 +7,13 @@ public class Cal_Manager {
 
     private int user_choice;
 
+    private Scanner scanner;
+
     // Constructor
     public Cal_Manager() {
         this.user_choice = 0;
+        Scanner scanner = new Scanner(System.in);
+        
     }
 
     //CLEAR THE CURRENT SCREEN

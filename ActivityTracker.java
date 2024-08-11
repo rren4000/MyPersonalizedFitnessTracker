@@ -135,8 +135,16 @@ public class ActivityTracker {
                 case 4:
                     clear();
                     System.out.println("----------------------------------------\n");
-                    System.out.print("Enter number of steps: ");
-                    setSteps(scanner.nextInt());
+                    while(true){
+                        try{
+                            System.out.print("Enter number of steps: ");
+                            setSteps(scanner.nextInt());
+                            break;
+                        } catch(InputMismatchException e){
+                            System.out.println("\nInvalid input. Please enter a valid integer for number of steps.\n");
+                            scanner.nextLine();
+                        }
+                    }
                     System.out.print("Step Count Saved... Press \"Enter\" to continue.");
                     scanner.nextLine(); 
                     clear();
@@ -171,15 +179,24 @@ public class ActivityTracker {
     }
 
     private void addActivity(Scanner scanner) {
+        int duration;
+
         // ACTIVITY 
         System.out.println("----------------------------------------\n");
         System.out.print("Activity: ");
         String activityName = scanner.nextLine();
 
-        //DURATION 
-        System.out.print("Duration (in minutes): ");
-        int duration = scanner.nextInt();
-        scanner.nextLine(); 
+        //DURATION
+        while(true){
+            try{
+                System.out.print("Duration (in minutes): ");
+                duration = scanner.nextInt();
+                break;
+            } catch(InputMismatchException e){
+                System.out.println("\nInvalid input. Please enter a valid integer for duration.\n");
+                scanner.nextLine();
+            }
+        }
 
         int id = activities.size() + 1;
         ActivityObj new_activity = new ActivityObj(id, activityName, duration);
@@ -191,6 +208,10 @@ public class ActivityTracker {
     }
 
     private void editActivity(Scanner scanner) {
+        int id; 
+
+        System.out.println("----------------------------------------\n");
+
         if (activities.isEmpty()) {
             System.out.println("No activities to edit.");
             return;
@@ -198,10 +219,20 @@ public class ActivityTracker {
 
         displayAllSavedActivityInfo();
 
-        System.out.print("\nEnter the ID of the activity you want to edit: ");
-        int id = scanner.nextInt();
-        scanner.nextLine(); // 
+        //SET ACTIVITY ID 
+        while(true){
+            try{
+                System.out.print("\nEnter the ID of the activity you want to edit: ");
+                id = scanner.nextInt();
+                scanner.nextLine();
+                break;
+            } catch(InputMismatchException e){
+                System.out.println("\nInvalid input. Please enter a valid integer for ID.");
+                scanner.nextLine();
+            }
+        }
 
+        //EDIT SPECIFIC ACTIVITY VIA ITS ID
         ActivityObj activityToEdit = getActivityById(id);
         if (activityToEdit != null) {
             clear();
@@ -216,13 +247,24 @@ public class ActivityTracker {
             //NEW DURATION
             System.out.print("Enter new duration in minutes (leave empty to keep current): ");
             String newDurationStr = scanner.nextLine();
-            if (!newDurationStr.isEmpty()) {
-                int newDuration = Integer.parseInt(newDurationStr);
-                activityToEdit.setDuration(newDuration);
+
+            //IF THE USER ENTERS SOMEETHING....
+            while (!newDurationStr.isEmpty()) {
+                try {
+                    int newDuration = Integer.parseInt(newDurationStr);
+                    activityToEdit.setDuration(newDuration);
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.println("\nInvalid input. Please enter a valid integer or leave it empty to keep the current duration.\n");
+                    System.out.print("Enter new duration in minutes (leave empty to keep current): ");
+                    newDurationStr = scanner.nextLine();
+                }
             }
+
             System.out.println("\n----------------------------------------");
             System.out.print("\n(Activity Edited.... press \"Enter\" to continue)");
             scanner.nextLine();
+
             clear();
         } else {
             System.out.println("Activity not found.");
@@ -231,14 +273,25 @@ public class ActivityTracker {
     }
 
     private void deleteActivity(Scanner scanner) {
+        int id; 
+
         if (activities.isEmpty()) {
             System.out.println("No activities to delete.");
             return;
         }
         displayAllSavedActivityInfo();
-        System.out.print("\nEnter the ID of the activity you want to delete: ");
-        int id = scanner.nextInt();
-        scanner.nextLine(); 
+        //GET DESIRED ID
+        while(true){
+            try{
+                System.out.print("\nEnter the ID of the activity you want to edit: ");
+                id = scanner.nextInt();
+                scanner.nextLine();
+                break;
+            } catch(InputMismatchException e){
+                System.out.println("\nInvalid input. Please enter a valid integer for ID.");
+                scanner.nextLine();
+            }
+        }
 
         ActivityObj activityToDelete = getActivityById(id);
         if (activityToDelete != null) {
@@ -260,15 +313,16 @@ public class ActivityTracker {
         LocalTime bedtime = null;
         LocalTime awakeTime = null;
 
+        System.out.println("----------------------------------------\n");
+
         // Loop until a valid bedtime is entered
         while (bedtime == null) {
             try {
-                System.out.println("----------------------------------------\n");
                 System.out.print("Enter bedtime in military time (HH:mm, i.e., 22:00): ");
                 String bedtimeStr = scanner.nextLine();
                 bedtime = LocalTime.parse(bedtimeStr);
             } catch (DateTimeParseException e) {
-                System.out.print("\nInvalid time format. Please enter the bedtime in HH:mm format.");
+                System.out.println("\nInvalid time format. Please enter the bedtime in HH:mm format.\n");
             }
         }
 
@@ -279,7 +333,7 @@ public class ActivityTracker {
                 String awakeTimeStr = scanner.nextLine();
                 awakeTime = LocalTime.parse(awakeTimeStr);
             } catch (DateTimeParseException e) {
-                System.out.print("Invalid time format. Please enter the awake time in HH:mm format.\n");
+                System.out.println("\nInvalid time format. Please enter the awake time in HH:mm format.\n");
             }
         }
 
