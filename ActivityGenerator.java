@@ -1,4 +1,4 @@
-import java.util.Random;
+import java.util.*;
 
 public class ActivityGenerator {
     private String[][] fitnessActivity;
@@ -50,6 +50,29 @@ public class ActivityGenerator {
                 findMatchNum[3] + "\n";
 
             return activitySuggestion;
+        }
+
+        public static void generateActivity(Scanner scanner) {
+            ActivityGenerator generator = new ActivityGenerator();
+            String suggestion;
+            String userResponse;
+            do {
+                ClearConsole.clear();
+                suggestion = generator.getRandomActivity();
+                System.out.println("----------------------------------------");
+                System.out.println(suggestion);
+                System.out.println("Press \"Enter\" to return to the main menu, or type 'r' to generate another suggestion.");
+                
+                //ENSURE VALID INPUT
+                do{
+                    userResponse = scanner.nextLine();
+                    //IF USER INPUT IS VALID
+                    if(userResponse.equalsIgnoreCase("r") || userResponse.equals("")){break;}
+                    //ELSE USER INPUT IS INVALID... REPEAT INSTRUCTIONS
+                    else{System.out.println("\nInvalid Input.  Please press \"Enter\" to return to the main menu, or type 'r' to generate another suggestion.");}
+                } while(true);
+            } while (userResponse.equalsIgnoreCase("r"));
+            ClearConsole.clear();
         }
 
         

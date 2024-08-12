@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.*;
+import java.time.*;
 
 
 public class ActivityManager {
@@ -54,10 +55,25 @@ public class ActivityManager {
         }
     }
 
-    public void displayAllActivities() {
+     // Calculate miles from steps (assuming average stride length of 2.5 feet)
+    private double calculateMiles(int steps) {
+        double rawStepsToMiles = (steps * 2.5) / 5280.0; // 5280 feet in a mile
+        return Math.round(rawStepsToMiles * 10.0) / 10.0;
+    }
+
+    public void displayAllActivities(LocalDate date, int steps, double sleepHours) {
+        // Display the date, step count, distance, and sleep hours
+        System.out.println("DATE: " + date);
+        System.out.println("STEP COUNT: " + steps);
+        System.out.println("APPROXIMATE DISTANCE: " + calculateMiles(steps) + " miles");
+        System.out.println("SLEEP HOURS: " + sleepHours);
+        System.out.println("ACTIVITIES AND DURATIONS:");
+
+        // Display all activities
         for (Activity activity : activities) {
-            System.out.println(activity.toString());
+            System.out.println("\t" + activity.toString());
         }
     }
+    
     
 }

@@ -1,3 +1,4 @@
+// FOR ACTIVITY TRACKER FEATURE
 public interface Activity {
     int getId();
     String getName();
