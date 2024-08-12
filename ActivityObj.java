@@ -1,4 +1,6 @@
-public class ActivityObj {
+
+
+public class ActivityObj implements Activity {
     private int id;
     private String name;
     private int duration;
@@ -9,26 +11,32 @@ public class ActivityObj {
         this.duration = duration;
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public void setName(String name) {
         this.name = name;
     }
 
+    @Override
     public int getDuration() {
         return duration;
     }
 
+    @Override
     public void setDuration(int duration) {
         this.duration = duration;
     }
