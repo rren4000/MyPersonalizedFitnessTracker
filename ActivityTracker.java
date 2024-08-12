@@ -1,6 +1,7 @@
 import java.io.*;
 import java.time.*;
 import java.time.format.*;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class ActivityTracker {
@@ -13,7 +14,6 @@ public class ActivityTracker {
     private LocalDate date;
 
     Scanner scanner = new Scanner(System.in);
-
     // Constructors
     public ActivityTracker() {
         this.activities = new ArrayList<>();
@@ -48,7 +48,6 @@ public class ActivityTracker {
         this.date = date;
     }
 
-    //CLEAR THE CURRENT SCREEN
     public static void clear(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
@@ -83,15 +82,15 @@ public class ActivityTracker {
     }
 
     private static void printActivityTrackerMenu() {
-        System.out.println("----------------------------------------\n");
-        System.out.println("Choose an option:\n\t(Note: All saved data will be displayed in option \"6\")");
-        System.out.println("\n\t1. Add a new activity");
+        System.out.println("\nChoose an option:\n\t(Note: All saved data will be displayed in option \"6\")");
+        System.out.println("\t1. Add a new activity");
         System.out.println("\t2. Edit an activity");
         System.out.println("\t3. Delete an activity");
         System.out.println("\t4. Step Count");
         System.out.println("\t5. Calculate hours of sleep");
         System.out.println("\t6. Display all saved activity information");
         System.out.println("\t7. Save All Data and Return to main menu");
+        System.out.println("Please enter your choice: ");
     }
 
     public void activityClassRunnerCode() {
@@ -99,172 +98,111 @@ public class ActivityTracker {
 
         while (activityTrackerChoice != 7) {
             printActivityTrackerMenu();
-            while(true){
-                try{
-                    System.out.print("\nPlease enter your choice: ");
-                    activityTrackerChoice = scanner.nextInt();
-                    scanner.nextLine(); 
-                    break;
-                } catch(InputMismatchException e){
-                    System.out.println("\nInvalid input. Please enter a valid integer for tracker option.");
-                    scanner.nextLine();
-                }
-            }
+            try{
+                activityTrackerChoice = scanner.nextInt();
+                scanner.nextLine(); 
 
-            switch (activityTrackerChoice) {
-                // ADD ACTIVITY 
-                case 1:
-                    clear();
-                    addActivity(scanner);
-                    clear(); 
-                    break;
-                // EDIT ACTIVITY
-                case 2:
-                    clear();
-                    editActivity(scanner);
-                    break;
-                // DELETE ACTIVITY 
-                case 3:
-                    clear();
-                    deleteActivity(scanner);;
-                    break;
-                // STEPS
-                case 4:
-                    clear();
-                    System.out.println("----------------------------------------\n");
-                    while(true){
-                        try{
-                            System.out.print("Enter number of steps: ");
-                            setSteps(scanner.nextInt());
-                            break;
-                        } catch(InputMismatchException e){
-                            System.out.println("\nInvalid input. Please enter a valid integer for number of steps.\n");
-                            scanner.nextLine();
-                        }
+                switch (activityTrackerChoice) {
+                    case 1:
+                        clear();
+                        addActivity(scanner);
+                        clear();
+                        break;
+
+                    case 2:
+                        clear();
+                        editActivity(scanner);
+                        clear();
+                        break;
+
+                    case 3:
+                        clear();
+                        deleteActivity(scanner);
+                        clear();
+                        break;
+
+                    case 4:
+                        clear();
+                        System.out.println("Enter number of steps: ");
+                        this.setSteps(scanner.nextInt());
+                        System.out.println("Step Count Saved... Press enter to continue.");
+                        scanner.nextLine(); 
+                        clear();
+                        break;
+
+                    case 5:
+                        clear();
+                        enterSleepData(scanner);
+                        System.out.println("(Hours Slept Calculated and Saved.... Press enter to continue)");
+                        clear();
+                        break;
+
+                    case 6:
+                        clear();
+                        displayAllSavedActivityInfo();
+                        System.out.println("(Data loaded. Press enter to continue)");
+                        scanner.nextLine();
+                        clear();
+                        break;
+
+                    default:
+                        System.out.println("Invalid choice. Please try again.");
                     }
-                    System.out.print("Step Count Saved... Press \"Enter\" to continue.");
-                    scanner.nextLine(); 
-                    break;
-                // SLEEP
-                case 5:
+                } catch(InputMismatchException e) {
                     clear();
-                    enterSleepData(scanner);
-                    System.out.print("(\nHours Slept Calculated and Saved.... Press \"Enter\" to continue)");
-                    scanner.nextLine(); 
-                    clear();
-                    break;
-                // DISPLAY
-                case 6:
-                    clear();
-                    displayAllSavedActivityInfo();
-                    System.out.print("\n(Data loaded. Press \"Enter\" to continue)");
-                    scanner.nextLine();
-                    clear();
-                    break;
-                // INVLAID CHOICE 
-                default:
-                    clear(); 
-                    System.out.println("----------------------------------------\n");
-                    System.out.println("Invalid choice. Please enter a valid integer between 1 and 7.");
-            }
+                    System.out.println("\n\nInvalid input. Please enter a valid choice."); // ****THIS IS NEVER PRINTED!!!
+                    scanner.nextLine(); // Clear the invalid input
+                }
         }
-        // SAVE DATA 
         if (activityTrackerChoice == 7) {
             saveData();
             clear();
         }
     }
 
+    // ADD ACTIVITY
     private void addActivity(Scanner scanner) {
-        int duration;
-
-        // ACTIVITY 
-        System.out.println("----------------------------------------\n");
-        System.out.print("Activity: ");
+        System.out.println("Enter activity: ");
         String activityName = scanner.nextLine();
 
-        //DURATION
-        while(true){
-            try{
-                System.out.print("Duration (in minutes): ");
-                duration = scanner.nextInt();
-                break;
-            } catch(InputMismatchException e){
-                System.out.println("\nInvalid input. Please enter a valid integer for duration.\n");
-                scanner.nextLine();
-            }
-        }
-
-        int id = activities.size() + 1;
-        ActivityObj new_activity = new ActivityObj(id, activityName, duration);
-        activities.add(new_activity);
-
-        System.out.print("\n(New activity saved... press \"Enter\" to continue)");
+        System.out.println("Enter duration in minutes: ");
+        int duration = scanner.nextInt();
         scanner.nextLine(); 
 
+        int id = activities.size() + 1;
+        activities.add(new ActivityObj(id, activityName, duration));
+        System.out.println("(New activity saved... press enter to continue)");
+        scanner.nextLine(); 
         saveData();
     }
 
+    //EDIT ACTIVITY
     private void editActivity(Scanner scanner) {
-        int id; 
-
-        System.out.println("----------------------------------------\n");
-
         if (activities.isEmpty()) {
             System.out.println("No activities to edit.");
             return;
         }
-
         displayAllSavedActivityInfo();
+        System.out.println("Enter the ID of the activity you want to edit: ");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // 
 
-        //FIND ACTIVITY WITH USER INPUTTED ID 
-        while(true){
-            try{
-                System.out.print("\nEnter the ID of the activity you want to edit: ");
-                id = scanner.nextInt();
-                scanner.nextLine();
-                ActivityObj activityToDelete = getActivityById(id);
-                if(activityToDelete != null){break;}
-                else{System.out.println("\nInvalid Input.  Please enter an existing ID number.");}
-            } catch(InputMismatchException e){
-                System.out.println("\nInvalid input. Please enter a valid integer for ID.");
-                scanner.nextLine();
-            }
-        }
-
-        //EDIT SPECIFIC ACTIVITY VIA ITS ID
         ActivityObj activityToEdit = getActivityById(id);
         if (activityToEdit != null) {
-            clear();
-            System.out.println("----------------------------------------\n");
-            // NEW NAME
-            System.out.print("Enter new activity name (leave empty to keep current): ");
+            System.out.println("Enter new activity name (leave empty to keep current): ");
             String newName = scanner.nextLine();
             if (!newName.isEmpty()) {
                 activityToEdit.setName(newName);
             }
 
-            //NEW DURATION
-            System.out.print("\nEnter new duration in minutes (leave empty to keep current): ");
+            System.out.println("Enter new duration in minutes (leave empty to keep current): ");
             String newDurationStr = scanner.nextLine();
-
-            //IF THE USER ENTERS SOMEETHING....
-            while (!newDurationStr.isEmpty()) {
-                try {
-                    int newDuration = Integer.parseInt(newDurationStr);
-                    activityToEdit.setDuration(newDuration);
-                    break;
-                } catch (NumberFormatException e) {
-                    System.out.println("\nInvalid input. Please enter a valid integer or leave it empty to keep the current duration.\n");
-                    System.out.print("Enter new duration in minutes (leave empty to keep current): ");
-                    newDurationStr = scanner.nextLine();
-                }
+            if (!newDurationStr.isEmpty()) {
+                int newDuration = Integer.parseInt(newDurationStr);
+                activityToEdit.setDuration(newDuration);
             }
-
-            System.out.println("\n----------------------------------------");
-            System.out.print("\n(Activity Edited.... press \"Enter\" to continue)");
+            System.out.println("(Activity Edited.... press enter to continue)");
             scanner.nextLine();
-
             clear();
         } else {
             System.out.println("Activity not found.");
@@ -272,72 +210,79 @@ public class ActivityTracker {
         saveData();
     }
 
+    // DELETE ACTIVITY
     private void deleteActivity(Scanner scanner) {
-        int id; 
-
         if (activities.isEmpty()) {
             System.out.println("No activities to delete.");
             return;
         }
+
         displayAllSavedActivityInfo();
-        //GET DESIRED ID
-        while(true){
-            try{
-                System.out.print("\nEnter the ID of the activity you want to delete: ");
+        
+        int id = -1;
+        boolean validInput = false;
+
+        while (!validInput) {
+            try {
+                System.out.println("Enter the ID of the activity you want to delete (or enter 0 to cancel): ");
                 id = scanner.nextInt();
-                scanner.nextLine();
-                ActivityObj activityToDelete = getActivityById(id);
-                if(activityToDelete != null){
-                    break;
+                scanner.nextLine();  // Consume the newline character
+
+                if (id == 0) {
+                    System.out.println("Deletion canceled. Returning to menu...");
+                    return; // Exit the deletion process if the user enters 0
                 }
-                else{System.out.println("\nInvalid input.  Please enter an existing ID number.");}
-            } catch(InputMismatchException e){
-                System.out.println("\nInvalid input. Please enter a valid integer for ID.");
-                scanner.nextLine();
+
+                ActivityObj activityToDelete = getActivityById(id);
+                if (activityToDelete != null) {
+                    activities.remove(activityToDelete);
+
+                    // Reassign IDs
+                    for (int i = 0; i < activities.size(); i++) {
+                        activities.get(i).setId(i + 1);
+                    }
+
+                    System.out.println("Activity deleted.... press enter to continue)");
+                    scanner.nextLine();
+                    validInput = true; // Exit loop if deletion is successful
+                } else {
+                    System.out.println("Activity with ID " + id + " not found. Please try again.");
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid integer for the ID.");
+                scanner.nextLine();  // Consume the invalid input
             }
         }
 
-        ActivityObj activityToDelete = getActivityById(id);
-        if (activityToDelete != null) {
-            activities.remove(activityToDelete);
-            // Reassign IDs
-            for (int i = 0; i < activities.size(); i++) {
-                activities.get(i).setId(i + 1);
-            }
-            System.out.println("\n----------------------------------------");
-            System.out.print("\n(Activity deleted.... press \"Enter\" to continue)");
-            scanner.nextLine();
-        } else {
-            System.out.println("Activity not found.");
-        }
         saveData();
     }
 
+
+    // ENTER SLEEP DATA
     private void enterSleepData(Scanner scanner) {
         LocalTime bedtime = null;
         LocalTime awakeTime = null;
 
-        System.out.println("----------------------------------------\n");
-
         // Loop until a valid bedtime is entered
         while (bedtime == null) {
             try {
-                System.out.print("Enter bedtime in military time (HH:mm, i.e., 22:00): ");
+                System.out.println("Enter bedtime in military time (HH:mm, i.e., 22:00): ");
                 String bedtimeStr = scanner.nextLine();
                 bedtime = LocalTime.parse(bedtimeStr);
             } catch (DateTimeParseException e) {
-                System.out.println("\nInvalid time format. Please enter the bedtime in HH:mm format.\n");
+                System.out.println("Invalid time format. Please enter the bedtime in HH:mm format.");
             }
         }
 
         // Loop until a valid awake time is entered
         while (awakeTime == null) {
             try {
-                System.out.print("Enter awake time in military time (HH:mm, i.e., 07:00): ");
+                System.out.println("Enter awake time in military time (HH:mm, i.e., 07:00): ");
                 String awakeTimeStr = scanner.nextLine();
                 awakeTime = LocalTime.parse(awakeTimeStr);
             } catch (DateTimeParseException e) {
-                System.out.println("\nInvalid time format. Please enter the awake time in HH:mm format.\n");
+                System.out.println("Invalid time format. Please enter the awake time in HH:mm format.");
             }
         }
 
@@ -352,7 +297,7 @@ public class ActivityTracker {
         return activities.stream().filter(activity -> activity.getId() == id).findFirst().orElse(null);
     }
 
-    // Save data to a file
+    // SAVE DATA TO FILE
     private void saveData() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
             writer.write("DATE: " + this.date.format(DATE_FORMAT));
@@ -370,24 +315,27 @@ public class ActivityTracker {
                 writer.newLine();
             }
             writer.newLine();
-            System.out.println("\nData saved successfully.\n");
+            System.out.println("Data saved successfully.");
         } catch (IOException e) {
             System.out.println("Error saving data: " + e.getMessage());
         }
     }
-    
 
+    // LOAD DATA
     private void loadData() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
+        File file = new File(FILE_NAME);
+        if (!file.exists()) {
+            System.out.println("Creating new file....");
+            return;
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 if (line.startsWith("DATE: ")) {
                     this.date = LocalDate.parse(line.substring(6), DATE_FORMAT);
-                        // Parses by starting with the 7th index to the end of the string
                 } else if (line.startsWith("STEP COUNT: ")) {
                     this.steps = Integer.parseInt(line.substring(12));
-                } else if (line.startsWith("APPROXIMATE DISTANCE: ")) {
-                    //ignorable since we calculate distance
                 } else if (line.startsWith("SLEEP HOURS: ")) {
                     this.sleepHours = Double.parseDouble(line.substring(13));
                 } else if (line.startsWith("\t")) {
@@ -403,11 +351,10 @@ public class ActivityTracker {
                     }
                 }
             }
-            System.out.println("----------------------------------------\n");
             System.out.println("Data loaded successfully.");
-            System.out.println("\n----------------------------------------");
         } catch (IOException e) {
             System.out.println("Error loading data: " + e.getMessage());
         }
     }
+
 }
