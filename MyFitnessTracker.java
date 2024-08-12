@@ -39,11 +39,6 @@ public class MyFitnessTracker{
         System.out.println("************************************************");
     }
 
-    // method to help clear the screen (terminal) --- needs more work when implementing within code
-    public static void clear_screen(){
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
 
     // Activity Generator Helper Method
     public static void generateActivity(Scanner scanner) {
@@ -51,7 +46,7 @@ public class MyFitnessTracker{
         String suggestion;
         String userResponse;
         do {
-            clear_screen();
+            System.out.print("\033[H\033[2J");
             suggestion = generator.getRandomActivity();
             System.out.println("----------------------------------------");
             System.out.println(suggestion);
@@ -66,7 +61,7 @@ public class MyFitnessTracker{
                 else{System.out.println("\nInvalid Input.  Please press \"Enter\" to return to the main menu, or type 'r' to generate another suggestion.");}
             } while(true);
         } while (userResponse.equalsIgnoreCase("r"));
-        clear_screen();
+        System.out.print("\033[H\033[2J");
     }
 
 
@@ -103,7 +98,7 @@ public class MyFitnessTracker{
                     // ADD USER PROFILE
                     case 1:
                         if (!user_already_set) {
-                            clear_screen();
+                            System.out.print("\033[H\033[2J");
                             curr_user = new User(); // CREATE A NEW USER OBJECT
                             User_Input_Handler userInputHandler = new User_Input_Handler(); // CREATE USER INPUT HANDLER
                             userInputHandler.set_user_profile(curr_user); // SET USER PROFILE DETAILS
@@ -111,38 +106,38 @@ public class MyFitnessTracker{
                             User_Data_Saver dataSaver = new File_User_Data_Saver(); // CREATE FILE DATA SAVER
                             dataSaver.saveData(curr_user); // SAVE USER PROFILE TO FILE
 
-                            clear_screen();
+                            System.out.print("\033[H\033[2J");
                             user_already_set = true; // MARK THAT USER PROFILE HAS BEEN SET
                         } else {
-                            clear_screen();
+                            System.out.print("\033[H\033[2J");
                             System.out.println("----------------------------------------\n ");
                             System.out.println("Sorry, a user has already been set.  \n\nIf you would like to set a new user, please restart the program.\n");
                             System.out.println("If you would like to continue as " + curr_user.get_name() + ", please press \"Enter\".");
                             System.out.println("\n----------------------------------------");
                             scanner.nextLine();
-                            clear_screen();
+                            System.out.print("\033[H\033[2J");
                         }
                     break;
 
                     // TRACK ACTIVITIES
                     case 2:
-                        clear_screen();
+                        System.out.print("\033[H\033[2J");
                         ActivityTracker tracker = new ActivityTracker();
                         tracker.activityClassRunnerCode();
                     break;
 
                     // CALORIE MANAGER
                     case 3:
-                        clear_screen();
+                        System.out.print("\033[H\033[2J");
                         Cal_Manager_UI calManagerUI = new Cal_Manager_UI(scanner);
                         Cal_Manager calManager = new Cal_Manager(calManagerUI, scanner);
                         calManager.display_cal_manager();
-                        clear_screen();
+                        System.out.print("\033[H\033[2J");
                     break;
 
                     //SET GOALS
                     case 4:
-                        clear_screen();
+                        System.out.print("\033[H\033[2J");
                         //GOAL OBJECT
                         Goals curr_goals = new Goals();
                         //USER INTERFACE TO SET GOALS 
@@ -152,32 +147,32 @@ public class MyFitnessTracker{
                         Goal_Data_Saver dataSaver = new File_Goal_Data_Saver();
                         dataSaver.saveData(curr_goals);
 
-                        clear_screen();
+                        System.out.print("\033[H\033[2J");
                     break;  
 
                     //BMI CALCULATOR
                     case 5:
-                        clear_screen();
+                        System.out.print("\033[H\033[2J");
                         BMIInputHandler bmiInputHandler = new BMIInputHandler(scanner);
                         BMIFileHandler bmiFileHandler = new BMIFileHandler("user_profile.txt");
                         BMIDisplay bmiDisplay = new BMIDisplay();
 
                         BMI_Calc bmiCalc = new BMI_Calc(bmiInputHandler, bmiFileHandler, bmiDisplay, scanner);
                         bmiCalc.start();
-                        clear_screen();
+                        System.out.print("\033[H\033[2J");
                     break;
 
                     //ACTIVITY GENERATOR
                     case 6:
-                        clear_screen();
-                        clear_screen();
-                        clear_screen();
+                        System.out.print("\033[H\033[2J");
+                        System.out.print("\033[H\033[2J");
+                        System.out.print("\033[H\033[2J");
                         generateActivity(scanner);
-                        clear_screen();
+                        System.out.print("\033[H\033[2J");
                     break;
                 }
             } catch(InputMismatchException e) {
-                clear_screen();
+                System.out.print("\033[H\033[2J");
                 System.out.println("\n\nInvalid input. Please enter a valid choice."); // ****THIS IS NEVER PRINTED!!!
                 scanner.nextLine(); // Clear the invalid input
             }
@@ -185,7 +180,7 @@ public class MyFitnessTracker{
 
             //QUIT... clear screen and print closing message
             if (user_choice == 7){
-                clear_screen();
+                System.out.print("\033[H\033[2J");
                 print_closing_msg();
             }
             //THE PROGRAM IS FINISHED... close the scanner
