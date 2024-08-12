@@ -141,11 +141,17 @@ public class MyFitnessTracker{
                     break;
 
                     //SET GOALS
-                    case 4: 
+                    case 4:
                         clear_screen();
-                        clear_screen();
+                        //GOAL OBJECT
                         Goals curr_goals = new Goals();
-                        curr_goals.set_goals();
+                        //USER INTERFACE TO SET GOALS 
+                        GoalInputHandler inputHandler = new GoalInputHandler();
+                        inputHandler.set_goals(curr_goals);
+                        //SAVES GOALS TO FILE 
+                        GoalDataSaver dataSaver = new FileGoalDataSaver();
+                        dataSaver.saveData(curr_goals);
+
                         clear_screen();
                     break;  
 
