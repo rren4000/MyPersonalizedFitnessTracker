@@ -73,7 +73,12 @@ public class ActivityTracker {
 
                     case 6:
                         ClearConsole.clear();
-                        activityTrackerHandler.getActivityManager().displayAllActivities();
+                        //activityTrackerHandler.getActivityManager().displayAllActivities();
+                        activityTrackerHandler.getActivityManager().displayAllActivities(
+                            activityTrackerHandler.getDate(),
+                            activityTrackerHandler.getSteps(),
+                            activityTrackerHandler.getSleepHours()
+                        );
                         System.out.println("(Data loaded. Press enter to continue)");
                         scanner.nextLine();
                         ClearConsole.clear();
@@ -113,7 +118,11 @@ public class ActivityTracker {
         System.out.println("No activities to edit.");
         return;
     }
-    activityTrackerHandler.getActivityManager().displayAllActivities();
+        activityTrackerHandler.getActivityManager().displayAllActivities(
+        activityTrackerHandler.getDate(),
+        activityTrackerHandler.getSteps(),
+        activityTrackerHandler.getSleepHours()
+    );
 
     int id = -1;
     boolean validInput = false;
@@ -154,7 +163,12 @@ public class ActivityTracker {
             return;
         }
 
-        activityTrackerHandler.getActivityManager().displayAllActivities();
+        activityTrackerHandler.getActivityManager().displayAllActivities(
+        activityTrackerHandler.getDate(),
+        activityTrackerHandler.getSteps(),
+        activityTrackerHandler.getSleepHours()
+    );
+
 
         int id = -1;
         boolean validInput = false;
