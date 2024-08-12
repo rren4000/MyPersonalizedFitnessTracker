@@ -78,50 +78,46 @@ public class MyFitnessTracker{
                     // ADD USER PROFILE
                     case 1:
                         if (!user_already_set) {
-                            clear_screen();
+                            ClearConsole.clear();
                             curr_user = new User(); // CREATE A NEW USER OBJECT
                             User_Input_Handler userInputHandler = new User_Input_Handler(); // CREATE USER INPUT HANDLER
-<<<<<<< Updated upstream
-=======
-                            //userInputHandler.setUserProfile(curr_user); // SET USER PROFILE DETAILS
->>>>>>> Stashed changes
                             userInputHandler.set_user_profile(curr_user); // SET USER PROFILE DETAILS
-
+                            
                             User_Data_Saver dataSaver = new File_User_Data_Saver(); // CREATE FILE DATA SAVER
                             dataSaver.saveData(curr_user); // SAVE USER PROFILE TO FILE
 
-                            clear_screen();
+                            ClearConsole.clear();
                             user_already_set = true; // MARK THAT USER PROFILE HAS BEEN SET
                         } else {
-                            clear_screen();
+                            ClearConsole.clear();
                             System.out.println("----------------------------------------\n ");
                             System.out.println("Sorry, a user has already been set.  \n\nIf you would like to set a new user, please restart the program.\n");
                             System.out.println("If you would like to continue as " + curr_user.get_name() + ", please press \"Enter\".");
                             System.out.println("\n----------------------------------------");
                             scanner.nextLine();
-                            clear_screen();
+                            ClearConsole.clear();
                         }
                     break;
 
                     // TRACK ACTIVITIES
                     case 2:
-                        clear_screen();
+                        ClearConsole.clear();
                         ActivityTracker tracker = new ActivityTracker();
                         tracker.activityClassRunnerCode();
                     break;
 
                     // CALORIE MANAGER
                     case 3:
-                        clear_screen();
+                        ClearConsole.clear();
                         Cal_Manager_UI calManagerUI = new Cal_Manager_UI(scanner);
                         Cal_Manager calManager = new Cal_Manager(calManagerUI, scanner);
                         calManager.display_cal_manager();
-                        clear_screen();
+                        ClearConsole.clear();
                     break;
 
                     //SET GOALS
                     case 4:
-                        clear_screen();
+                        ClearConsole.clear();
                         //GOAL OBJECT
                         Goals curr_goals = new Goals();
                         //USER INTERFACE TO SET GOALS 
@@ -131,30 +127,30 @@ public class MyFitnessTracker{
                         Goal_Data_Saver dataSaver = new File_Goal_Data_Saver();
                         dataSaver.saveData(curr_goals);
 
-                        clear_screen();
+                        ClearConsole.clear();
                     break;  
 
                     //BMI CALCULATOR
                     case 5:
-                        clear_screen();
+                        ClearConsole.clear();
                         BMIInputHandler bmiInputHandler = new BMIInputHandler(scanner);
                         BMIFileHandler bmiFileHandler = new BMIFileHandler("user_profile.txt");
                         BMIDisplay bmiDisplay = new BMIDisplay();
 
                         BMI_Calc bmiCalc = new BMI_Calc(bmiInputHandler, bmiFileHandler, bmiDisplay, scanner);
                         bmiCalc.start();
-                        clear_screen();
+                        ClearConsole.clear();
                     break;
 
                     //ACTIVITY GENERATOR
                     case 6:
                         ClearConsole.clear();
                         ActivityGenerator.generateActivity(scanner);
-                        clear_screen();
+                        ClearConsole.clear();
                     break;
                 }
             } catch(InputMismatchException e) {
-                clear_screen();
+                ClearConsole.clear();
                 System.out.println("\n\nInvalid input. Please enter a valid choice."); // ****THIS IS NEVER PRINTED!!!
                 scanner.nextLine(); // Clear the invalid input
             }
@@ -162,7 +158,7 @@ public class MyFitnessTracker{
 
             //QUIT... clear screen and print closing message
             if (user_choice == 7){
-                clear_screen();
+                ClearConsole.clear();
                 print_closing_msg();
             }
             //THE PROGRAM IS FINISHED... close the scanner
