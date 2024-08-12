@@ -22,11 +22,8 @@ public class User {
 
     // GETTERS
     public String get_name() {return name;}
-
     public int get_age() {return age;}
-
     public int get_weight() {return weight;}
-
     public int get_height() {return height;}
 
     // Setters

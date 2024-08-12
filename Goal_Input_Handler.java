@@ -76,8 +76,8 @@ public class Goal_Input_Handler {
         while (true) {
             try {
                 System.out.print("Goal Step Count (in numerical form): ");
-                int stepGoal = scanner.nextInt();
-                goals.set_goal_steps(stepGoal);
+                int step_goal = scanner.nextInt();
+                goals.set_goal_steps(step_goal);
                 break;
             } catch (InputMismatchException e) {
                 System.out.println("\nInvalid input. Please enter a valid integer for step count.\n");

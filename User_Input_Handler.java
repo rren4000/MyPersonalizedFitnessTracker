@@ -8,7 +8,7 @@ public class User_Input_Handler {
         this.scanner = new Scanner(System.in);
     }
 
-    public void setUserProfile(User user) {
+    public void set_user_profile(User user) {
         System.out.println("----------------------------------------\n");
         System.out.println("Welcome to User Settings!\n");
         System.out.println("----------------------------------------\n");
