@@ -1,0 +1,14 @@
+public class BMICalculator {
+    private int weight;
+    private int height;
+
+    public BMICalculator(int weight, int height) {
+        this.weight = weight;
+        this.height = height;
+    }
+
+    public double calculateBMI() {
+        double bmi = ((double) weight / (height * height)) * 703;
+        return Math.round(bmi * 10.0) / 10.0;
+    }
+}

@@ -158,10 +158,12 @@ public class MyFitnessTracker{
                     //BMI CALCULATOR
                     case 5:
                         clear_screen();
-                        clear_screen();
-                        BMI_Calc bmi_calc = new BMI_Calc();
-                        bmi_calc.display_BMI_Calc();
-                        bmi_calc.close_BMI_Calc();
+                        BMIInputHandler bmiInputHandler = new BMIInputHandler(scanner);
+                        BMIFileHandler bmiFileHandler = new BMIFileHandler("user_profile.txt");
+                        BMIDisplay bmiDisplay = new BMIDisplay();
+
+                        BMI_Calc bmiCalc = new BMI_Calc(bmiInputHandler, bmiFileHandler, bmiDisplay, scanner);
+                        bmiCalc.start();
                         clear_screen();
                     break;
 
