@@ -45,31 +45,6 @@ public class MyFitnessTracker{
         System.out.flush();
     }
 
-    // Activity Generator Helper Method
-    public static void generateActivity(Scanner scanner) {
-        ActivityGenerator generator = new ActivityGenerator();
-        String suggestion;
-        String userResponse;
-        do {
-            clear_screen();
-            suggestion = generator.getRandomActivity();
-            System.out.println("----------------------------------------");
-            System.out.println(suggestion);
-            System.out.println("Press \"Enter\" to return to the main menu, or type 'r' to generate another suggestion.");
-            
-            //ENSURE VALID INPUT
-            do{
-                userResponse = scanner.nextLine();
-                //IF USER INPUT IS VALID
-                if(userResponse.equalsIgnoreCase("r") || userResponse.equals("")){break;}
-                //ELSE USER INPUT IS INVALID... REPEAT INSTRUCTIONS
-                else{System.out.println("\nInvalid Input.  Please press \"Enter\" to return to the main menu, or type 'r' to generate another suggestion.");}
-            } while(true);
-        } while (userResponse.equalsIgnoreCase("r"));
-        clear_screen();
-    }
-
-
     public static void main (String args[]){
         Scanner scanner = new Scanner(System.in);
         int user_choice = 0;//INITALLY 0 AS THE USER HAS YET TO SET THEIR DESIRED ACTION
@@ -106,6 +81,10 @@ public class MyFitnessTracker{
                             clear_screen();
                             curr_user = new User(); // CREATE A NEW USER OBJECT
                             User_Input_Handler userInputHandler = new User_Input_Handler(); // CREATE USER INPUT HANDLER
+<<<<<<< Updated upstream
+=======
+                            //userInputHandler.setUserProfile(curr_user); // SET USER PROFILE DETAILS
+>>>>>>> Stashed changes
                             userInputHandler.set_user_profile(curr_user); // SET USER PROFILE DETAILS
 
                             User_Data_Saver dataSaver = new File_User_Data_Saver(); // CREATE FILE DATA SAVER
@@ -169,10 +148,8 @@ public class MyFitnessTracker{
 
                     //ACTIVITY GENERATOR
                     case 6:
-                        clear_screen();
-                        clear_screen();
-                        clear_screen();
-                        generateActivity(scanner);
+                        ClearConsole.clear();
+                        ActivityGenerator.generateActivity(scanner);
                         clear_screen();
                     break;
                 }
