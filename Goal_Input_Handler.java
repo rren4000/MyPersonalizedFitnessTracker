@@ -28,7 +28,8 @@ public class Goal_Input_Handler {
                 }
             }
 
-            clearScreen();
+            //CLEAR THE SCREEN
+            System.out.print("\033[H\033[2J");
 
             switch (curr_goal) {
                 //WEIGHT
@@ -105,11 +106,5 @@ public class Goal_Input_Handler {
                 scanner.nextLine();
             }
         }
-    }
-
-    //CLEAR THE CURRENT SCREEN
-    private void clearScreen() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
     }
 }
