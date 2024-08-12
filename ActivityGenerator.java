@@ -37,7 +37,7 @@ public class ActivityGenerator {
 
         //GENERATE RANDOM ACTIVITY FROM ARRAYLIST 
         public String getRandomActivity(){
-            ClearConsole.clear();
+            System.out.print("\033[H\033[2J");
             Random random = new Random();
             generateNum = random.nextInt(fitnessActivity.length);
 
@@ -57,7 +57,7 @@ public class ActivityGenerator {
             String suggestion;
             String userResponse;
             do {
-                ClearConsole.clear();
+                System.out.print("\033[H\033[2J");
                 suggestion = generator.getRandomActivity();
                 System.out.println("----------------------------------------");
                 System.out.println(suggestion);
@@ -72,7 +72,7 @@ public class ActivityGenerator {
                     else{System.out.println("\nInvalid Input.  Please press \"Enter\" to return to the main menu, or type 'r' to generate another suggestion.");}
                 } while(true);
             } while (userResponse.equalsIgnoreCase("r"));
-            ClearConsole.clear();
+            System.out.print("\033[H\033[2J");
         }
 
         

@@ -38,41 +38,41 @@ public class ActivityTracker {
 
                 switch (activityTrackerChoice) {
                     case 1:
-                        ClearConsole.clear();
+                        System.out.print("\033[H\033[2J");
                         addActivity();
-                        ClearConsole.clear();
+                        System.out.print("\033[H\033[2J");
                         break;
 
                     case 2:
-                        ClearConsole.clear();
+                        System.out.print("\033[H\033[2J");
                         editActivity();
-                        ClearConsole.clear();
+                        System.out.print("\033[H\033[2J");
                         break;
 
                     case 3:
-                        ClearConsole.clear();
+                        System.out.print("\033[H\033[2J");
                         deleteActivity();
-                        ClearConsole.clear();
+                        System.out.print("\033[H\033[2J");
                         break;
 
                     case 4:
-                        ClearConsole.clear();
+                        System.out.print("\033[H\033[2J");
                         System.out.print("Enter number of steps: ");
                         activityTrackerHandler.setSteps(scanner.nextInt());
                         System.out.println("Step Count Saved... Press enter to continue.");
                         scanner.nextLine();
-                        ClearConsole.clear();
+                        System.out.print("\033[H\033[2J");
                         break;
 
                     case 5:
-                        ClearConsole.clear();
+                        System.out.print("\033[H\033[2J");
                         enterSleepData();
                         System.out.println("(Hours Slept Calculated and Saved.... Press enter to continue)");
-                        ClearConsole.clear();
+                        System.out.print("\033[H\033[2J");
                         break;
 
                     case 6:
-                        ClearConsole.clear();
+                        System.out.print("\033[H\033[2J");
                         //activityTrackerHandler.getActivityManager().displayAllActivities();
                         activityTrackerHandler.getActivityManager().displayAllActivities(
                             activityTrackerHandler.getDate(),
@@ -81,14 +81,14 @@ public class ActivityTracker {
                         );
                         System.out.println("(Data loaded. Press enter to continue)");
                         scanner.nextLine();
-                        ClearConsole.clear();
+                        System.out.print("\033[H\033[2J");
                         break;
 
                     default:
                         System.out.println("Invalid choice. Please try again.");
                 }
             } catch (InputMismatchException e) {
-                ClearConsole.clear();
+                System.out.print("\033[H\033[2J");
                 System.out.println("\n\nInvalid input. Please enter a valid choice.");
                 scanner.nextLine(); // Clear the invalid input
             }
@@ -96,7 +96,7 @@ public class ActivityTracker {
 
         if (activityTrackerChoice == 7) {
             activityDataSaver.saveData(activityTrackerHandler);
-            ClearConsole.clear();
+            System.out.print("\033[H\033[2J");
         }
     }
 
