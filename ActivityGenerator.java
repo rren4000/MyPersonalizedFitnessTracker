@@ -35,15 +35,9 @@ public class ActivityGenerator {
         }
 
 
-        //CLEAR THE CURRENT SCREEN
-        public static void clear(){
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
-        }
-
         //GENERATE RANDOM ACTIVITY FROM ARRAYLIST 
         public String getRandomActivity(){
-            clear();
+            ClearConsole.clear();
             Random random = new Random();
             generateNum = random.nextInt(fitnessActivity.length);
 
