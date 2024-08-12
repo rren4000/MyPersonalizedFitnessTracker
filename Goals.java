@@ -14,7 +14,7 @@ public class Goals {
     private ActivityDuration act_duration;
 
     //GENERAL ATTRIBUTES
-    public Scanner scanner;
+    public Scanner scanner = new Scanner(System.in);
     private LocalDate date;
 
     //DEFAULT GOALS CONSTRUCTORs
@@ -67,7 +67,6 @@ public class Goals {
 
     //MAIN GOAL SETTING MENU
     public void set_goals(){
-        Scanner scanner = new Scanner(System.in);
         int continue_loop = 1;  // 1: LOOP OF CREATING GOALS SHOULD CONTINUE... 
                                 //2: LOOP SHOULD CEASE AND USER SHOULD GO BACK TO MAIN MENU
         int curr_goal;  //1: USER WANTS TO SET BODY WEIGHT GOAL

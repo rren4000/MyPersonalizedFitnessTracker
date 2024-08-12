@@ -12,7 +12,8 @@ public class User {
     private int weight;
     private int height;  
 
-    public Scanner scanner;
+    //public Scanner scanner;
+    public Scanner scanner = new Scanner(System.in);
 
     //DEFAULT USER CONSTRUCTOR
     public User(){
@@ -20,7 +21,7 @@ public class User {
         this.age = 0;
         this.weight = 0;
         this.height = 0;
-        this.scanner = new Scanner(System.in);
+        //this.scanner = new Scanner(System.in);
     }
 
     //PARAMETER USER CONSTRUCTOR 
@@ -29,7 +30,7 @@ public class User {
         this.age = age;
         this.weight = weight;
         this.height = height;
-        this.scanner = new Scanner(System.in);
+        //this.scanner = new Scanner(System.in);
     }
 
     //CLEAR THE CURRENT SCREEN
@@ -40,7 +41,8 @@ public class User {
 
     //SET USER PROFILE WITH USER INPUT 
     public void set_profile(){
-        Scanner scanner = new Scanner(System.in);
+        //Scanner scanner = new Scanner(System.in);
+        //this.scanner = new Scanner(System.in);
 
         //TITLE & INTRODCUCTION 
         System.out.println("----------------------------------------\n");
