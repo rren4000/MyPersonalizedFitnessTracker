@@ -7,6 +7,9 @@ public class BMICalculator {
         this.height = height;
     }
 
+    public void setWeight(int weight) {this.weight = weight;}
+    public void setHeight(int height) {this.height = height;}
+
     public double calculateBMI() {
         double bmi = ((double) weight / (height * height)) * 703;
         return Math.round(bmi * 10.0) / 10.0;

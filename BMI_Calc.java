@@ -13,6 +13,11 @@ public class BMI_Calc {
         this.scanner = scanner; 
     }
 
+    public BMIFileHandler getBMIFileHandler() {return fileHandler;}
+    public BMIInputHandler getBMIInputHandler() {return inputHandler;}
+    public BMIDisplay getBMIDisplay() {return display;}
+    public Scanner getScanner() {return scanner;}
+
     public void start() {
         int[] data = new int[2]; // [weight, height]
 
