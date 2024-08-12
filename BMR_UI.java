@@ -8,6 +8,12 @@ public class BMR_UI {
         this.scanner = scanner;
     }
 
+    public void displayWelcomeMessage() {
+        System.out.println("----------------------------------------\n");
+        System.out.println("Welcome to the BMR Calculator!");
+        System.out.println("\n----------------------------------------\n");
+    }
+
     public int getIntInput(String prompt) {
         int input = 0;
         while (true) {
@@ -17,7 +23,7 @@ public class BMR_UI {
                 break;
             } catch (InputMismatchException e) {
                 System.out.println("\n\tInvalid input. Please enter a valid integer.");
-                scanner.nextLine(); // clear the buffer
+                scanner.nextLine();
             }
         }
         return input;
@@ -31,6 +37,7 @@ public class BMR_UI {
                 break;
             } else {
                 System.out.println("\n\tInvalid input. Please enter a valid option between " + min + " and " + max + ".");
+                scanner.nextLine();
             }
         }
         return input;
@@ -47,5 +54,11 @@ public class BMR_UI {
         System.out.print("Thank you for using the BMR Calculator! \n\nPress \"Enter\" to return to the main menu.");
         scanner.nextLine(); // Wait for user input
         scanner.nextLine(); // Wait for Enter
+        this.clear();
+    }
+
+    public static void clear() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 }

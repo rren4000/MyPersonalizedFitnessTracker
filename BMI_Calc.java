@@ -41,7 +41,9 @@ public class BMI_Calc {
 
     private void closeBMI_Calc() {
         System.out.print("Thank you for using the BMI Calculator! \n\nPress \"Enter\" to return to the main menu.");
-        scanner.nextLine();
+        if(scanner.hasNextLine()){
+            scanner.nextLine(); // clears leftover input
+        }
         scanner.nextLine();  // Wait for the user to press Enter
         
     }

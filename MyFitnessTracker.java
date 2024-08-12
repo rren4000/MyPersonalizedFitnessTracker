@@ -134,9 +134,9 @@ public class MyFitnessTracker{
                     // CALORIE MANAGER
                     case 3:
                         clear_screen();
-                        clear_screen();
-                        Cal_Manager cal_Manager = new Cal_Manager();
-                        cal_Manager.display_cal_manager();
+                        Cal_Manager_UI calManagerUI = new Cal_Manager_UI(scanner);
+                        Cal_Manager calManager = new Cal_Manager(calManagerUI, scanner);
+                        calManager.display_cal_manager();
                         clear_screen();
                     break;
 

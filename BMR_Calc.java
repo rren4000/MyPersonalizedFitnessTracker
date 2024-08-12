@@ -12,6 +12,7 @@ public class BMR_Calc {
     }
 
     public void display_bmr_calc() {
+        this.ui.displayWelcomeMessage();
         // Load profile data
         int[] profileData = fileHandler.loadProfile("user_profile.txt");
         int age = profileData[0];
