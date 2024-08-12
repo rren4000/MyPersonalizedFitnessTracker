@@ -8,13 +8,8 @@ public class BMIInputHandler {
         this.scanner = scanner;
     }
 
-    public int getWeight() {
-        return getIntInput("Weight (in pounds): ");
-    }
-
-    public int getHeight() {
-        return getIntInput("Height (in inches): ");
-    }
+    public int getWeight() {return getIntInput("Weight (in pounds): ");}
+    public int getHeight() {return getIntInput("Height (in inches): ");}
 
     private int getIntInput(String prompt) {
         int input = 0;
