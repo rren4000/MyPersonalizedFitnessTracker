@@ -20,7 +20,6 @@ public class Cal_Tracker_UI {
                 System.out.println("----------------------------------------");
                 System.out.println("\nInvalid input. Please enter a valid integer for calories.\n");
                 scanner.nextLine(); // clear the buffer
-                this.clear();
             }
         }
     }

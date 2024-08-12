@@ -106,7 +106,7 @@ public class MyFitnessTracker{
                             clear_screen();
                             curr_user = new User(); // CREATE A NEW USER OBJECT
                             User_Input_Handler userInputHandler = new User_Input_Handler(); // CREATE USER INPUT HANDLER
-                            userInputHandler.setUserProfile(curr_user); // SET USER PROFILE DETAILS
+                            //userInputHandler.setUserProfile(curr_user); // SET USER PROFILE DETAILS
 
                             User_Data_Saver dataSaver = new File_User_Data_Saver(); // CREATE FILE DATA SAVER
                             dataSaver.saveData(curr_user); // SAVE USER PROFILE TO FILE
