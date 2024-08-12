@@ -80,7 +80,7 @@ public class MyFitnessTracker{
                             //5: BMI CALCULATOR
                             //6: ACTIVITY GENERATOR
                             //7: QUIT
-        int user_already_set = 0; // INITALLY 0 AS NO USER HAS BEEN SET 
+        boolean user_already_set = false; // INITALLY FALSE AS NO USER HAS BEEN SET 
         User curr_user = new User(); // CREATES AN EMPTY USER OBJECT
         
         // Opening Message
@@ -102,17 +102,18 @@ public class MyFitnessTracker{
                 switch (user_choice) {
                     // ADD USER PROFILE
                     case 1:
-                        //IF USER NOT SET, CREATE A NEW ONE
-                        if(user_already_set == 0){
+                        if (!user_already_set) {
                             clear_screen();
+                            curr_user = new User(); // CREATE A NEW USER OBJECT
+                            User_Input_Handler userInputHandler = new User_Input_Handler(); // CREATE USER INPUT HANDLER
+                            userInputHandler.setUserProfile(curr_user); // SET USER PROFILE DETAILS
+
+                            User_Data_Saver dataSaver = new File_User_Data_Saver(); // CREATE FILE DATA SAVER
+                            dataSaver.saveData(curr_user); // SAVE USER PROFILE TO FILE
+
                             clear_screen();
-                            curr_user.set_profile(); 
-                            clear_screen();
-                            user_already_set = 1; 
-                        }
-                        //ELSE... present user with other options
-                        else if(user_already_set == 1){
-                            clear_screen();
+                            user_already_set = true; // MARK THAT USER PROFILE HAS BEEN SET
+                        } else {
                             clear_screen();
                             System.out.println("----------------------------------------\n ");
                             System.out.println("Sorry, a user has already been set.  \n\nIf you would like to set a new user, please restart the program.\n");
@@ -146,10 +147,10 @@ public class MyFitnessTracker{
                         //GOAL OBJECT
                         Goals curr_goals = new Goals();
                         //USER INTERFACE TO SET GOALS 
-                        GoalInputHandler inputHandler = new GoalInputHandler();
+                        Goal_Input_Handler inputHandler = new Goal_Input_Handler();
                         inputHandler.set_goals(curr_goals);
                         //SAVES GOALS TO FILE 
-                        GoalDataSaver dataSaver = new FileGoalDataSaver();
+                        Goal_Data_Saver dataSaver = new File_Goal_Data_Saver();
                         dataSaver.saveData(curr_goals);
 
                         clear_screen();

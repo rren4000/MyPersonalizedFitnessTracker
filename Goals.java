@@ -26,7 +26,7 @@ public class Goals {
     public int get_goal_weight() {return weight;}
     public int get_goal_steps() {return steps;}
     public ActivityDuration get_goal_activity_duration() {return act_duration;}
-    public LocalDate getDate() {return date;}
+    public LocalDate get_date() {return date;}
 
     // SETTERS
     public void set_goal_weight(int weight) {this.weight = weight;}

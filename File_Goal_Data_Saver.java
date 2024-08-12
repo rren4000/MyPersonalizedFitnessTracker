@@ -1,29 +1,31 @@
 import java.io.*;
 import java.time.format.DateTimeFormatter;
 
-public class FileGoalDataSaver implements GoalDataSaver {
-    private static final String FILE_NAME = "goal.txt";
+public class File_Goal_Data_Saver implements Goal_Data_Saver {
+    private static final String FILE_NAME = "goals.txt";
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     @Override
-    public void saveData(Goal goal) {
+    public void saveData(Goals goals) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
-            writer.write(goal.getDate().format(DATE_FORMAT) + ":");
+            writer.write(goals.get_date().format(DATE_FORMAT) + ":");
             writer.newLine();
             writer.newLine();
 
-            // Add goal data to file...
-            if(goal.getGoalWeight() != 0) {
-                writer.write("Goal Weight (in pounds): " + goal.getGoalWeight());
+            // IF WEIGHT IS SET... ADD TO FILE
+            if(goals.get_goal_weight() != 0) {
+                writer.write("Goal Weight (in pounds): " + goals.get_goal_weight());
                 writer.newLine();
             }
 
-            if(goal.getGoalSteps() != 0) {
-                writer.write("Goal Step Count: " + goal.getGoalSteps());
+            //IF STEP IS SET... ADD TO FILE
+            if(goals.get_goal_steps() != 0) {
+                writer.write("Goal Step Count: " + goals.get_goal_steps());
                 writer.newLine();
             }
 
-            ActivityDuration duration = goal.getGoalActivityDuration();
+            //IF ACTIVITY DURATION IS SET... ADD TO FILE 
+            ActivityDuration duration = goals.get_goal_activity_duration();
             if(duration.get_move() != 0 || duration.get_exercise() != 0 || duration.get_stand() != 0) {
                 writer.write("Goal Activity Duration (in hours): ");
                 writer.newLine();

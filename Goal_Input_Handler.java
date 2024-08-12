@@ -1,7 +1,7 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class GoalInputHandler {
+public class Goal_Input_Handler {
     private Scanner scanner = new Scanner(System.in);
 
     public void set_goals(Goals goals) {
