@@ -127,7 +127,6 @@ public class MyFitnessTracker{
                     // TRACK ACTIVITIES
                     case 2:
                         clear_screen();
-                        clear_screen();
                         ActivityTracker tracker = new ActivityTracker();
                         tracker.activityClassRunnerCode();
                     break;
