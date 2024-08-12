@@ -16,7 +16,7 @@ public class Cal_Tracker_UI {
                 scanner.nextLine(); // consume newline
                 return cal;
             } catch (InputMismatchException e) {
-                clear();
+                System.out.print("\033[H\033[2J");
                 System.out.println("----------------------------------------");
                 System.out.println("\nInvalid input. Please enter a valid integer for calories.\n");
                 scanner.nextLine(); // clear the buffer
@@ -39,10 +39,5 @@ public class Cal_Tracker_UI {
         System.out.println("\n----------------------------------------\n");
         System.out.print("Thank you for using the Calorie Tracker! \n\nPress \"Enter\" to return to the main menu.");
         scanner.nextLine();
-    }
-
-    public static void clear() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
     }
 }

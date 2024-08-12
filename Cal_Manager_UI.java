@@ -9,7 +9,7 @@ public class Cal_Manager_UI {
     }
 
     public void displayWelcomeMessage() {
-        clear();
+        System.out.print("\033[H\033[2J");
         System.out.println("----------------------------------------\n");
         System.out.println("Welcome to Calorie Manager!");
         System.out.println("\n----------------------------------------\n");
@@ -32,7 +32,7 @@ public class Cal_Manager_UI {
             } catch (InputMismatchException e) {
                 System.out.println("\nInvalid input. Please enter a valid integer.");
                 scanner.nextLine(); // Clear the invalid input
-                this.clear();
+                System.out.print("\033[H\033[2J");
             }
         }
         return choice;
@@ -44,10 +44,5 @@ public class Cal_Manager_UI {
 
     public void displayExitMessage() {
         System.out.println("Going back to the main menu...");
-    }
-
-    public static void clear() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
     }
 }

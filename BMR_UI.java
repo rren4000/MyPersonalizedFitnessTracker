@@ -54,11 +54,6 @@ public class BMR_UI {
         System.out.print("Thank you for using the BMR Calculator! \n\nPress \"Enter\" to return to the main menu.");
         scanner.nextLine(); // Wait for user input
         scanner.nextLine(); // Wait for Enter
-        this.clear();
-    }
-
-    public static void clear() {
         System.out.print("\033[H\033[2J");
-        System.out.flush();
     }
 }

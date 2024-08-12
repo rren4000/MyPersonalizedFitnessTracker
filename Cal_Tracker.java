@@ -35,7 +35,7 @@ public class Cal_Tracker {
 
     // DISPLAY BEGINNING SCREEN
     public void begin_tracker() {
-        ui.clear();
+        System.out.print("\033[H\033[2J");
         ui.displayWelcomeMessage();
     }
 
@@ -50,7 +50,7 @@ public class Cal_Tracker {
 
         update_calories();
 
-        ui.clear();
+        System.out.print("\033[H\033[2J");
 
         ui.displayTotalCalories(total_cal);
 
