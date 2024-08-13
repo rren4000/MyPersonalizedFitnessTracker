@@ -35,13 +35,9 @@ public class BMI_Calc_Handler {
         closeBMI_Calc();
     }
 
-    private int getWeight() {
-        return getIntInput("Weight (in pounds): ");
-    }
-
-    private int getHeight() {
-        return getIntInput("Height (in inches): ");
-    }
+    //GET REQUIRED DATA FROM USER
+    private int getWeight() {return getIntInput("Weight (in pounds): ");}
+    private int getHeight() {return getIntInput("Height (in inches): ");}
 
     private int getIntInput(String prompt) {
         int input = 0;
