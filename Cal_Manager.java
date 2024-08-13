@@ -1,12 +1,9 @@
-import java.util.Scanner;
 
 public class Cal_Manager {
-    private final Scanner scanner;
     private final Cal_Manager_UI ui;
 
-    public Cal_Manager(Cal_Manager_UI ui, Scanner scanner) {
+    public Cal_Manager(Cal_Manager_UI ui) {
         this.ui = ui;
-        this.scanner = scanner;
     }
 
     // Display the Calorie Manager Menu

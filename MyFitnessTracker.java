@@ -106,7 +106,7 @@ public class MyFitnessTracker{
         // CLEAR SCREEN
         System.out.print("\033[H\033[2J");
         Cal_Manager_UI calManagerUI = new Cal_Manager_UI(scanner);
-        Cal_Manager calManager = new Cal_Manager(calManagerUI, scanner);
+        Cal_Manager calManager = new Cal_Manager(calManagerUI);
         calManager.display_cal_manager();
         // CLEAR SCREEN
         System.out.print("\033[H\033[2J");
