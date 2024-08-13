@@ -2,7 +2,7 @@ import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Cal_Tracker_FileHandler {
+public class Cal_Tracker_File_Handler {
     private static final String FILE_NAME = "calorie_tracker_data.txt";
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 

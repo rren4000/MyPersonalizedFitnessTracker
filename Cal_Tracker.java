@@ -1,16 +1,13 @@
 
 import java.time.LocalDate;
-//import java.time.format.DateTimeFormatter;
 
 public class Cal_Tracker {
     private int total_cal;
     private int goal_cal;
 
-    //private static final String FILE_NAME = "calorie_tracker_data.txt";
-    //private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private LocalDate date;
 
-    private Cal_Tracker_FileHandler fileHandler;
+    private Cal_Tracker_File_Handler fileHandler;
     private Cal_Tracker_UI ui;
 
     // Constructor
@@ -18,7 +15,7 @@ public class Cal_Tracker {
         this.total_cal = 0;
         this.goal_cal = 0;
         this.date = LocalDate.now();
-        this.fileHandler = new Cal_Tracker_FileHandler();
+        this.fileHandler = new Cal_Tracker_File_Handler();
         this.ui = new Cal_Tracker_UI();
     }
 
