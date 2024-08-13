@@ -129,10 +129,10 @@ public class MyFitnessTracker{
     public static void calculate_bmi(Scanner scanner) {
         // CLEAR SCREEN
         System.out.print("\033[H\033[2J");
-        BMI_Input_Handler bmiInputHandler = new BMI_Input_Handler(scanner);
+        //BMI_Input_Handler bmiInputHandler = new BMI_Input_Handler(scanner);
         BMI_File_Handler bmiFileHandler = new BMI_File_Handler("user_profile.txt");
         BMI_Display bmiDisplay = new BMI_Display();
-        BMI_Calc_Handler bmiCalc = new BMI_Calc_Handler(bmiInputHandler, bmiFileHandler, bmiDisplay, scanner);
+        BMI_Calc_Handler bmiCalc = new BMI_Calc_Handler(bmiFileHandler, bmiDisplay, scanner);
         bmiCalc.start();
         // CLEAR SCREEN
         System.out.print("\033[H\033[2J");

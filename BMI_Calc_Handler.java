@@ -1,22 +1,16 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class BMI_Calc_Handler {
-    private BMI_Input_Handler inputHandler;
+    private Scanner scanner;
     private BMI_File_Handler fileHandler;
     private BMI_Display display;
-    private Scanner scanner; 
 
-    public BMI_Calc_Handler(BMI_Input_Handler inputHandler, BMI_File_Handler fileHandler, BMI_Display display, Scanner scanner) {
-        this.inputHandler = inputHandler;
+    public BMI_Calc_Handler(BMI_File_Handler fileHandler, BMI_Display display, Scanner scanner) {
+        this.scanner = scanner;
         this.fileHandler = fileHandler;
         this.display = display;
-        this.scanner = scanner; 
     }
-
-    public BMI_File_Handler getBMIFileHandler() {return fileHandler;}
-    public BMI_Input_Handler getBMIInputHandler() {return inputHandler;}
-    public BMI_Display getBMIDisplay() {return display;}
-    public Scanner getScanner() {return scanner;}
 
     public void start() {
         int[] data = new int[2]; // [weight, height]
@@ -28,9 +22,9 @@ public class BMI_Calc_Handler {
             weight = data[0];
             height = data[1];
         } else {
-            weight = inputHandler.getWeight();
+            weight = getWeight();
             scanner.nextLine();
-            height = inputHandler.getHeight();
+            height = getHeight();
             scanner.nextLine();
         }
 
@@ -41,9 +35,31 @@ public class BMI_Calc_Handler {
         closeBMI_Calc();
     }
 
+    private int getWeight() {
+        return getIntInput("Weight (in pounds): ");
+    }
+
+    private int getHeight() {
+        return getIntInput("Height (in inches): ");
+    }
+
+    private int getIntInput(String prompt) {
+        int input = 0;
+        while (true) {
+            try {
+                System.out.print(prompt);
+                input = scanner.nextInt();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("\n\tInvalid input. Please enter a valid integer.");
+                scanner.nextLine(); // clear the buffer
+            }
+        }
+        return input;
+    }
+
     private void closeBMI_Calc() {
         System.out.print("Thank you for using the BMI Calculator! \n\nPress \"Enter\" to return to the main menu.");
         scanner.nextLine(); // Wait for Enter
-        
     }
 }
