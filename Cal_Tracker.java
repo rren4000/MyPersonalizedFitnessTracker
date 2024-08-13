@@ -1,22 +1,21 @@
-
 import java.time.LocalDate;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Cal_Tracker {
     private int total_cal;
     private int goal_cal;
-
     private LocalDate date;
-
     private Cal_Tracker_File_Handler fileHandler;
-    private Cal_Tracker_UI ui;
+    private Scanner scanner;
 
     // Constructor
-    public Cal_Tracker() { 
+    public Cal_Tracker() {
         this.total_cal = 0;
         this.goal_cal = 0;
         this.date = LocalDate.now();
         this.fileHandler = new Cal_Tracker_File_Handler();
-        this.ui = new Cal_Tracker_UI();
+        this.scanner = new Scanner(System.in);
     }
 
     // GETTERS
@@ -32,31 +31,49 @@ public class Cal_Tracker {
     // DISPLAY BEGINNING SCREEN
     public void begin_tracker() {
         System.out.print("\033[H\033[2J");
-        ui.displayWelcomeMessage();
+        System.out.println("----------------------------------------\n");
+        System.out.println("Welcome to the Calorie Tracker!");
+        System.out.println("\n----------------------------------------\n");
     }
 
     // DISPLAY ENDING SCREEN
     public void close_Cal_tracker() {
-        ui.displayClosingMessage();
+        System.out.println("\n----------------------------------------\n");
+        System.out.print("Thank you for using the Calorie Tracker! \n\nPress \"Enter\" to return to the main menu.");
+        scanner.nextLine();
     }
 
     // Display the Calorie Tracker
     public void display_cal_tracker() {
         begin_tracker();
-
         update_calories();
-
         System.out.print("\033[H\033[2J");
-
-        ui.displayTotalCalories(total_cal);
-
+        System.out.println("----------------------------------------\n");
+        System.out.println("You have consumed a total of " + total_cal + " today.");
         close_Cal_tracker();
     }
 
     // Update the calories consumed
     private void update_calories() {
-        int cal = ui.getCalorieInput();
+        int cal = getCalorieInput();
         total_cal += cal;
         fileHandler.update_file(this);
+    }
+
+    // Get calorie input from the user
+    private int getCalorieInput() {
+        while (true) {
+            try {
+                System.out.print("How many calories have you consumed: ");
+                int cal = scanner.nextInt();
+                scanner.nextLine(); // consume newline
+                return cal;
+            } catch (InputMismatchException e) {
+                System.out.print("\033[H\033[2J");
+                System.out.println("----------------------------------------");
+                System.out.println("\nInvalid input. Please enter a valid integer for calories.\n");
+                scanner.nextLine(); // clear the buffer
+            }
+        }
     }
 }

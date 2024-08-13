@@ -195,7 +195,7 @@ public class MyFitnessTracker{
                         break;
 
                     case 5:
-                        calculate_bmi(scanner);
+                        calculate_bmi();
                         break;
 
                     case 6:
