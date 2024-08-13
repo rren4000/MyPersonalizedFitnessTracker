@@ -1,10 +1,10 @@
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
-public class BMIInputHandler {
+public class BMI_Input_Handler {
     private Scanner scanner;
 
-    public BMIInputHandler(Scanner scanner) {
+    public BMI_Input_Handler(Scanner scanner) {
         this.scanner = scanner;
     }
 

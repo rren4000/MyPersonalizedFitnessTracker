@@ -1,8 +1,8 @@
-public class BMICalculator {
+public class BMI_Calculator {
     private int weight;
     private int height;
 
-    public BMICalculator(int weight, int height) {
+    public BMI_Calculator(int weight, int height) {
         this.weight = weight;
         this.height = height;
     }

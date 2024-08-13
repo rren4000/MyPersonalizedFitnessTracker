@@ -1,9 +1,9 @@
 import java.io.*;
 
-public class BMIFileHandler {
+public class BMI_File_Handler {
     private File profileFile;
 
-    public BMIFileHandler(String fileName) {
+    public BMI_File_Handler(String fileName) {
         this.profileFile = new File(fileName);
     }
 

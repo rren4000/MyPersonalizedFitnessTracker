@@ -2,10 +2,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Cal_Tracker_UI {
-    private Scanner scanner;
+    //private Scanner scanner;
+    private Scanner scanner = new Scanner(System.in);
 
     public Cal_Tracker_UI() {
-        this.scanner = new Scanner(System.in);
+        //this.scanner = new Scanner(System.in);
     }
 
     public int getCalorieInput() {

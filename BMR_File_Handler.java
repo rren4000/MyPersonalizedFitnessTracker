@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class BMR_FileHandler {
+public class BMR_File_Handler {
 
     public int[] loadProfile(String fileName) {
         int[] profileData = new int[3]; // Array to store age, weight, and height

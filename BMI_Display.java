@@ -1,4 +1,4 @@
-public class BMIDisplay {
+public class BMI_Display {
     public void displayBMI(double bmi) {
         System.out.println("----------------------------------------\n");
         System.out.println("Your Body Mass Index (BMI) is: " + bmi + "\n");

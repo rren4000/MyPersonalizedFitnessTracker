@@ -1,14 +1,13 @@
-import java.io.*;
+
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.*;
+//import java.time.format.DateTimeFormatter;
 
 public class Cal_Tracker {
     private int total_cal;
     private int goal_cal;
 
-    private static final String FILE_NAME = "calorie_tracker_data.txt";
-    private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    //private static final String FILE_NAME = "calorie_tracker_data.txt";
+    //private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private LocalDate date;
 
     private Cal_Tracker_FileHandler fileHandler;
