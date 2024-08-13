@@ -39,32 +39,6 @@ public class MyFitnessTracker{
         System.out.println("************************************************");
     }
 
-    // Activity Generator Helper Method
-    public static void generateActivity(Scanner scanner) {
-        ActivityGenerator generator = new ActivityGenerator();
-        String suggestion;
-        String userResponse;
-        do {
-            //CLEAR SCREEN
-            System.out.print("\033[H\033[2J");
-            suggestion = generator.getRandomActivity();
-            System.out.println("----------------------------------------");
-            System.out.println(suggestion);
-            System.out.println("Press \"Enter\" to return to the main menu, or type 'r' to generate another suggestion.");
-            
-            //ENSURE VALID INPUT
-            do{
-                userResponse = scanner.nextLine();
-                //IF USER INPUT IS VALID
-                if(userResponse.equalsIgnoreCase("r") || userResponse.equals("")){break;}
-                //ELSE USER INPUT IS INVALID... REPEAT INSTRUCTIONS
-                else{System.out.println("\nInvalid Input.  Please press \"Enter\" to return to the main menu, or type 'r' to generate another suggestion.");}
-            } while(true);
-        } while (userResponse.equalsIgnoreCase("r"));
-        //CLEAR SCREEN
-        System.out.print("\033[H\033[2J");
-    }
-
     // ADD USER PROFILE ... CASE 1
     public static void add_user(Scanner scanner, User curr_user, boolean user_already_set) {
         if (!user_already_set) {
@@ -76,6 +50,9 @@ public class MyFitnessTracker{
 
             User_Data_Saver dataSaver = new File_User_Data_Saver(); // CREATE FILE DATA SAVER
             dataSaver.saveData(curr_user); // SAVE USER PROFILE TO FILE
+
+            System.out.print("\n(Press \"Enter\" to continue...)");
+            scanner.nextLine();
 
             // CLEAR SCREEN
             System.out.print("\033[H\033[2J");
@@ -142,7 +119,7 @@ public class MyFitnessTracker{
     public static void generate_activity(Scanner scanner) {
         // CLEAR SCREEN
         System.out.print("\033[H\033[2J");
-        generateActivity(scanner);
+        ActivityGenerator.generateActivity(scanner);
         // CLEAR SCREEN
         System.out.print("\033[H\033[2J");
     }
