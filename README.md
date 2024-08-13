@@ -43,10 +43,10 @@ Cal_Manager.java:
 This class provides the menu that allows the user to choose action's concerning calorie calculation and management. Manages both the Cal_Tracker and BMR_Calc class and creates such objects according to user input.
 
 Cal_Tracker.java:
-This class is responsible for managing the user's daily calorie intake. It initializes by loading existing calorie data from a specified file (calorie_tracker_data.txt) for the current date. Users can add calorie entries, which are added to calculate the total daily intake. The class interacts with other components like Cal_Tracker_UI for user input and Cal_Tracker_FileHandler for data updating.
+This class is responsible for managing the user's daily calorie intake. It initializes by loading existing calorie data from a specified file (calorie_tracker_data.txt) for the current date. Users can add calorie entries, which are added to calculate the total daily intake. The class uses Cal_Tracker_FileHandler for data updating.
 
 BMR_Calc_Handler.java: 
-This class is responsible for calculating and managing the user's Basal Metabolic Rate (BMR). It collects user information such as weight, height, age, sex, and activity level, and works with the BMR_Calculator class to perform the BMR calculation. The BMR_UI class handles user input and interaction, while BMR_FileHandler takes care of saving and loading BMR data. Under the management of this class, these components help users easily calculate and keep track of their metabolic rate.
+This class is responsible for calculating and managing the user's Basal Metabolic Rate (BMR). It collects user information such as weight, height, age, sex, and activity level, and works with the BMR_Calculator class to perform the BMR calculation. BMR_FileHandler takes care of saving and loading BMR data. Under the management of this class, these components help users easily calculate and keep track of their metabolic rate.
 
 Goals.java: This class stores the user's weight, step, and activity duration goal. This class uses an 'ActivityDuration.java' object  to store its activity duration goal (this is comprised of move, exercise, and stand hours) and this class is used within the main class (MyFitnessTracker). Objects of this class are also used as parameters in 'Goal_Input_Handler.java' and 'File_Goal_Data_Saver.java'. THis class includes constructors, getters, and setters.
 
