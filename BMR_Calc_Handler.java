@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
-public class BMR_Calc {
+public class BMR_Calc_Handler {
     private BMR_UI ui;
     private BMR_FileHandler fileHandler;
     private BMR_Calculator calculator;
 
-    public BMR_Calc() {
+    public BMR_Calc_Handler() {
         Scanner scanner = new Scanner(System.in);
         this.ui = new BMR_UI(scanner);
         this.fileHandler = new BMR_FileHandler();

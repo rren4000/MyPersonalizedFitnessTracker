@@ -28,7 +28,7 @@ public class Cal_Manager {
 
             case 2:
                 System.out.print("\033[H\033[2J");
-                BMR_Calc bmrCalc = new BMR_Calc();
+                BMR_Calc_Handler bmrCalc = new BMR_Calc_Handler();
                 bmrCalc.display_bmr_calc();
                 break;
 
