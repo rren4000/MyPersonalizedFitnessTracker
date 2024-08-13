@@ -43,23 +43,6 @@ public class Cal_Tracker {
         scanner.nextLine();
     }
 
-    // Display the Calorie Tracker
-    public void display_cal_tracker() {
-        begin_tracker();
-        update_calories();
-        System.out.print("\033[H\033[2J");
-        System.out.println("----------------------------------------\n");
-        System.out.println("You have consumed a total of " + total_cal + " today.");
-        close_Cal_tracker();
-    }
-
-    // Update the calories consumed
-    private void update_calories() {
-        int cal = getCalorieInput();
-        total_cal += cal;
-        fileHandler.update_file(this);
-    }
-
     // Get calorie input from the user
     private int getCalorieInput() {
         while (true) {
@@ -75,5 +58,22 @@ public class Cal_Tracker {
                 scanner.nextLine(); // clear the buffer
             }
         }
+    }
+
+    // Update the calories consumed
+    private void update_calories() {
+        int cal = getCalorieInput();
+        total_cal += cal;
+        fileHandler.update_file(this);
+    }
+
+    // Display the Calorie Tracker
+    public void display_cal_tracker() {
+        begin_tracker();
+        update_calories();
+        System.out.print("\033[H\033[2J");
+        System.out.println("----------------------------------------\n");
+        System.out.println("You have consumed a total of " + total_cal + " today.");
+        close_Cal_tracker();
     }
 }

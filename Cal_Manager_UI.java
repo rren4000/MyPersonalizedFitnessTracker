@@ -7,6 +7,7 @@ public class Cal_Manager_UI {
     public Cal_Manager_UI() {
     }
 
+    //WELCOME BANNER
     public void displayWelcomeMessage() {
         System.out.print("\033[H\033[2J");
         System.out.println("----------------------------------------\n");
@@ -16,6 +17,7 @@ public class Cal_Manager_UI {
         System.out.println("\n\t(1) Track Calories\n\t(2) Calculate BMR\n\t(3) Go Back");
     }
 
+    //VALIDATE DATA TYPE OF USER INPUT
     public int getUserChoice() {
         int choice = 0;
         while (true) {
@@ -35,13 +37,5 @@ public class Cal_Manager_UI {
             }
         }
         return choice;
-    }
-
-    public void displayInvalidChoiceMessage() {
-        System.out.println("Invalid choice. Please try again.");
-    }
-
-    public void displayExitMessage() {
-        System.out.println("Going back to the main menu...");
     }
 }
