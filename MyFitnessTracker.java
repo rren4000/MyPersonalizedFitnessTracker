@@ -64,7 +64,7 @@ public class MyFitnessTracker{
             System.out.print("\033[H\033[2J");
             System.out.println("----------------------------------------\n ");
             System.out.println("Sorry, a user has already been set.  \n\nIf you would like to set a new user, please restart the program.\n");
-            System.out.println("If you would like to continue as the curren user, please press \"Enter\".");
+            System.out.println("If you would like to continue as the current user, please press \"Enter\".");
             System.out.println("\n----------------------------------------");
             scanner.nextLine();
             // CLEAR SCREEN
@@ -137,7 +137,6 @@ public class MyFitnessTracker{
                             //5: BMI CALCULATOR
                             //6: ACTIVITY GENERATOR
                             //7: QUIT
-        boolean user_already_set = false; // INITALLY FALSE AS NO USER HAS BEEN SET 
         User curr_user = new User(); // CREATES AN EMPTY USER OBJECT
         
         // Opening Message
