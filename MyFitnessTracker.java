@@ -1,6 +1,8 @@
 import java.util.*;
 
 public class MyFitnessTracker{
+    private static boolean user_already_set = false;
+
     //PRINTS OPENING MESSAGE OF THE PROGRAM
     public static void print_opening_msg(){
         System.out.println("\n\n");
@@ -40,7 +42,7 @@ public class MyFitnessTracker{
     }
 
     // ADD USER PROFILE ... CASE 1
-    public static void add_user(Scanner scanner, User curr_user, boolean user_already_set) {
+    public static void add_user(Scanner scanner, User curr_user) {
         if (!user_already_set) {
             // CLEAR SCREEN
             System.out.print("\033[H\033[2J");
@@ -62,7 +64,7 @@ public class MyFitnessTracker{
             System.out.print("\033[H\033[2J");
             System.out.println("----------------------------------------\n ");
             System.out.println("Sorry, a user has already been set.  \n\nIf you would like to set a new user, please restart the program.\n");
-            System.out.println("If you would like to continue as " + curr_user.get_name() + ", please press \"Enter\".");
+            System.out.println("If you would like to continue as the curren user, please press \"Enter\".");
             System.out.println("\n----------------------------------------");
             scanner.nextLine();
             // CLEAR SCREEN
@@ -156,7 +158,7 @@ public class MyFitnessTracker{
 
                 switch (user_choice) {
                     case 1:
-                        add_user(scanner, curr_user, user_already_set);
+                        add_user(scanner, curr_user);
                         break;
 
                     case 2:
