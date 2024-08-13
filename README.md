@@ -45,7 +45,7 @@ This class provides the menu that allows the user to choose action's concerning 
 Cal_Tracker.java:
 This class is responsible for managing the user's daily calorie intake. It initializes by loading existing calorie data from a specified file (calorie_tracker_data.txt) for the current date. Users can add calorie entries, which are added to calculate the total daily intake. The class interacts with other components like Cal_Tracker_UI for user input and Cal_Tracker_FileHandler for data updating.
 
-BMR_Calc.java: 
+BMR_Calc_Handler.java: 
 This class is responsible for calculating and managing the user's Basal Metabolic Rate (BMR). It collects user information such as weight, height, age, sex, and activity level, and works with the BMR_Calculator class to perform the BMR calculation. The BMR_UI class handles user input and interaction, while BMR_FileHandler takes care of saving and loading BMR data. Under the management of this class, these components help users easily calculate and keep track of their metabolic rate.
 
 Goals.java: This class stores the user's weight, step, and activity duration goal. This class uses an 'ActivityDuration.java' object  to store its activity duration goal (this is comprised of move, exercise, and stand hours) and this class is used within the main class (MyFitnessTracker). Objects of this class are also used as parameters in 'Goal_Input_Handler.java' and 'File_Goal_Data_Saver.java'. THis class includes constructors, getters, and setters.
@@ -58,7 +58,7 @@ Goal_Input_Handler: This class is responsible for taking user input and setting 
 
 ActivityDuration: This class is used within 'Goals.java' in order to set the activity duration goal.  This involves a goal of the number of hours the user would like to move, exercise, and stand.  This class includes constructors, getters, and setters. 
 
-BMI_Calc.java:
+BMI_Calc_Handler.java:
 This class is designed to calculate and manage the user's Body Mass Index (BMI). It works by gathering user data, such as weight and height, through the BMIInputHandler class and then uses the BMICalculator class to perform the BMI calculation. The results are displayed using the BMIDisplay class, while the BMIFileHandler class manages the saving and loading of BMI data.
 
 ActivityGenerator.java: This class generates random activity suggestions to the user. If the user wants more suggestions, they can simply type 'r'.
