@@ -2,12 +2,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BMR_Calc_Handler {
-    private Scanner scanner;
+    private Scanner scanner = new Scanner(System.in);
     private BMR_File_Handler fileHandler;
     private BMR_Calculator calculator;
 
     public BMR_Calc_Handler() {
-        this.scanner = new Scanner(System.in);
         this.fileHandler = new BMR_File_Handler();
     }
 

@@ -2,12 +2,11 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 
 public class BMI_Calc_Handler {
-    private Scanner scanner;
+    private Scanner scanner = new Scanner(System.in);
     private BMI_File_Handler fileHandler;
     private BMI_Display display;
 
-    public BMI_Calc_Handler(BMI_File_Handler fileHandler, BMI_Display display, Scanner scanner) {
-        this.scanner = scanner;
+    public BMI_Calc_Handler(BMI_File_Handler fileHandler, BMI_Display display) {
         this.fileHandler = fileHandler;
         this.display = display;
     }

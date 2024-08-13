@@ -2,10 +2,9 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Cal_Manager_UI {
-    private final Scanner scanner;
+    private Scanner scanner = new Scanner(System.in);
 
-    public Cal_Manager_UI(Scanner scanner) {
-        this.scanner = scanner;
+    public Cal_Manager_UI() {
     }
 
     public void displayWelcomeMessage() {

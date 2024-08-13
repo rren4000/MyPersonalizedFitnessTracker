@@ -102,10 +102,10 @@ public class MyFitnessTracker{
     }
 
     // CALORIE MANAGER FUNCTION ... CASE 3
-    public static void manage_calories(Scanner scanner) {
+    public static void manage_calories() {
         // CLEAR SCREEN
         System.out.print("\033[H\033[2J");
-        Cal_Manager_UI calManagerUI = new Cal_Manager_UI(scanner);
+        Cal_Manager_UI calManagerUI = new Cal_Manager_UI();
         Cal_Manager calManager = new Cal_Manager(calManagerUI);
         calManager.display_cal_manager();
         // CLEAR SCREEN
@@ -126,13 +126,13 @@ public class MyFitnessTracker{
     }
 
     // BMI CALCULATOR ... CASE 5
-    public static void calculate_bmi(Scanner scanner) {
+    public static void calculate_bmi() {
         // CLEAR SCREEN
         System.out.print("\033[H\033[2J");
         //BMI_Input_Handler bmiInputHandler = new BMI_Input_Handler(scanner);
         BMI_File_Handler bmiFileHandler = new BMI_File_Handler("user_profile.txt");
         BMI_Display bmiDisplay = new BMI_Display();
-        BMI_Calc_Handler bmiCalc = new BMI_Calc_Handler(bmiFileHandler, bmiDisplay, scanner);
+        BMI_Calc_Handler bmiCalc = new BMI_Calc_Handler(bmiFileHandler, bmiDisplay);
         bmiCalc.start();
         // CLEAR SCREEN
         System.out.print("\033[H\033[2J");
@@ -187,7 +187,7 @@ public class MyFitnessTracker{
                         break;
 
                     case 3:
-                        manage_calories(scanner);
+                        manage_calories();
                         break;
 
                     case 4:
