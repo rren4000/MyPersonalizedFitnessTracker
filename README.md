@@ -31,6 +31,14 @@ ActivityTracker.java: This class contains 7 features:
 ActivityObj.java: This class creates an activity object with all necessary information about an activity (as it assigns an id to the activity for editing and deleting purposes,
 an activity name, and the duration), whilst providing methods to access and modify that information. This class is used within the ActivityTracker class.
 
+Activity.java: interface used by ActivityObj.java. Contains getting and setting id, name, and duration.
+
+ActivityTrackerHandler.java: encapsulates the logic for handling and tracking basic activity-related data such as steps, sleep hours, and date. It also includes a method to calculate the distance in miles based on the number of steps. The class interacts with an ActivityManager.
+
+ActivityManager.java: manages a list of activities and provides functionalities to add, edit, delete, and display activities along with some additional functionalities related to tracking steps and sleep.
+
+File_ActivityTracker_Saver.java: saves activity tracker information to a text file.
+
 Cal_Manager.java:
 This class provides the menu that allows the user to choose action's concerning calorie calculation and management. Manages both the Cal_Tracker and BMR_Calc class and creates such objects according to user input.
 
