@@ -96,6 +96,8 @@ public class BMR_Calc_Handler {
         calculator.calculateBMR();
 
         // Display the results
-        displayBMRResults(calculator.getBMR(), calculator.getGoalCalories());
+        int BMR = calculator.getBMR();
+        int goal_calories = calculator.getGoalCalories();
+        displayBMRResults(BMR, goal_calories);
     }
 }
