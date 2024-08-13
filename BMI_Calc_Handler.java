@@ -11,33 +11,7 @@ public class BMI_Calc_Handler {
         this.display = display;
     }
 
-    public void start() {
-        int[] data = new int[2]; // [weight, height]
-
-        boolean fileReadSuccess = fileHandler.readProfile(data);
-        int weight, height;
-
-        if (fileReadSuccess) {
-            weight = data[0];
-            height = data[1];
-        } else {
-            weight = getWeight();
-            scanner.nextLine();
-            height = getHeight();
-            scanner.nextLine();
-        }
-
-        BMI_Calculator calculator = new BMI_Calculator(weight, height);
-        double bmi = calculator.calculateBMI();
-
-        display.displayBMI(bmi);
-        closeBMI_Calc();
-    }
-
-    //GET REQUIRED DATA FROM USER
-    private int getWeight() {return getIntInput("Weight (in pounds): ");}
-    private int getHeight() {return getIntInput("Height (in inches): ");}
-
+    //VERIFY INPUT IS VALID 
     private int getIntInput(String prompt) {
         int input = 0;
         while (true) {
@@ -53,8 +27,39 @@ public class BMI_Calc_Handler {
         return input;
     }
 
+    //CLOSING BANNER
     private void closeBMI_Calc() {
         System.out.print("Thank you for using the BMI Calculator! \n\nPress \"Enter\" to return to the main menu.");
         scanner.nextLine(); // Wait for Enter
     }
+
+    public void start() {
+        //TRY TO READ BMI INFO FROM FILE... ELSE GET USER INPUT
+        int[] data = new int[2]; // [weight, height]
+
+        boolean fileReadSuccess = fileHandler.readProfile(data);
+        int weight, height;
+
+        if (fileReadSuccess) {
+            weight = data[0];
+            height = data[1];
+        } else {
+            weight = getWeight();
+            scanner.nextLine();
+            height = getHeight();
+            scanner.nextLine();
+        }
+
+        //CALCULATE BMI WITH INFO 
+        BMI_Calculator calculator = new BMI_Calculator(weight, height);
+        double bmi = calculator.calculateBMI();
+
+        //DISPLAY BMI & END 
+        display.displayBMI(bmi);
+        closeBMI_Calc();
+    }
+
+    //GET REQUIRED DATA FROM USER
+    private int getWeight() {return getIntInput("Weight (in pounds): ");}
+    private int getHeight() {return getIntInput("Height (in inches): ");}
 }

@@ -16,7 +16,7 @@ public class BMR_Calculator {
         this.activityLevel = activityLevel;
         this.goalWeight = goalWeight;
     }
-
+    //SETTERS
     public void setWeight(int weight) {this.weight = weight;}
     public void setHeight(int height) {this.height = height;}
     public void setAge(int age) {this.age = age;}
@@ -25,7 +25,8 @@ public class BMR_Calculator {
     public void setGoalWeight(int goalWeight) {this.goalWeight = goalWeight;}
     public void setBMR(int bmr) {this.bmr = bmr;}
     public void setGoalCalories(int goalCalories) {this.goalCalories = goalCalories;}
-
+    
+    //GETTERS
     public int getWeight() {return this.weight;}
     public int getHeight() {return this.height;}
     public int getAge() {return this.age;}
@@ -35,14 +36,25 @@ public class BMR_Calculator {
     public int getBMR() {return this.bmr;}
     public int getGoalCalories() {return this.goalCalories;}
 
+    //ADJUST CALORIES ACCORDING TO WEIGHT GOAL
+    private void adjustCalories() {
+        int weightDifference = this.weight - this.goalWeight;
+        if (weightDifference <= -40) {this.goalCalories *= 1.4;} 
+        else if (weightDifference <= -20 && weightDifference > -40) {this.goalCalories *= 1.3;} 
+        else if (weightDifference <= -10 && weightDifference > -20) {this.goalCalories *= 1.2;} 
+        else if (weightDifference < 0 && weightDifference > -10) {this.goalCalories *= 1.1;} 
+        else if (weightDifference >= 40) {this.goalCalories *= 0.6;} 
+        else if (weightDifference >= 20 && weightDifference < 40) {this.goalCalories *= 0.7;} 
+        else if (weightDifference >= 10 && weightDifference < 20) {this.goalCalories *= 0.8;} 
+        else if (weightDifference > 0 && weightDifference < 10) {this.goalCalories *= 0.9;}
+    }
 
+    //CALCULATE BMR VIA SEX AND ACTIVITY LEVEL
     public void calculateBMR() {
-        // BMR calculation based on sex
-        if (this.sex == 2) { // Male
-            this.bmr = (int) (66 + (6.23 * this.weight) + (12.7 * this.height) - (6.8 * this.age));
-        } else { // Female
-            this.bmr = (int) (655 + (4.35 * this.weight) + (4.7 * this.height) - (4.7 * this.age));
-        }
+        //MALE
+        if (this.sex == 2) {this.bmr = (int) (66 + (6.23 * this.weight) + (12.7 * this.height) - (6.8 * this.age));} 
+        //FEMALE
+        else {this.bmr = (int) (655 + (4.35 * this.weight) + (4.7 * this.height) - (4.7 * this.age));}
 
         // Adjust BMR based on activity level
         switch (this.activityLevel) {
@@ -63,17 +75,5 @@ public class BMR_Calculator {
                 break;
         }
         adjustCalories(); // Further adjust calories based on goal weight
-    }
-
-    private void adjustCalories() {
-        int weightDifference = this.weight - this.goalWeight;
-        if (weightDifference <= -40) {this.goalCalories *= 1.4;} 
-        else if (weightDifference <= -20 && weightDifference > -40) {this.goalCalories *= 1.3;} 
-        else if (weightDifference <= -10 && weightDifference > -20) {this.goalCalories *= 1.2;} 
-        else if (weightDifference < 0 && weightDifference > -10) {this.goalCalories *= 1.1;} 
-        else if (weightDifference >= 40) {this.goalCalories *= 0.6;} 
-        else if (weightDifference >= 20 && weightDifference < 40) {this.goalCalories *= 0.7;} 
-        else if (weightDifference >= 10 && weightDifference < 20) {this.goalCalories *= 0.8;} 
-        else if (weightDifference > 0 && weightDifference < 10) {this.goalCalories *= 0.9;}
     }
 }

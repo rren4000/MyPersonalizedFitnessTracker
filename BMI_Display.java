@@ -1,10 +1,12 @@
 public class BMI_Display {
+    //GIVE BMI RESULTS
     public void displayBMI(double bmi) {
         System.out.println("----------------------------------------\n");
         System.out.println("Your Body Mass Index (BMI) is: " + bmi + "\n");
         displayResult(bmi);
     }
 
+    //TELL USER WHAT RESULTS MEAN
     private void displayResult(double bmi) {
         if (bmi < 18.5) {
             System.out.println("Your BMI indicates that you are underweight.");

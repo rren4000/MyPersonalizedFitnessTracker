@@ -6,7 +6,11 @@ public class BMI_Calculator {
         this.weight = weight;
         this.height = height;
     }
-
+    //GETTERS
+    public int get_weight() {return weight;}
+    public int get_height() {return height;}
+    
+    //SETTERS 
     public void setWeight(int weight) {this.weight = weight;}
     public void setHeight(int height) {this.height = height;}
 

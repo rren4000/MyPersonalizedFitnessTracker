@@ -34,7 +34,6 @@ public class Cal_Manager {
                 System.out.print("\033[H\033[2J");
                 System.out.println("Going back to the main menu...");
                 break;
-
             default:
                 System.out.print("\033[H\033[2J");
                 System.out.println("Invalid choice. Please try again.");
