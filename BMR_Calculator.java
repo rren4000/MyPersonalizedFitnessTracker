@@ -67,22 +67,13 @@ public class BMR_Calculator {
 
     private void adjustCalories() {
         int weightDifference = this.weight - this.goalWeight;
-        if (weightDifference <= -40) {
-            this.goalCalories *= 1.4;
-        } else if (weightDifference <= -20 && weightDifference > -40) {
-            this.goalCalories *= 1.3;
-        } else if (weightDifference <= -10 && weightDifference > -20) {
-            this.goalCalories *= 1.2;
-        } else if (weightDifference < 0 && weightDifference > -10) {
-            this.goalCalories *= 1.1;
-        } else if (weightDifference >= 40) {
-            this.goalCalories *= 0.6;
-        } else if (weightDifference >= 20 && weightDifference < 40) {
-            this.goalCalories *= 0.7;
-        } else if (weightDifference >= 10 && weightDifference < 20) {
-            this.goalCalories *= 0.8;
-        } else if (weightDifference > 0 && weightDifference < 10) {
-            this.goalCalories *= 0.9;
-        }
+        if (weightDifference <= -40) {this.goalCalories *= 1.4;} 
+        else if (weightDifference <= -20 && weightDifference > -40) {this.goalCalories *= 1.3;} 
+        else if (weightDifference <= -10 && weightDifference > -20) {this.goalCalories *= 1.2;} 
+        else if (weightDifference < 0 && weightDifference > -10) {this.goalCalories *= 1.1;} 
+        else if (weightDifference >= 40) {this.goalCalories *= 0.6;} 
+        else if (weightDifference >= 20 && weightDifference < 40) {this.goalCalories *= 0.7;} 
+        else if (weightDifference >= 10 && weightDifference < 20) {this.goalCalories *= 0.8;} 
+        else if (weightDifference > 0 && weightDifference < 10) {this.goalCalories *= 0.9;}
     }
 }
