@@ -11,7 +11,13 @@ Class Description:
 
 MyFitnessTracker.java: This is the main class that takes user input to determine the next action and uses the other classes (described below) to complete these actions.
 
-User.java: This class stores the user's name, age, weight, and height within a text file called "user_profile.txt". This class is used within the main ActivityTracker class.
+User.java: This class stores the user's name, age, weight, and height. This class includes constructors, getters, and setters.  This class is used within the main class (MyActivityTracker) as well as parameters for methods within 'File_User_Data_Saver.java' and 'User_Input_handler.java'.
+
+User_Data_Saver.java: This class is an interface with a saveData() method that uses 'User' objects as a parameter.  This class is implemented by 'File_Goal_Data_Saver'.
+
+File_User_Data_Saver.java: This class is responsible for implementing 'User_Data_Saver.java' interface and its saveData() method.  This saves all of the information given by the user about their goals to a text file called "user_profile.txt". This class uses 'User' objects as parameters within its method and is invoked by the main class (MyFitnessTracker).
+
+User_Input_Handler: This class is responsible for taking user input and setting the user's profile (name, age, weight, and height).  This class uses 'User' objects within its parameters and is invoked by the main class (MyFitnessTracker).
 
 ActivityTracker.java: This class contains 7 features:
   1. Add new activity: (activity name + duration)
@@ -34,7 +40,15 @@ This class is responsible for managing the user's daily calorie intake. It initi
 BMR_Calc.java: 
 This class is responsible for calculating and managing the user's Basal Metabolic Rate (BMR). It collects user information such as weight, height, age, sex, and activity level, and works with the BMR_Calculator class to perform the BMR calculation. The BMR_UI class handles user input and interaction, while BMR_FileHandler takes care of saving and loading BMR data. Under the management of this class, these components help users easily calculate and keep track of their metabolic rate.
 
-Goals.java: This class stores the user's weight, step, and activity duration goal within a text file called "goals.txt". This class uses the ActivityDuration class to store its activity duration goal (this is comprised of move, exercise, and stand hours) and this class is used within the main ActivityTracker class.
+Goals.java: This class stores the user's weight, step, and activity duration goal. This class uses an 'ActivityDuration.java' object  to store its activity duration goal (this is comprised of move, exercise, and stand hours) and this class is used within the main class (MyFitnessTracker). Objects of this class are also used as parameters in 'Goal_Input_Handler.java' and 'File_Goal_Data_Saver.java'. THis class includes constructors, getters, and setters.
+
+Goal_Data_Saver: This class is an interface with a saveData() method that uses 'Goals' objects as a parameter.  This class is implemented by 'File_Goal_Data_Saver.java'.
+
+File_Goal_Data_Saver: This class is responsible for implementing 'Goal_Data_Saver.java' interface and its saveData() method.  This saves all of the information given by the user about their goals to a text file called "goals.txt". This class uses 'Goals' objects as parameters within its method and is invoked by the main class (MyFitnessTracker).
+
+Goal_Input_Handler: This class is responsible for taking user input and setting weight, step, and/or activity duration goals.  This class uses 'Goals' objects within its parameters and is invoked by the main class (MyFitnessTracker).  This class includes constructors and setting methods. 
+
+ActivityDuration: This class is used within 'Goals.java' in order to set the activity duration goal.  This involves a goal of the number of hours the user would like to move, exercise, and stand.  This class includes constructors, getters, and setters. 
 
 BMI_Calc.java:
 This class is designed to calculate and manage the user's Body Mass Index (BMI). It works by gathering user data, such as weight and height, through the BMIInputHandler class and then uses the BMICalculator class to perform the BMI calculation. The results are displayed using the BMIDisplay class, while the BMIFileHandler class manages the saving and loading of BMI data.
