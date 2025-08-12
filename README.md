@@ -4,7 +4,7 @@ A Java Object-Oriented Programming Final Project – NYU CSCI-UA 470
 
 ## Overview
 
-*My Personalized Fitness Tracker* is a console-based Java application designed to help a single user track fitness-related data, monitor progress toward personal goals, and receive activity suggestions. It combines *activity tracking, goal management, calorie logging, BMI/BMR calculation, and data persistence* in a modular, object-oriented design.
+*My Personalized Fitness Tracker* is a console-based Java application designed to help a single user track fitness-related data, monitor progress toward personal goals, and receive activity suggestions. It combines *activity tracking, goal management, calorie logging, BMI/BMR calculation,* and *data persistence* in a modular, object-oriented design.
 
 This project was completed as a *group capstone* for NYU’s *CSCI-UA 470: Object-Oriented Programming* course in *Spring 2022*.
 
