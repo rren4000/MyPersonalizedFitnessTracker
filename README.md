@@ -8,7 +8,6 @@ A Java Object-Oriented Programming Final Project – NYU CSCI-UA 470
 
 This project was completed as a *group capstone* for NYU’s *CSCI-UA 470: Object-Oriented Programming* course in *Spring 2022*.
 
----
 
 ## Key Features
 
@@ -20,7 +19,6 @@ This project was completed as a *group capstone* for NYU’s *CSCI-UA 470: Objec
 •⁠  ⁠*Activity Suggestions* – Randomly generate activity recommendations.
 •⁠  ⁠*Data Persistence* – Save and load profile, goals, activities, and nutrition data from text files.
 
----
 
 ## Technical Highlights
 
@@ -29,8 +27,6 @@ This project was completed as a *group capstone* for NYU’s *CSCI-UA 470: Objec
 •⁠  ⁠*Persistence:* File I/O for storing user data, goals, and tracking logs.
 •⁠  ⁠*Design Tools:* UML diagrams and documentation outlining class responsibilities and interactions.
 
----
-
 ## Skills Demonstrated
 
 •⁠  ⁠Designing a multi-class Java application from concept to completion.
@@ -38,8 +34,6 @@ This project was completed as a *group capstone* for NYU’s *CSCI-UA 470: Objec
 •⁠  ⁠Handling file-based storage for structured user data.
 •⁠  ⁠Collaborating in a group to integrate multiple functional modules.
 •⁠  ⁠Creating a user-friendly console-based workflow.
-
----
 
 ## How to Run
 
