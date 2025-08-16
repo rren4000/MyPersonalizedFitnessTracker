@@ -1,49 +1,51 @@
-# My Personalized Fitness Tracker
+# My Personalized Fitness Tracker (Java)
 
-A Java Object-Oriented Programming Final Project – NYU CSCI-UA 470
+New York University – Object-Oriented Programming (Spring 2022)
 
-## Overview
+## Course Context
 
-*My Personalized Fitness Tracker* is a console-based Java application designed to help a single user track fitness-related data, monitor progress toward personal goals, and receive activity suggestions. It combines *activity tracking, goal management, calorie logging, BMI/BMR calculation,* and *data persistence* in a modular, object-oriented design.
+This repository contains the final **group project** for NYU’s Object-Oriented Programming course. The assignment was to design and implement a fully functional Java application applying principles of encapsulation, inheritance, interfaces, and file persistence. Our team built *My Personalized Fitness Tracker*, a console-based tool to help users manage health and activity data.
 
-This project was completed as a *group capstone* for NYU’s *CSCI-UA 470: Object-Oriented Programming* course in *Spring 2022*.
+**Tech Stack**: Java · Object-Oriented Design · File I/O
 
+## Project Overview
 
-## Key Features
+*My Personalized Fitness Tracker* allows users to create a personal profile, log activities, track calories, calculate BMI and BMR, set fitness goals, and generate simple activity suggestions. The project demonstrates the integration of multiple OOP concepts into a cohesive system, with clear separation of concerns across classes and interfaces.
 
-•⁠  ⁠*User Profile Management* – Store and update personal stats (name, age, weight, height).
-•⁠  ⁠*Activity Tracking* – Log, edit, delete, and display activities with durations, step counts, distances, and sleep hours.
-•⁠  ⁠*Goal Setting* – Define goals for weight, steps, and activity duration (move, exercise, stand).
-•⁠  ⁠*Calorie Tracking* – Add daily calorie intake and calculate totals.
-•⁠  ⁠*BMI & BMR Calculations* – Compute and store Body Mass Index and Basal Metabolic Rate.
-•⁠  ⁠*Activity Suggestions* – Randomly generate activity recommendations.
-•⁠  ⁠*Data Persistence* – Save and load profile, goals, activities, and nutrition data from text files.
+### Features
 
+* **User Profile Management** – Store and update personal data such as name, age, weight, and height.
+* **Activity Tracking** – Add, edit, delete, and display activities (with step count, duration, and sleep hours).
+* **Calorie Tracking** – Manage daily calorie intake and calculate BMR based on user profile.
+* **Goal Setting** – Set goals for weight, activity, steps, and duration.
+* **BMI Calculation** – Compute and store BMI using user data.
+* **Data Persistence** – Save user profile, activities, and goals to local files.
+* **Activity Suggestions** – Generate random activity recommendations.
 
-## Technical Highlights
+### Code Structure Highlights
 
-•⁠  ⁠*Language & Paradigm:* Java, Object-Oriented Programming (encapsulation, inheritance, interfaces, polymorphism).
-•⁠  ⁠*Architecture:* Modular classes for each feature, with clear separation of concerns.
-•⁠  ⁠*Persistence:* File I/O for storing user data, goals, and tracking logs.
-•⁠  ⁠*Design Tools:* UML diagrams and documentation outlining class responsibilities and interactions.
+* **User & Profile Handling**: `User.java`, `User_Input_Handler.java`, `File_User_Data_Saver.java`
+* **Activity Tracking**: `ActivityTracker.java`, `ActivityObj.java`, `ActivityManager.java`, `File_ActivityTracker_Saver.java`
+* **Calories & BMR**: `Cal_Manager.java`, `Cal_Tracker.java`, `BMR_Calc_Handler.java`
+* **Goals & Progress**: `Goals.java`, `Goal_Input_Handler.java`, `File_Goal_Data_Saver.java`
+* **Health Calculators**: `BMI_Calc_Handler.java`, `ActivityDuration.java`
+* **Main Application**: `MyFitnessTracker.java` orchestrates user interaction across modules.
 
-## Skills Demonstrated
+## Skills Developed
 
-•⁠  ⁠Designing a multi-class Java application from concept to completion.
-•⁠  ⁠Implementing reusable components and interfaces for extensibility.
-•⁠  ⁠Handling file-based storage for structured user data.
-•⁠  ⁠Collaborating in a group to integrate multiple functional modules.
-•⁠  ⁠Creating a user-friendly console-based workflow.
+* Collaborating effectively on a multi-file, team-based project.
+* Designing modular Java applications with multiple classes and interfaces.
+* Applying OOP principles (encapsulation, inheritance, interfaces, abstraction).
+* Implementing file-based persistence for saving/loading user data.
+* Handling user input and managing program state across sessions.
 
 ## How to Run
 
-1.⁠ ⁠Clone the repository from: [GitHub Link](https://github.com/rren4000/MyPersonalizedFitnessTracker)
-2.⁠ ⁠Compile all ⁠ .java ⁠ files:
+Compile and run using the Java compiler or your preferred IDE:
 
-   ⁠ bash
-   javac *.java
-    ⁠
-3.⁠ ⁠Run the main program:
+```bash
+javac MyFitnessTracker.java
+java MyFitnessTracker
+```
 
-   ⁠ bash
-   java MyFitnessTracker
+Make sure that the project’s text files (`user_profile.txt`, `goals.txt`, `ActivityFile.txt`, `calorie_tracker_data.txt`) are accessible in the same working directory.
